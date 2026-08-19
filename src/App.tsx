@@ -1,0 +1,60 @@
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { useEffect, lazy, Suspense } from "react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Home from "@/pages/Home";
+
+// Code-split secondary routes to keep the Home LCP fast.
+const GoToMarket = lazy(() => import("@/pages/GoToMarket"));
+const Projects = lazy(() => import("@/pages/Projects"));
+const WhoIAm = lazy(() => import("@/pages/WhoIAm"));
+const Contacto = lazy(() => import("@/pages/Contacto"));
+const BadgeDetail = lazy(() => import("@/pages/BadgeDetail"));
+const ExperienceDetail = lazy(() => import("@/pages/ExperienceDetail"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+function RouteFallback() {
+  return <div className="min-h-[60vh]" aria-hidden />;
+}
+
+function AppRoutes() {
+  const location = useLocation();
+  return (
+    <>
+      <ScrollToTop />
+      <Header />
+      <AnimatePresence mode="wait">
+        <Suspense fallback={<RouteFallback />}>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/go-to-market" element={<GoToMarket />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/who-i-am" element={<WhoIAm />} />
+            <Route path="/contact" element={<Contacto />} />
+            <Route path="/insignias/:id" element={<BadgeDetail />} />
+            <Route path="/experiencias/:id" element={<ExperienceDetail />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </AnimatePresence>
+      <Footer />
+    </>
+  );
+}
+
+const App = () => (
+  <BrowserRouter>
+    <AppRoutes />
+  </BrowserRouter>
+);
+
+export default App;
