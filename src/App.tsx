@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, lazy, Suspense } from "react";
 import Header from "@/components/Header";
@@ -37,11 +37,13 @@ function AppRoutes() {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/go-to-market" element={<GoToMarket />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/who-i-am" element={<WhoIAm />} />
+            <Route path="/proyecto" element={<Projects />} />
+            <Route path="/aboutme" element={<WhoIAm />} />
             <Route path="/contact" element={<Contacto />} />
             <Route path="/insignias/:id" element={<BadgeDetail />} />
             <Route path="/experiencias/:id" element={<ExperienceDetail />} />
+            <Route path="/projects" element={<Navigate to="/proyecto" replace />} />
+            <Route path="/who-i-am" element={<Navigate to="/aboutme" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

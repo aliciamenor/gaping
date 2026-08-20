@@ -19,7 +19,7 @@ import iconSmiley from '@/assets/icons/smiley.png';
 
 const cards = [
   {
-    to: '/projects',
+    to: '/proyecto',
     icon: iconBackpack,
     title: 'Proyecto',
     desc: 'Las experiencias, aprendizajes e impacto del año',
@@ -35,7 +35,7 @@ const cards = [
     border: '#42767f',
   },
   {
-    to: '/who-i-am',
+    to: '/aboutme',
     icon: iconSmiley,
     title: 'About me',
     desc: 'Mi propuesta de valor como PM y trayectoria profesional',

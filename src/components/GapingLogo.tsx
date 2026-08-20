@@ -38,12 +38,17 @@ export default function GapingLogo() {
   const axis = AXES[shownAxis];
 
   useEffect(() => {
-    if (reduce || paused) return;
+    // Note: iOS Safari reports prefers-reduced-motion as "reduce" whenever
+    // Low Power Mode is on, regardless of the user's actual accessibility
+    // setting (a known WebKit quirk). This cycle is a subtle color/opacity
+    // fade with no parallax or large motion, so we keep it running either
+    // way and only soften the transition itself when reduce is true.
+    if (paused) return;
     const id = window.setInterval(() => {
       setActiveAxis((i) => (i + 1) % AXES.length);
     }, CYCLE_MS);
     return () => window.clearInterval(id);
-  }, [reduce, paused]);
+  }, [paused]);
 
   useLayoutEffect(() => {
     const measure = () => {
@@ -81,7 +86,7 @@ export default function GapingLogo() {
   }, [axis.key, metrics]);
 
   const handleLetterClick = (axisIdx: number) => {
-    navigate(`/projects#eje-${AXES[axisIdx].key}`);
+    navigate(`/proyecto#eje-${AXES[axisIdx].key}`);
   };
 
   return (
@@ -143,46 +148,30 @@ export default function GapingLogo() {
         className="relative mt-1"
         style={{ width: containerWidth || '100%', height: 22 }}
       >
-        {reduce ? (
-          <span
-            className="font-sans uppercase absolute left-1/2 -translate-x-1/2 whitespace-nowrap"
-            style={{
-              fontSize: 'clamp(10px, 2.8vw, 13px)',
-              fontWeight: 500,
-              letterSpacing: '0.14em',
-              color: SOFT,
-              opacity: 0.9,
-              maxWidth: '100%',
-            }}
-          >
-            Impacto · Nuevos Horizontes · Growth
-          </span>
-        ) : (
-          metrics && (
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={axis.key}
-                ref={labelRef}
-                initial={{ opacity: 0, y: 4 }}
-                animate={{ opacity: 1, y: 0, x: labelX ?? metrics.center }}
-                exit={{ opacity: 0, y: -4 }}
-                transition={{
-                  opacity: { duration: 0.25, ease: 'easeOut' },
-                  y: { duration: 0.25, ease: 'easeOut' },
-                  x: { type: 'spring', stiffness: 200, damping: 26 },
-                }}
-                className="font-sans uppercase absolute top-0 left-0 whitespace-nowrap -translate-x-1/2"
-                style={{
-                  fontSize: 'clamp(11px, 2.8vw, 14px)',
-                  fontWeight: 500,
-                  letterSpacing: '0.16em',
-                  color: SOFT,
-                }}
-              >
-                {axis.word}
-              </motion.span>
-            </AnimatePresence>
-          )
+        {metrics && (
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={axis.key}
+              ref={labelRef}
+              initial={{ opacity: 0, y: reduce ? 0 : 4 }}
+              animate={{ opacity: 1, y: 0, x: labelX ?? metrics.center }}
+              exit={{ opacity: 0, y: reduce ? 0 : -4 }}
+              transition={{
+                opacity: { duration: 0.25, ease: 'easeOut' },
+                y: { duration: 0.25, ease: 'easeOut' },
+                x: reduce ? { duration: 0 } : { type: 'spring', stiffness: 200, damping: 26 },
+              }}
+              className="font-sans uppercase absolute top-0 left-0 whitespace-nowrap -translate-x-1/2"
+              style={{
+                fontSize: 'clamp(11px, 2.8vw, 14px)',
+                fontWeight: 500,
+                letterSpacing: '0.16em',
+                color: SOFT,
+              }}
+            >
+              {axis.word}
+            </motion.span>
+          </AnimatePresence>
         )}
       </div>
     </div>

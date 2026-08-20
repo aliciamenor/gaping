@@ -3,9 +3,9 @@ import { Linkedin, Mail } from 'lucide-react';
 
 const navItems = [
   { path: '/', label: 'Home' },
-  { path: '/projects', label: 'Proyecto' },
+  { path: '/proyecto', label: 'Proyecto' },
   { path: '/go-to-market', label: 'Go To Market' },
-  { path: '/who-i-am', label: 'About me' },
+  { path: '/aboutme', label: 'About me' },
   { path: '/contact', label: 'Contact' },
 ];
 

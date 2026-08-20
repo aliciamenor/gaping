@@ -660,11 +660,11 @@ export default function GoToMarket() {
                 Aquí están las experiencias, aprendizajes y resultados del año
               </p>
               <Link
-                to="/projects"
+                to="/proyecto"
                 className="inline-block bg-white font-display font-bold text-base sm:text-[18px] rounded-[12px] transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 style={{ color: '#42767f', padding: '14px 32px' }}
               >
-                Ver Projects →
+                Ver Proyecto →
               </Link>
             </div>
           </FadeInView>
