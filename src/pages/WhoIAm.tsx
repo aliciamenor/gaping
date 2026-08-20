@@ -9,6 +9,7 @@ import BrushUnderline from '@/components/BrushUnderline';
 import fotoAlicia from '@/assets/foto-alicia.webp';
 import fotoAliciaMontana from '@/assets/foto-alicia-montana.webp';
 import logoArrow from '@/assets/icons/logo-arrow.png';
+import logoArrowWhite from '@/assets/icons/logo-arrow-white.png';
 
 // [imagen, duración en pantalla en ms] — la 1 se ve más tiempo que la 2
 const PROFILE_PHOTOS: { src: string; duration: number }[] = [
@@ -49,11 +50,11 @@ const references = [
 
 
 const timeline = [
-  { year: '2025/2026', emoji: '🚀', title: 'Product Manager Operations & Marketing Specialist', company: 'Fundación Generation Spain (impulsada por McKinsey & Company)', desc: 'Coordinación end to end de programas formativos con seguimiento de KPIs. Definición de requisitos de producto, métricas de negocio y cierre de partnerships estratégicos para la difusión del programa.', color: '#10b981', logo: logoGeneration, highlight: false, link: null as string | null },
-  { year: '2024/2025', emoji: '🧭', title: 'GAPING: Gap Year de Producto', company: '', desc: 'Diseñé y ejecuté un gap year estructurado como proyecto de producto para adquirir skills PM en contextos reales.', color: '#42767f', logo: null, highlight: true, link: '/go-to-market' as string | null },
-  { year: '2023/2024', emoji: '💡', title: 'Product Manager Innovación', company: 'Mahou San Miguel', desc: 'Responsable end to end del crecimiento de Grifo Mahou en Casa (ecommerce): producto, UX, operaciones y comunicación. Definición de objetivos de negocio, KRs y roadmap. Gestión de stakeholders internos y 25 partners técnicos. Participación en la Innovation Community con Design Thinking y Lean Startup.', color: '#42767f', logo: logoMahou, highlight: false, link: null },
-  { year: '2022', emoji: '📢', title: 'Digital Communication Junior', company: 'Omnicom PR Group', desc: 'Materiales de prensa en contextos de crisis corporativa y lanzamientos de producto (Bimbo, Decathlon). Monitorización de cobertura y reporting de impacto reputacional.', color: '#8b5cf6', logo: logoOmnicom, highlight: false, link: null },
-  { year: '2021', emoji: '📝', title: 'Marketing Junior', company: 'IPMARK, DARetail & Best!N Awards', desc: 'Organización de eventos B2B presenciales y webinars. Campañas de email marketing y contenido digital.', color: '#f59e0b', logo: logoIpmark, highlight: false, link: null },
+  { year: '2025/2026', emoji: '🚀', iconSrc: null as string | null, title: 'Product Manager Operations & Marketing Specialist', company: 'Fundación Generation Spain (impulsada por McKinsey & Company)', desc: 'Coordinación end to end de programas formativos con seguimiento de KPIs. Definición de requisitos de producto, métricas de negocio y cierre de partnerships estratégicos para la difusión del programa.', color: '#10b981', logo: logoGeneration, highlight: false, link: null as string | null },
+  { year: '2024/2025', emoji: '🧭', iconSrc: logoArrowWhite as string | null, title: 'GAPING: Gap Year de Producto', company: '', desc: 'Diseñé y ejecuté un gap year estructurado como proyecto de producto para adquirir skills PM en contextos reales.', color: '#42767f', logo: null, highlight: true, link: '/go-to-market' as string | null },
+  { year: '2023/2024', emoji: '💡', iconSrc: null as string | null, title: 'Product Manager Innovación', company: 'Mahou San Miguel', desc: 'Responsable end to end del crecimiento de Grifo Mahou en Casa (ecommerce): producto, UX, operaciones y comunicación. Definición de objetivos de negocio, KRs y roadmap. Gestión de stakeholders internos y 25 partners técnicos. Participación en la Innovation Community con Design Thinking y Lean Startup.', color: '#42767f', logo: logoMahou, highlight: false, link: null },
+  { year: '2022', emoji: '📢', iconSrc: null as string | null, title: 'Digital Communication Junior', company: 'Omnicom PR Group', desc: 'Materiales de prensa en contextos de crisis corporativa y lanzamientos de producto (Bimbo, Decathlon). Monitorización de cobertura y reporting de impacto reputacional.', color: '#8b5cf6', logo: logoOmnicom, highlight: false, link: null },
+  { year: '2021', emoji: '📝', iconSrc: null as string | null, title: 'Marketing Junior', company: 'IPMARK, DARetail & Best!N Awards', desc: 'Organización de eventos B2B presenciales y webinars. Campañas de email marketing y contenido digital.', color: '#f59e0b', logo: logoIpmark, highlight: false, link: null },
 ];
 
 const emprendimiento = [
@@ -273,7 +274,7 @@ export default function WhoIAm() {
           <FadeInView>
             <div className="max-w-[800px] mx-auto text-center mb-16 sm:mb-20">
               <p className="font-display font-bold text-[22px] sm:text-[28px] text-[#1f2937] leading-snug">
-                Soy Alicia. Si me pides tres palabras:
+                Si me pides tres palabras:
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 mt-4 mb-6">
                 {threeWords.map((w) => (
@@ -380,7 +381,16 @@ export default function WhoIAm() {
                           className="absolute left-[-72px] sm:left-[-112px] top-0 w-[56px] h-[56px] sm:w-[88px] sm:h-[88px] rounded-full flex items-center justify-center text-white text-[22px] sm:text-[32px]"
                           style={{ background: t.color, boxShadow: '0 0 0 4px white, 0 0 0 8px rgba(66,118,127,0.15)' }}
                         >
-                          {t.emoji}
+                          {t.iconSrc ? (
+                            <img
+                              src={t.iconSrc}
+                              alt=""
+                              aria-hidden="true"
+                              className="w-[22px] h-[22px] sm:w-[34px] sm:h-[34px] object-contain"
+                            />
+                          ) : (
+                            t.emoji
+                          )}
                         </span>
                       )}
                       {t.highlight ? (
