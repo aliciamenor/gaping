@@ -59,12 +59,7 @@ export default function Contacto() {
           <FadeInView delay={0.3}>
             <div className="mt-16 sm:mt-20 text-center">
               <p className="font-sans text-xl sm:text-2xl md:text-[28px] text-[#1f2937] leading-snug">
-                There is a
-                <span
-                  className="inline-block mx-2 align-middle"
-                  style={{ borderBottom: '3px solid #42767f', width: '70px' }}
-                />
-                of opportunities
+                There is always a gap. Make it yours.
               </p>
               <p className="font-sans italic text-base sm:text-lg mt-4" style={{ color: '#42767f' }}>
                 Y conectar con otras personas es una de ellas
