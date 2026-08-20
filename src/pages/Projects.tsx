@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
 import { usePageMeta } from '@/hooks/usePageMeta';
+import { useCanHover } from '@/hooks/useCanHover';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
@@ -26,11 +27,12 @@ const ejeStyles: Record<Eje, { bg: string; border: string; gradient: string }> =
 function ExperienceCard({ exp, index, onOpen }: { exp: Experience; index: number; onOpen: (id: string) => void }) {
   const colors = ejeStyles[exp.eje];
   const rotate = [-1.5, 1.5, -0.75][index % 3];
+  const canHover = useCanHover();
 
   return (
     <motion.div
       initial={{ rotate }}
-      whileHover={{ rotate: 0, scale: 1.03, zIndex: 10 }}
+      whileHover={canHover ? { rotate: 0, scale: 1.03, zIndex: 10 } : undefined}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       className="relative h-full"
     >

@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronDown, Linkedin, Mail } from 'lucide-react';
+import { useCanHover } from '@/hooks/useCanHover';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import StaggerGrid, { StaggerItem } from '@/components/StaggerGrid';
@@ -45,6 +46,7 @@ const cards = [
 
 export default function Home() {
   const cardsRef = useRef<HTMLElement>(null);
+  const canHover = useCanHover();
 
   return (
     <PageTransition>
@@ -62,7 +64,7 @@ export default function Home() {
               <motion.div
                 key={i}
                 initial={{ rotate: p.rotate }}
-                whileHover={{ scale: 1.4, rotate: 0, zIndex: 30 }}
+                whileHover={canHover ? { scale: 1.4, rotate: 0, zIndex: 30 } : undefined}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                 className="bg-background p-1.5 pb-3 shadow-md w-[52px] sm:w-[70px] md:w-[90px] relative cursor-pointer"
               >

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ReactNode } from 'react';
 
 interface Props {
@@ -7,6 +7,12 @@ interface Props {
 }
 
 export default function StaggerGrid({ children, className = '' }: Props) {
+  const reduce = useReducedMotion();
+
+  if (reduce) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       initial="hidden"
@@ -24,6 +30,12 @@ export default function StaggerGrid({ children, className = '' }: Props) {
 }
 
 export function StaggerItem({ children, className = '' }: Props) {
+  const reduce = useReducedMotion();
+
+  if (reduce) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       variants={{
