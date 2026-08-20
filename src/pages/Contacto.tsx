@@ -61,9 +61,6 @@ export default function Contacto() {
               <p className="font-sans text-xl sm:text-2xl md:text-[28px] text-[#1f2937] leading-snug">
                 There is always a gap. Make it yours.
               </p>
-              <p className="font-sans italic text-base sm:text-lg mt-4" style={{ color: '#42767f' }}>
-                Y conectar con otras personas es una de ellas
-              </p>
             </div>
           </FadeInView>
         </div>
