@@ -3,6 +3,7 @@ import { usePageMeta } from '@/hooks/usePageMeta';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
+import logoArrow from '@/assets/icons/logo-arrow.png';
 
 const openTo = [
   '☕ Tomar un café (real o virtual)',
@@ -60,6 +61,7 @@ export default function Contacto() {
             <div className="mt-16 sm:mt-20 text-center">
               <p className="font-sans text-xl sm:text-2xl md:text-[28px] text-[#1f2937] leading-snug">
                 There is always a gap. Make it yours.
+                <img src={logoArrow} alt="" aria-hidden="true" className="inline-block h-[20px] sm:h-[24px] w-auto align-middle ml-2" />
               </p>
             </div>
           </FadeInView>
