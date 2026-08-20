@@ -39,14 +39,14 @@ function ExperienceCard({ exp, index, onOpen }: { exp: Experience; index: number
       <button
         type="button"
         onClick={() => onOpen(exp.id)}
-        className="group flex flex-col h-full w-full text-left bg-white shadow-md hover:shadow-2xl cursor-pointer transition-shadow duration-300 p-3 pb-8"
+        className={`group flex flex-col h-full w-full text-left bg-white shadow-md cursor-pointer transition-shadow duration-300 p-3 pb-8 ${canHover ? 'hover:shadow-2xl' : ''}`}
       >
         <div
           className="relative aspect-[4/3] overflow-hidden flex items-center justify-center"
           style={!exp.image ? { background: `linear-gradient(135deg, ${colors.border}20, ${colors.border}40)` } : undefined}
         >
           {exp.image && (
-            <img src={exp.image} alt={exp.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <img src={exp.image} alt={exp.title} loading="lazy" className={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 ${canHover ? 'group-hover:scale-105' : ''}`} />
           )}
         </div>
         <div className="pt-5 text-center flex flex-col flex-1">

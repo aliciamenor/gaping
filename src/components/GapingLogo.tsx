@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useCanHover } from '@/hooks/useCanHover';
 import heroG1 from '@/assets/logo/hero-g1.png';
 import heroA from '@/assets/logo/hero-a.png';
 import heroP from '@/assets/logo/hero-p.png';
@@ -25,6 +26,7 @@ const CYCLE_MS = 2800;
 
 export default function GapingLogo() {
   const reduce = useReducedMotion();
+  const canHover = useCanHover();
   const navigate = useNavigate();
   const containerRef = useRef<HTMLSpanElement>(null);
   const letterRefs = useRef<(HTMLSpanElement | null)[]>([]);
@@ -96,11 +98,11 @@ export default function GapingLogo() {
     <div className="inline-flex flex-col items-center">
       <span
         ref={containerRef}
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => {
+        onMouseEnter={canHover ? () => setPaused(true) : undefined}
+        onMouseLeave={canHover ? () => {
           setPaused(false);
           setHoveredAxis(null);
-        }}
+        } : undefined}
         className="relative inline-block"
         aria-label="GAPING"
         style={{ color: DEEP }}
@@ -121,8 +123,8 @@ export default function GapingLogo() {
               key={i}
               ref={(el) => (letterRefs.current[i] = el)}
               className={isAxisLetter ? 'cursor-pointer' : ''}
-              onMouseEnter={isAxisLetter ? () => setHoveredAxis(axisForLetter) : undefined}
-              onMouseLeave={isAxisLetter ? () => setHoveredAxis(null) : undefined}
+              onMouseEnter={isAxisLetter && canHover ? () => setHoveredAxis(axisForLetter) : undefined}
+              onMouseLeave={isAxisLetter && canHover ? () => setHoveredAxis(null) : undefined}
               onClick={isAxisLetter ? () => handleLetterClick(axisForLetter) : undefined}
               animate={{ color, opacity }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
