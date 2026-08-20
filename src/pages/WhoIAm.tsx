@@ -287,7 +287,7 @@ export default function WhoIAm() {
                   </span>
                 ))}
               </div>
-              <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563] text-left sm:text-center">
+              <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563] text-justify">
                 Empecé en marketing porque no entendía por qué toda mi clase quería un iPhone, cuando había móviles mejores y más baratos. Esa curiosidad de por qué nos enamora una marca me llevó a otra pregunta: qué hace que compremos un producto. Ahí encontré mi camino.
               </p>
             </div>
@@ -315,7 +315,7 @@ export default function WhoIAm() {
               style={{ background: 'linear-gradient(135deg, rgba(66,118,127,0.08), rgba(66,118,127,0.02))' }}
             >
               <h2 className="font-display font-bold text-[22px] sm:text-[26px] text-[#1f2937] mb-3">Mi visión de producto</h2>
-              <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563]">
+              <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563] text-justify">
                 Creo en el <span className="font-semibold" style={{ color: '#42767f' }}>doble impacto</span>: que un producto haga crecer el negocio y, a la vez, mejore aunque sea un poco la vida de quien lo usa o el mundo que le rodea. Para mí van juntos.
               </p>
             </div>
@@ -325,7 +325,7 @@ export default function WhoIAm() {
           <FadeInView>
             <div className="max-w-[900px] mx-auto mb-16 sm:mb-20">
               <h2 className="font-display font-bold text-[22px] sm:text-[26px] text-[#1f2937] mb-3">¿Cuál es mi hobby favorito?</h2>
-              <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563]">
+              <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563] text-justify">
                 Viajar y aprender de otras personas (entender cómo vive y piensa alguien distinto a ti, conocer la historia que hay detrás de cada uno) es probablemente mi mayor fuente de aprendizaje. Viva el <span className="italic">life research</span>.
               </p>
               <blockquote

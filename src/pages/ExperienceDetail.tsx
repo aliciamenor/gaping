@@ -63,7 +63,7 @@ export default function ExperienceDetail() {
           {/* Context text */}
           {experience.contextText && (
             <FadeInView className="mb-16">
-              <p className="font-sans text-xl text-[#4b5563] leading-[1.8] max-w-[900px] italic">
+              <p className="font-sans text-xl text-[#4b5563] leading-[1.8] max-w-[900px] italic text-justify">
                 {experience.contextText}
               </p>
             </FadeInView>
@@ -72,7 +72,7 @@ export default function ExperienceDetail() {
           {/* What I did */}
           <FadeInView className="mb-16">
             <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-[#1f2937] mb-6">¿Qué hice?</h2>
-            <p className="font-sans text-xl text-[#4b5563] leading-[1.8] max-w-[900px]">
+            <p className="font-sans text-xl text-[#4b5563] leading-[1.8] max-w-[900px] text-justify">
               {experience.description}
             </p>
             {experience.externalLink && (

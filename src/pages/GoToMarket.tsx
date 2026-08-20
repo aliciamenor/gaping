@@ -290,7 +290,7 @@ export default function GoToMarket() {
                     <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
                       Detectar la oportunidad
                     </h3>
-                    <div className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 space-y-4">
+                    <div className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 space-y-4 text-justify">
                       <p>
                         Arranqué mi carrera de producto en el equipo de innovación de una empresa líder en bebidas, donde aprendí las bases de desarrollo y lanzamiento de productos. Al acabar el proyecto en el que estaba, tenía claro que quería dedicarme a esto.
                       </p>
@@ -315,7 +315,7 @@ export default function GoToMarket() {
                               {step1DataSections.slice(0, 3).map((section) => (
                                 <DataSection key={section.title} section={section} />
                               ))}
-                              <p className="font-sans text-[15px] text-[#4b5563] leading-relaxed">
+                              <p className="font-sans text-[15px] text-[#4b5563] leading-relaxed text-justify">
                                 El patrón es consistente en ambas fuentes: sube el criterio, el liderazgo y la creatividad.
                                 El 39% de las competencias clave de un trabajador cambiará de aquí a 2030 <span className="italic text-[#6b7280] text-[13px]">(WEF, 2025)</span>.
                               </p>
@@ -343,7 +343,7 @@ export default function GoToMarket() {
                     <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
                       Validar si tiene sentido
                     </h3>
-                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6">
+                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 text-justify">
                       Antes de lanzarme, validé la hipótesis desde varios ángulos, igual que haría con cualquier decisión de producto.
                     </p>
                     <div className="bg-white rounded-[16px] shadow-md p-5 sm:p-8">
@@ -383,7 +383,7 @@ export default function GoToMarket() {
                     <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
                       Benchmarking
                     </h3>
-                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6">
+                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 text-justify">
                       Analicé las opciones disponibles para entender dónde estaba la oportunidad, con research online y entrevistas informales a family &amp; friends y contactos que habían vivido varias de estas experiencias, para contrastar expectativas reales frente a lo prometido e impacto real de cada opción.
                     </p>
                     <div className="bg-white rounded-[16px] shadow-md p-4 sm:p-8">
@@ -481,7 +481,7 @@ export default function GoToMarket() {
                     <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
                       Definir la propuesta de valor
                     </h3>
-                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6">
+                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 text-justify">
                       Después de validar y analizar las opciones existentes, definí qué ofrecería GAPING y para quién.
                     </p>
                     <div className="bg-white rounded-[16px] shadow-md p-5 sm:p-8">
@@ -529,7 +529,7 @@ export default function GoToMarket() {
                     <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
                       MVP: el piloto
                     </h3>
-                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6">
+                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 text-justify">
                       Definí un único criterio de decisión: cada experiencia tenía que cumplir tres condiciones a la vez: aportar valor a los demás, sacarme de la zona de confort, y hacerme aprender algo. Si solo cumplía una o dos, no entraba en el roadmap.
                     </p>
                     <div className="bg-white rounded-[16px] shadow-md p-5 sm:p-8">
@@ -577,7 +577,7 @@ export default function GoToMarket() {
                     <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
                       Lanzar y comunicar
                     </h3>
-                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6">
+                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 text-justify">
                       En el lanzamiento de cualquier producto, la comunicación es tan importante como el producto en sí: de nada sirve construir algo bueno si no llega a quien tiene que verlo. El usuario de este producto son dos personas: el recruiter que hace el primer filtro, y el Senior PM o Head of Product que sería mi manager.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

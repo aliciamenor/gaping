@@ -103,21 +103,21 @@ function ExpandedCard({ exp, onClose }: { exp: Experience; onClose: () => void }
           {exp.contextText && (
             <div className="mt-6">
               <p className="font-sans font-semibold text-xs uppercase tracking-wide mb-2" style={{ color: colors.border }}>Contexto</p>
-              <p className="font-sans text-[15px] sm:text-base text-[#4b5563] leading-relaxed">{exp.contextText}</p>
+              <p className="font-sans text-[15px] sm:text-base text-[#4b5563] leading-relaxed text-justify">{exp.contextText}</p>
             </div>
           )}
 
           {exp.preImageNote && (
             <div className="mt-5 pl-4 border-l-2" style={{ borderColor: '#e5e7eb' }}>
               <p className="font-sans text-sm text-[#1f2937] font-medium">{exp.preImageNote.highlight}</p>
-              <p className="font-sans text-[13px] text-[#6b7280] leading-relaxed mt-1.5">{exp.preImageNote.description}</p>
+              <p className="font-sans text-[13px] text-[#6b7280] leading-relaxed mt-1.5 text-justify">{exp.preImageNote.description}</p>
             </div>
           )}
 
           {exp.description && (
             <div className="mt-6 pt-6 border-t border-[#f3f4f6]">
               <p className="font-sans font-semibold text-xs uppercase tracking-wide mb-2" style={{ color: colors.border }}>Lo que aprendí</p>
-              <p className="font-sans text-[15px] sm:text-base text-[#4b5563] leading-relaxed">{exp.description}</p>
+              <p className="font-sans text-[15px] sm:text-base text-[#4b5563] leading-relaxed text-justify">{exp.description}</p>
             </div>
           )}
 
@@ -254,7 +254,7 @@ export default function Projects() {
             <p className="font-sans text-base sm:text-lg md:text-[22px] text-[#6b7280] mt-5 sm:mt-6">GAPING como case study de producto</p>
           </FadeInView>
           <FadeInView>
-            <div className="max-w-[850px] mx-auto text-left mt-8 sm:mt-10 space-y-5">
+            <div className="max-w-[850px] mx-auto text-justify mt-8 sm:mt-10 space-y-5">
               <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563]">
                 <span className="font-bold" style={{ color: '#42767f' }}>GAP + ING</span>: el hueco en el CV convertido en movimiento. Diseñé este año como el espacio para mejorar mis soft skills y mi empleabilidad futura como Product Manager.
               </p>
