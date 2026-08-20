@@ -274,7 +274,7 @@ export default function WhoIAm() {
           <FadeInView>
             <div className="max-w-[800px] mx-auto text-center mb-16 sm:mb-20">
               <p className="font-display font-bold text-[22px] sm:text-[28px] text-[#1f2937] leading-snug">
-                Si me pides tres palabras:
+                En tres palabras:
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 mt-4 mb-6">
                 {threeWords.map((w) => (
@@ -529,7 +529,10 @@ export default function WhoIAm() {
           <FadeInView>
             <div className="text-center mt-12">
               <a
-                href="#"
+                href="/cv/CV_AliciaMenor.pdf"
+                download="CV_AliciaMenor.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block text-white font-display font-bold text-lg rounded-xl hover:scale-105 transition-transform duration-300"
                 style={{ background: '#42767f', padding: '16px 48px' }}
               >

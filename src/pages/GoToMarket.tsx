@@ -247,7 +247,7 @@ const benchmarkGroups: { category: string; rows: BenchmarkRow[] }[] = [
   {
     category: '🎯 GAPING',
     rows: [
-      { opcion: 'GAPING', estructura: '✅', impacto: '✅', skills: 'Stakeholders, priorización, research, adaptabilidad, comunicación, 6+ contextos reales', output: '9 proyectos documentados, resultado e insignia por skill', riesgo: 'Controlado', coste: 'Diseño propio', highlight: true },
+      { opcion: 'GAPING', estructura: '✅', impacto: '✅', skills: 'Stakeholders, priorización, research, adaptabilidad, comunicación, 6+ contextos reales', output: '11 experiencias documentadas, resultado e insignia por skill', riesgo: 'Controlado', coste: 'Diseño propio', highlight: true },
     ],
   },
 ];
