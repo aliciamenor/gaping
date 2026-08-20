@@ -1,13 +1,13 @@
-import podcastMenos30Img from '@/assets/experiences/podcast-menos30.jpg';
-import voluntariadoLituaniaImg from '@/assets/experiences/voluntariado-lituania.jpg';
+import podcastMenos30Img from '@/assets/experiences/podcast-menos30.webp';
+import voluntariadoLituaniaImg from '@/assets/experiences/voluntariado-lituania.webp';
 import rutaInti2024Img from '@/assets/experiences/ruta-inti-2024.jpg';
-import liderazgoSocialUfvImg from '@/assets/experiences/liderazgo-social-ufv.jpg';
-import caminoSantiagoImg from '@/assets/experiences/camino-santiago.jpg';
-import backpackingLatamImg from '@/assets/experiences/backpacking-latam.jpg';
+import liderazgoSocialUfvImg from '@/assets/experiences/liderazgo-social-ufv.webp';
+import caminoSantiagoImg from '@/assets/experiences/camino-santiago.webp';
+import backpackingLatamImg from '@/assets/experiences/backpacking-latam.webp';
 import somostalitaImg from '@/assets/experiences/somostalita.webp';
-import seminariosLiderazgoImg from '@/assets/experiences/seminarios-liderazgo.jpg';
+import seminariosLiderazgoImg from '@/assets/experiences/seminarios-liderazgo.webp';
 import transformacionDigitalImg from '@/assets/experiences/alineacion-equipos.webp';
-import cinkVenturingImg from '@/assets/experiences/cink-venturing.jpg';
+import cinkVenturingImg from '@/assets/experiences/cink-venturing.webp';
 import backpackingLatamAmazonasImg from '@/assets/experiences/backpacking-latam-amazonas.webp';
 
 export type Eje = 'impact' | 'horizons' | 'growth';
