@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
@@ -22,18 +23,12 @@ const ejeStyles: Record<Eje, { bg: string; border: string; gradient: string }> =
   growth: { bg: 'linear-gradient(135deg, #faf5ff 0%, #e9d5ff 100%)', border: '#8b5cf6', gradient: 'linear-gradient(135deg, #8b5cf6, #7c3aed)' },
 };
 
-function ExperienceCard({ exp, index, isOpen, onOpen }: { exp: Experience; index: number; isOpen: boolean; onOpen: (id: string) => void }) {
+function ExperienceCard({ exp, index, onOpen }: { exp: Experience; index: number; onOpen: (id: string) => void }) {
   const colors = ejeStyles[exp.eje];
   const rotate = [-1.5, 1.5, -0.75][index % 3];
 
-  if (isOpen) {
-    // Keeps the grid cell's space reserved while the real card is morphing into the overlay above.
-    return <div className="h-full invisible" aria-hidden />;
-  }
-
   return (
     <motion.div
-      layoutId={`exp-card-${exp.id}`}
       initial={{ rotate }}
       whileHover={{ rotate: 0, scale: 1.03, zIndex: 10 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -74,10 +69,13 @@ function ExpandedCard({ exp, onClose }: { exp: Experience; onClose: () => void }
       <motion.div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} aria-hidden />
 
       <motion.div
-        layoutId={`exp-card-${exp.id}`}
         role="dialog"
         aria-modal="true"
         aria-label={exp.skill}
+        initial={{ opacity: 0, scale: 0.95, y: 12 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 12 }}
+        transition={{ duration: 0.25, ease: 'easeOut' }}
         className="relative bg-white w-full max-w-[720px] max-h-[90vh] overflow-y-auto shadow-2xl"
       >
         <button
@@ -226,6 +224,7 @@ function EjeColumn({ id, eje }: { id: Eje; eje: typeof ejes.impact }) {
 }
 
 export default function Projects() {
+  usePageMeta('Proyecto', 'GAPING como case study de producto');
   const [openId, setOpenId] = useState<string | null>(null);
   const openExp = experiences.find((e) => e.id === openId) ?? null;
 
@@ -293,19 +292,17 @@ export default function Projects() {
             <p className="font-sans text-base sm:text-lg text-[#6b7280] mt-5 sm:mt-6">Cada experiencia fue una iteración del proyecto</p>
           </FadeInView>
 
-          <LayoutGroup>
-            <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 sm:mt-10">
-              {experiences.map((exp, i) => (
-                <StaggerItem key={exp.id} className="h-full">
-                  <ExperienceCard exp={exp} index={i} isOpen={openId === exp.id} onOpen={setOpenId} />
-                </StaggerItem>
-              ))}
-            </StaggerGrid>
+          <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 sm:mt-10">
+            {experiences.map((exp, i) => (
+              <StaggerItem key={exp.id} className="h-full">
+                <ExperienceCard exp={exp} index={i} onOpen={setOpenId} />
+              </StaggerItem>
+            ))}
+          </StaggerGrid>
 
-            <AnimatePresence>
-              {openExp && <ExpandedCard exp={openExp} onClose={() => setOpenId(null)} />}
-            </AnimatePresence>
-          </LayoutGroup>
+          <AnimatePresence>
+            {openExp && <ExpandedCard exp={openExp} onClose={() => setOpenId(null)} />}
+          </AnimatePresence>
         </section>
       </main>
     </PageTransition>

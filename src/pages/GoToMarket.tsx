@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
@@ -252,6 +253,7 @@ const benchmarkGroups: { category: string; rows: BenchmarkRow[] }[] = [
 ];
 
 export default function GoToMarket() {
+  usePageMeta('Go To Market', 'Cómo diseñé GAPING como proyecto de producto');
   return (
     <PageTransition>
       <main className="py-16 sm:py-20 px-5 sm:px-4 bg-background overflow-x-hidden">

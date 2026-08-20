@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
@@ -210,6 +211,7 @@ function ReferencesCarousel() {
 }
 
 export default function WhoIAm() {
+  usePageMeta('About me', 'Mi propuesta de valor como PM y mi trayectoria profesional');
   const [photoIndex, setPhotoIndex] = useState(0);
 
   useEffect(() => {

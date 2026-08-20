@@ -1,4 +1,5 @@
 import { Linkedin, Mail } from 'lucide-react';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
@@ -11,6 +12,7 @@ const openTo = [
 ];
 
 export default function Contacto() {
+  usePageMeta('Contact', 'Escríbeme. Me encantan los cafés (incluso si son virtuales)');
   return (
     <PageTransition>
       <main className="py-16 sm:py-[100px] px-5 sm:px-4 overflow-x-hidden">

@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { getBadgeById, badges } from '@/data/badges';
 import { getExperiencesByBadge } from '@/data/experiences';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import StaggerGrid, { StaggerItem } from '@/components/StaggerGrid';
@@ -8,6 +9,7 @@ import StaggerGrid, { StaggerItem } from '@/components/StaggerGrid';
 export default function BadgeDetail() {
   const { id } = useParams<{ id: string }>();
   const badge = id ? getBadgeById(id) : undefined;
+  usePageMeta(badge?.name, badge?.description);
 
   if (!badge) {
     return (

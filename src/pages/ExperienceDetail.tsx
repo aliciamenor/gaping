@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { getExperienceById, experiences, ejes } from '@/data/experiences';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 
@@ -12,6 +13,7 @@ const ejeBadgeStyles = {
 export default function ExperienceDetail() {
   const { id } = useParams<{ id: string }>();
   const experience = id ? getExperienceById(id) : undefined;
+  usePageMeta(experience?.skill, experience?.subtitle);
 
   if (!experience) {
     return (
