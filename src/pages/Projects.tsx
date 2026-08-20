@@ -275,7 +275,6 @@ export default function Projects() {
         <section className="max-w-[1400px] mx-auto mt-16 sm:mt-20">
           <FadeInView className="text-center mb-10 sm:mb-12">
             <h2 className="font-display font-bold text-[24px] sm:text-[32px] md:text-[40px] leading-tight" style={{ color: '#42767f' }}>El framework de decisión</h2>
-            <div className="w-[60px] h-[3px] mx-auto mt-3 rounded-full" style={{ background: '#42767f' }} />
           </FadeInView>
           <div className="grid grid-cols-3 gap-1.5 sm:gap-4 md:gap-6 items-stretch">
             <EjeColumn id="impact" eje={ejes.impact} />
@@ -290,7 +289,6 @@ export default function Projects() {
             <h2 className="font-display font-bold text-[24px] sm:text-[32px] md:text-[40px] leading-tight" style={{ color: '#42767f' }}>
               Principales <span className="line-through font-normal text-[#9ca3af]">features</span> skills desarrolladas
             </h2>
-            <div className="w-[60px] h-[3px] mx-auto mt-3 rounded-full" style={{ background: '#42767f' }} />
             <p className="font-sans text-base sm:text-lg text-[#6b7280] mt-5 sm:mt-6">Cada experiencia fue una iteración del proyecto</p>
           </FadeInView>
 
