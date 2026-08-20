@@ -16,8 +16,11 @@ const AXES = [
   { letterIdx: 5, key: 'growth', word: 'GROWTH' },
 ] as const;
 
-const DEEP = 'hsl(var(--brand-deep))';
-const SOFT = 'hsl(var(--brand-soft))';
+// Hardcoded (not hsl(var(--...))) so Framer Motion can interpolate the color
+// directly instead of resolving a CSS custom property on every animation
+// frame — that per-frame resolution is what caused the flicker on iOS Safari.
+const DEEP = '#2f5860'; // --brand-deep
+const SOFT = '#7bb0b8'; // --brand-soft
 const CYCLE_MS = 2800;
 
 export default function GapingLogo() {

@@ -68,7 +68,7 @@ function ExpandedCard({ exp, onClose }: { exp: Experience; onClose: () => void }
       exit={{ opacity: 0 }}
       transition={{ duration: 0.25 }}
     >
-      <motion.div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} aria-hidden />
+      <motion.div className="absolute inset-0 bg-black/70" onClick={onClose} aria-hidden />
 
       <motion.div
         role="dialog"
