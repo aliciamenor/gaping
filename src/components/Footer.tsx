@@ -29,9 +29,8 @@ export default function Footer() {
   return (
     <footer className="text-white pt-[60px] pb-8 mt-auto" style={{ background: 'linear-gradient(135deg, #42767f, #2d5259)' }}>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-8 text-center">
-        <div className="flex items-center justify-center gap-2 mb-3">
-          <img src={logoArrowWhite} alt="" aria-hidden="true" className="h-[26px] w-auto" />
-          <h2 className="font-display text-[32px] font-bold">GAPING</h2>
+        <div className="flex items-center justify-center mb-3">
+          <img src={logoArrowWhite} alt="GAPING" className="h-[32px] w-auto" />
         </div>
         <p className="font-sans text-base text-white/70 mb-10">Gap Year de Producto</p>
 
