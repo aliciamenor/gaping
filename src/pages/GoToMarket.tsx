@@ -225,7 +225,7 @@ const benchmarkGroups: { category: string; rows: BenchmarkRow[] }[] = [
   {
     category: '🎒 Viaje y trabajo',
     rows: [
-      { opcion: 'Working holiday visa', estructura: '⚪', impacto: '❌', skills: 'Autonomía, adaptabilidad laboral básica', output: 'Experiencia laboral variada', riesgo: 'Medio', coste: '~€500 + €4.700' },
+      { opcion: 'Working holiday visa', estructura: '⚪', impacto: '❌', skills: 'Autonomía, adaptabilidad laboral básica', output: 'Experiencia laboral variada, ganas dinero', riesgo: 'Medio', coste: '~€500 + €4.700' },
       { opcion: 'Backpacking independiente', estructura: '❌', impacto: '❌', skills: 'Autonomía, tolerancia a la incertidumbre', output: 'Sin narrativa profesional', riesgo: 'Bajo económico, alto en oportunidad', coste: 'Desde €3.000' },
       { opcion: 'ICEX Vives', estructura: '✅', impacto: '❌', skills: 'Gestión internacional de negocio, trabajo en filial real, idioma', output: 'Experiencia laboral formal + red profesional', riesgo: 'Bajo', coste: 'Financiado, 21.000 a 46.000€/año' },
     ],
