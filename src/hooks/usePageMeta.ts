@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const SITE_NAME = 'GAPING';
 const DEFAULT_TITLE = 'GAPING · Gap Year de Producto';
-const DEFAULT_DESCRIPTION = 'Documentación de mi gap year: un proyecto de innovación personal para ampliar mi visión del mundo y aportar a la sociedad.';
+const DEFAULT_DESCRIPTION = 'Un proyecto de innovación personal, diseñado como si fuera un producto.';
 
 function setMetaTag(attr: 'name' | 'property', key: string, content: string) {
   let tag = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
