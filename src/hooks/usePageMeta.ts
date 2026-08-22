@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 const SITE_NAME = 'GAPING';
-const DEFAULT_TITLE = 'GAPING · Gap Year en Movimiento';
+const DEFAULT_TITLE = 'GAPING · Gap Year de Producto';
 const DEFAULT_DESCRIPTION = 'Documentación de mi gap year: un proyecto de innovación personal para ampliar mi visión del mundo y aportar a la sociedad.';
 
 function setMetaTag(attr: 'name' | 'property', key: string, content: string) {
