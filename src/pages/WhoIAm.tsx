@@ -179,7 +179,6 @@ function ReferencesCarousel() {
                 alt={r.name}
                 width={96}
                 height={96}
-                loading="lazy"
                 decoding="async"
                 className="w-[96px] h-[96px] rounded-full object-cover mx-auto sm:mx-0"
               />
@@ -282,7 +281,6 @@ export default function WhoIAm() {
                       alt="Alicia Menor"
                       width={600}
                       height={800}
-                      loading="lazy"
                       decoding="async"
                       initial={{ opacity: 0, scale: 1.04 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -403,7 +401,6 @@ export default function WhoIAm() {
                             alt={t.company}
                             width={64}
                             height={64}
-                            loading="lazy"
                             decoding="async"
                             className="w-[40px] h-[40px] sm:w-[64px] sm:h-[64px] object-contain"
                           />

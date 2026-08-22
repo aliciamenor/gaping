@@ -73,7 +73,6 @@ export default function Home() {
                   alt="Gap year"
                   width={90}
                   height={90}
-                  loading={i === 0 ? 'eager' : 'lazy'}
                   decoding="async"
                   {...(i === 0 ? { fetchpriority: 'high' as const } : {})}
                   className="w-full h-[52px] sm:h-[70px] md:h-[90px] object-cover"
