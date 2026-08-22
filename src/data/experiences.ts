@@ -105,7 +105,7 @@ export const experiences: Experience[] = [
 export const ejes = {
   impact: {
     name: 'Impacto', emoji: '🎯', color: 'impact',
-    objective: 'Ponerme al servicio de los demás aplicando mi mentalidad de innovación y marketing a proyectos con propósito real.',
+    objective: 'Poner mi mentalidad de innovación y marketing al servicio de proyectos con propósito real.',
     actions: [
       'Voluntariado internacional construyendo campamento scout en Lituania',
       'Consultoría pro bono para Asociación Somostalita',
@@ -119,7 +119,7 @@ export const ejes = {
   },
   horizons: {
     name: 'Nuevos Horizontes', emoji: '🌍', color: 'horizons',
-    objective: 'Explorar nuevas realidades, formas de pensar y de hacer las cosas. Salir de mi zona de confort para descubrir que hay muchas más maneras de vivir, relacionarse y resolver problemas.',
+    objective: 'Salir de mi zona de confort para descubrir otras formas de vivir, pensar y resolver problemas.',
     actions: [
       'Ruta Inti 2024 en Marruecos con 130 jóvenes',
       'Backpacking por Perú, Colombia, Guatemala y México',
@@ -136,7 +136,7 @@ export const ejes = {
   },
   growth: {
     name: 'Growth', emoji: '📈', color: 'growth',
-    objective: 'Crecer como profesional y como persona. Desarrollar autoconocimiento, explorar mis límites, usar nuevas herramientas y trabajar una visión más global y estratégica para la siguiente etapa.',
+    objective: 'Crecer como profesional y como persona, ganando autoconocimiento, nuevas herramientas y una visión más global para la siguiente etapa.',
     actions: [
       'Formación en Transformación Digital (ESDEN) y plan para PYME',
       'Curso de Liderazgo Social (UFV)',
