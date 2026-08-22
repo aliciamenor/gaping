@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import logoArrow from '@/assets/icons/logo-arrow.png';
+import logoArrow from '@/assets/icons/logo-arrow.webp';
 import heroG1 from '@/assets/logo/hero-g1.png';
 import heroA from '@/assets/logo/hero-a.png';
 import heroP from '@/assets/logo/hero-p.png';

@@ -3,7 +3,7 @@ import { usePageMeta } from '@/hooks/usePageMeta';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
-import logoArrow from '@/assets/icons/logo-arrow.png';
+import logoArrow from '@/assets/icons/logo-arrow.webp';
 
 const openTo = [
   '☕ Tomar un café (real o virtual)',

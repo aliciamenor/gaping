@@ -9,8 +9,8 @@ import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
 import fotoAlicia from '@/assets/foto-alicia.webp';
 import fotoAliciaMontana from '@/assets/foto-alicia-montana.webp';
-import logoArrow from '@/assets/icons/logo-arrow.png';
-import logoArrowWhite from '@/assets/icons/logo-arrow-white.png';
+import logoArrow from '@/assets/icons/logo-arrow.webp';
+import logoArrowWhite from '@/assets/icons/logo-arrow-white.webp';
 
 // [imagen, duración en pantalla en ms] — la 1 se ve más tiempo que la 2
 const PROFILE_PHOTOS: { src: string; duration: number }[] = [

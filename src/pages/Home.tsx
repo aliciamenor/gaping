@@ -12,9 +12,9 @@ import polaroid2 from '@/assets/polaroid-2.webp';
 import polaroid3 from '@/assets/polaroid-3.webp';
 import polaroid4 from '@/assets/polaroid-4.webp';
 import polaroid5 from '@/assets/polaroid-5.webp';
-import iconBackpack from '@/assets/icons/backpack.png';
-import iconPencil from '@/assets/icons/pencil.png';
-import iconSmiley from '@/assets/icons/smiley.png';
+import iconBackpack from '@/assets/icons/backpack.webp';
+import iconPencil from '@/assets/icons/pencil.webp';
+import iconSmiley from '@/assets/icons/smiley.webp';
 
 
 const cards = [

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Mail } from 'lucide-react';
-import logoArrowWhite from '@/assets/icons/logo-arrow-white.png';
+import logoArrowWhite from '@/assets/icons/logo-arrow-white.webp';
 
 const navItems = [
   { path: '/', label: 'Home' },
