@@ -136,7 +136,7 @@ export const ejes = {
   },
   growth: {
     name: 'Growth', emoji: '📈', color: 'growth',
-    objective: 'Crecer como profesional y como persona, ganando autoconocimiento, nuevas herramientas y una visión más global para la siguiente etapa.',
+    objective: 'Crecer como profesional y como persona, ganando autoconocimiento, nuevas herramientas y una visión más global y estratégica.',
     actions: [
       'Formación en Transformación Digital (ESDEN) y plan para PYME',
       'Curso de Liderazgo Social (UFV)',
