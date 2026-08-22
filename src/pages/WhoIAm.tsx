@@ -134,9 +134,10 @@ function ReferencesCarousel() {
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
+    // Note: iOS Safari reports prefers-reduced-motion as "reduce" whenever
+    // Low Power Mode is on, regardless of the user's actual accessibility
+    // setting. This is a simple crossfade, so we keep it running either way.
     if (paused) return;
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) return;
     const id = window.setInterval(() => {
       setIndex((i) => (i + 1) % references.length);
     }, 7000);
@@ -248,8 +249,7 @@ export default function WhoIAm() {
   const [photoIndex, setPhotoIndex] = useState(0);
 
   useEffect(() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) return;
+    // Same iOS Low Power Mode caveat as ReferencesCarousel above.
     let id: number;
     const schedule = () => {
       id = window.setTimeout(() => {
