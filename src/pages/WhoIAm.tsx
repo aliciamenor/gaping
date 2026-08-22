@@ -60,7 +60,7 @@ const timeline = [
 
 const emprendimiento = [
   { title: '2ª posición Hackathon Producto + IA de Cabify', sub: 'Patrocinado por Lovable y ElevenLabs · 2026' },
-  { title: 'MVP validado en incubadora Cink Venturing', sub: 'Tras ganar el Hackathon NoCode4Culture · 2025' },
+  { title: '1º posición Hackathon NoCode4Culture · 2025', sub: 'Acceso a programa de 3 meses en incubadora de Cink Venturing para construir el prototipo' },
   { title: 'Programa de Innovación Social BYG', sub: '1 de 60 seleccionados entre +1.100 candidaturas · Fundación LQDVI · 2023' },
   { title: 'Proyecto ganador de emprendimiento social', sub: 'Seleccionado por Open Value Foundation, UFV · 2025' },
 ];

@@ -295,7 +295,10 @@ export default function GoToMarket() {
                         Arranqué mi carrera de producto en el equipo de innovación de una empresa líder en bebidas, donde aprendí las bases de desarrollo y lanzamiento de productos. Al acabar el proyecto en el que estaba, tenía claro que quería dedicarme a esto.
                       </p>
                       <p>
-                        Vivimos un momento en el que, cuanta más tecnología hay, más peso ganan las habilidades humanas. A medida que la IA asume tareas técnicas y repetitivas, crece la demanda de criterio, liderazgo y creatividad: según McKinsey y el World Economic Forum, son las skills que más van a crecer de aquí a 2030. Y no es solo la tecnología la que está cambiando las reglas: la carrera lineal, subir peldaño a peldaño en una misma empresa, también ha dejado de ser el único camino válido, según el informe Randstad Workmonitor 2026.
+                        Vivimos un momento en el que, cuanta más tecnología hay, más peso ganan las habilidades humanas. A medida que la IA asume tareas técnicas y repetitivas, crece la demanda de criterio, liderazgo y creatividad: según McKinsey y el World Economic Forum, son las skills que más van a crecer de aquí a 2030.
+                      </p>
+                      <p>
+                        Y no es solo la tecnología la que está cambiando las reglas: la carrera lineal, subir peldaño a peldaño en una misma empresa, también ha dejado de ser el único camino válido, según el informe Randstad Workmonitor 2026.
                       </p>
                       <p>
                         Con ese contexto de fondo, tenía curiosidad por el mundo y por otras formas de pensar y trabajar, y creía que esa curiosidad podía convertirme en mejor profesional.
@@ -384,7 +387,7 @@ export default function GoToMarket() {
                       Benchmarking
                     </h3>
                     <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 text-justify">
-                      Analicé las opciones disponibles para entender dónde estaba la oportunidad, con research online y entrevistas informales a family &amp; friends y contactos que habían vivido varias de estas experiencias, para contrastar expectativas reales frente a lo prometido e impacto real de cada opción.
+                      Analicé las opciones disponibles para entender dónde estaba la oportunidad, con research online y entrevistas informales a family &amp; friends y contactos que habían vivido varias de estas experiencias. Así podía contrastar expectativas reales y reducir la incertidumbre al tener más información para priorizar las decisiones y que fueran de mayor impacto.
                     </p>
                     <div className="bg-white rounded-[16px] shadow-md p-4 sm:p-8">
                       {/* Mobile: stacked cards */}
