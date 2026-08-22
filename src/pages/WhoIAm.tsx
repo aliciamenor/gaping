@@ -87,7 +87,21 @@ const howIWork = [
   { emoji: '🤝', text: 'Hago que gente que no habla el mismo idioma (técnico, legal, diseño, desarrollo, proveedores) reme junta.' },
 ];
 
-const coreSkills = ['GTM & Launch', 'Product Backlog', 'User Research', 'Stakeholder Management', 'Data & KPIs'];
+const coreSkills: { label: string; to: string | null }[] = [
+  { label: 'GTM & Launch', to: '/go-to-market' },
+  { label: 'Product Backlog', to: '/experiencias/backpacking-latam' },
+  { label: 'Empatía', to: '/experiencias/camino-santiago' },
+  { label: 'Stakeholder Management', to: '/experiencias/voluntariado-lituania' },
+  { label: 'Data & KPIs', to: null },
+];
+
+// Algunas skills de experiencias se muestran con una etiqueta distinta a exp.skill
+const skillLabelOverrides: Record<string, string> = {
+  'somostalita': 'Estrategia',
+  'liderazgo-social-ufv': 'Metodologías Agile y Design Thinking',
+  'mentorias-eventos-comunidad': 'Lifelong Learning',
+};
+
 const tools = ['Notion', 'Figma', 'Miro', 'Shopify', 'Power BI', 'Google Analytics', 'Jira', 'Canva', 'Excel'];
 const aiTools = ['ChatGPT', 'Copilot', 'Claude Code'];
 
@@ -344,7 +358,7 @@ export default function WhoIAm() {
             <div className="max-w-[900px] mx-auto mb-16 sm:mb-20">
               <h2 className="font-display font-bold text-[22px] sm:text-[26px] text-[#1f2937] mb-3">¿Cuál es mi hobby favorito?</h2>
               <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563] text-justify">
-                Viajar y aprender de otras personas (entender cómo vive y piensa alguien distinto a ti, conocer la historia que hay detrás de cada uno) es probablemente mi mayor fuente de aprendizaje. Viva el <span className="italic">life research</span>.
+                Viajar y aprender de otras personas (entender cómo vive y piensa alguien distinto a ti, conocer la historia que hay detrás de cada uno) es probablemente mi mayor fuente de aprendizaje. Viva el <span className="italic">"life research"</span>.
               </p>
               <blockquote
                 className="mt-6 pl-5 sm:pl-6 py-1 font-sans text-base sm:text-lg italic text-[#1f2937]"
@@ -360,10 +374,13 @@ export default function WhoIAm() {
 
           {/* Cierre */}
           <FadeInView>
-            <p className="max-w-[700px] mx-auto text-center font-sans text-base sm:text-lg italic text-[#6b7280] mb-20 sm:mb-24">
-              Como cualquier buen producto, sigo iterando y me quedan muchas versiones mejoradas por delante. Y más ahora que la IA nos amplifica
-              <img src={logoArrow} alt="" aria-hidden="true" className="inline-block h-[18px] sm:h-[20px] w-auto align-middle ml-2" />
-            </p>
+            <div className="max-w-[700px] mx-auto text-center font-sans text-base sm:text-lg italic text-[#6b7280] mb-20 sm:mb-24 space-y-2">
+              <p>Como cualquier buen producto, sigo iterando y me quedan muchas versiones mejoradas por delante.</p>
+              <p>
+                Y más ahora que la IA nos amplifica
+                <img src={logoArrow} alt="" aria-hidden="true" className="inline-block h-[18px] sm:h-[20px] w-auto align-middle ml-2" />
+              </p>
+            </div>
           </FadeInView>
 
           {/* Experiencia + Formación */}
@@ -510,14 +527,11 @@ export default function WhoIAm() {
           <div className="mb-10">
             <h3 className="font-display font-bold text-lg text-[#42767f] mb-4">Skills</h3>
             <div className="flex flex-wrap gap-2">
-              {coreSkills.map((s) => <Pill key={s} label={s} />)}
-            </div>
-          </div>
-          <div className="mb-10">
-            <h3 className="font-display font-bold text-lg text-[#42767f] mb-4">Skills desarrolladas en GAPING</h3>
-            <div className="flex flex-wrap gap-2">
+              {coreSkills.map((s) =>
+                s.to ? <SkillLink key={s.label} label={s.label} to={s.to} /> : <Pill key={s.label} label={s.label} />
+              )}
               {experiences.map((exp) => (
-                <SkillLink key={exp.id} label={exp.skill} to={`/experiencias/${exp.id}`} />
+                <SkillLink key={exp.id} label={skillLabelOverrides[exp.id] ?? exp.skill} to={`/experiencias/${exp.id}`} />
               ))}
             </div>
           </div>
