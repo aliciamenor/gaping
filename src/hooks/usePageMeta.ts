@@ -24,7 +24,9 @@ export function usePageMeta(title?: string, description?: string) {
     const fullTitle = title ? `${title} · ${SITE_NAME}` : DEFAULT_TITLE;
     const desc = description ?? DEFAULT_DESCRIPTION;
 
-    document.title = fullTitle;
+    // Tab title stays just the brand name; fullTitle (per-page) is still
+    // used for og:title/twitter:title since those drive link previews.
+    document.title = SITE_NAME;
     setMetaTag('name', 'description', desc);
     setMetaTag('property', 'og:title', fullTitle);
     setMetaTag('name', 'twitter:title', fullTitle);
@@ -32,7 +34,7 @@ export function usePageMeta(title?: string, description?: string) {
     setMetaTag('name', 'twitter:description', desc);
 
     return () => {
-      document.title = DEFAULT_TITLE;
+      document.title = SITE_NAME;
       setMetaTag('name', 'description', DEFAULT_DESCRIPTION);
       setMetaTag('property', 'og:title', DEFAULT_TITLE);
       setMetaTag('name', 'twitter:title', DEFAULT_TITLE);
