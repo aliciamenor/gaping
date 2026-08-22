@@ -259,7 +259,7 @@ export default function Projects() {
                 <span className="font-bold" style={{ color: '#42767f' }}>GAP + ING</span>: el hueco en el CV convertido en movimiento. Diseñé este año como el espacio para mejorar mis soft skills y mi empleabilidad futura como Product Manager.
               </p>
               <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563]">
-                Diseñé un experimento: vivir experiencias distintas fuera de la oficina, filtradas siempre por el mismo framework de decisión.
+                Diseñé un experimento: vivir experiencias distintas fuera de la oficina, filtradas siempre por el mismo framework de decisión: <span className="font-bold">I</span>mpacto (¿Esta experiencia aporta algo a alguien más, no solo a mí?), <span className="font-bold">N</span>uevos Horizontes (¿Me obliga a salir de un contexto, idioma o entorno que ya domino?), y <span className="font-bold">G</span>rowth (¿Al terminarla, voy a saber o poder hacer algo que antes no?).
               </p>
               <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563]">
                 Pero antes de vivir cada experiencia, había un proceso mínimo. Investigaba: entrevistas informales con conocidos, conocidos de conocidos y contactos vía outreach en LinkedIn, para entender de verdad qué implicaba cada opción antes de comprometerme.
