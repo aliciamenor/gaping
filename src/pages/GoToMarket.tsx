@@ -495,17 +495,18 @@ export default function GoToMarket() {
                             <li>✓ Construir un portfolio de evidencias concretas</li>
                             <li>✓ Generar impacto más allá del entorno corporativo</li>
                             <li>✓ Encontrar mi "por qué" como profesional</li>
+                            <li>✓ Diferenciarme en un mercado saturado de candidatos con un perfil similar</li>
                           </ul>
                         </div>
                         <div className="rounded-[10px] sm:rounded-[12px] p-3 sm:p-8 h-full" style={{ background: 'linear-gradient(135deg, #f0fdf4, #d1fae5)', borderTop: '4px solid #10b981' }}>
                           <p className="text-[18px] sm:text-[24px] mb-1 sm:mb-2">🏢</p>
                           <h4 className="font-display font-bold text-[14px] sm:text-[24px] text-[#1f2937] mb-1.5 sm:mb-4 leading-tight">Para empresas</h4>
                           <ul className="space-y-1 sm:space-y-2 font-sans text-[12px] sm:text-[17px] text-[#1f2937] leading-[1.45] sm:leading-[1.8]">
-                            <li>✓ Perfil PM con experiencia no convencional pero sólida</li>
-                            <li>✓ Capacidad de operar en entornos diversos e inciertos</li>
-                            <li>✓ Empatía real con usuarios en contextos complejos</li>
-                            <li>✓ Visión end to end demostrada en proyecto propio</li>
-                            <li>✓ Adaptabilidad validada en +5 países y contextos</li>
+                            <li>✓ Ownership end-to-end de producto: de discovery a delivery y medición de resultados</li>
+                            <li>✓ Prioriza con datos y criterio de negocio en contextos de recursos limitados</li>
+                            <li>✓ Gestiona stakeholders multidisciplinares y alinea equipos con objetivos distintos</li>
+                            <li>✓ Comunica con claridad a audiencias técnicas y no técnicas</li>
+                            <li>✓ Adaptabilidad real, validada en contextos ambiguos y diversos</li>
                           </ul>
                         </div>
                       </div>
@@ -575,67 +576,69 @@ export default function GoToMarket() {
                   </div>
                   <div className="flex-1 pt-2 sm:pt-4 min-w-0">
                     <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
-                      Lanzar y comunicar
+                      Comunicación y medición de resultados
                     </h3>
-                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 text-justify">
-                      En el lanzamiento de cualquier producto, la comunicación es tan importante como el producto en sí: de nada sirve construir algo bueno si no llega a quien tiene que verlo. El usuario de este producto son dos personas: el recruiter que hace el primer filtro, y el Senior PM o Head of Product que sería mi manager.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="rounded-[16px] p-6 sm:p-8" style={{ background: 'linear-gradient(135deg, #e8f4f6, #c5dfe3)', borderTop: '4px solid #42767f' }}>
-                        <p className="text-[40px] sm:text-[48px] mb-2">🌐</p>
-                        <h4 className="font-display font-bold text-[18px] sm:text-[24px] text-[#1f2937] mb-3 sm:mb-4">El producto: esta web</h4>
-                        <ul className="space-y-1 font-sans text-[15px] sm:text-[17px] text-[#1f2937] leading-[1.9]">
-                          <li>✓ Case study del proyecto GAPING</li>
-                          <li>✓ Proceso GTM documentado</li>
-                          <li>✓ Evidencia de skills de producto</li>
-                        </ul>
-                      </div>
-                      <div className="rounded-[16px] p-6 sm:p-8" style={{ background: 'linear-gradient(135deg, #f0fdf4, #d1fae5)', borderTop: '4px solid #10b981' }}>
-                        <p className="text-[40px] sm:text-[48px] mb-2">💼</p>
-                        <h4 className="font-display font-bold text-[18px] sm:text-[24px] text-[#1f2937] mb-3 sm:mb-4">Distribución: LinkedIn</h4>
-                        <ul className="space-y-1 font-sans text-[15px] sm:text-[17px] text-[#1f2937] leading-[1.9]">
-                          <li>✓ Contenido sobre el proceso y las decisiones tomadas</li>
-                          <li>✓ Posicionamiento como PM en construcción</li>
+                    <div className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 space-y-4 text-justify">
+                      <p>
+                        Diseñar y vivir GAPING era solo una parte del proyecto. Un producto sin comunicación no llega a nadie, y esto no iba a ser diferente.
+                      </p>
+                      <p>
+                        Con el discovery y el delivery ya hechos, tocaba pasar al lanzamiento. Eso significaba conceptualizar cómo contar todo lo vivido, no solo enumerar qué había pasado: elegir los canales adecuados, construir una narrativa coherente, y decidir qué destacar y qué dejar fuera para que el mensaje llegara con claridad.
+                      </p>
+                      <p>
+                        El resultado fue esta web, con el case study completo del proyecto y todo el proceso de Go To Market documentado paso a paso. Para construirla, sin saber programar, tuve que aprender a hacerlo con herramientas de IA.
+                      </p>
+                      <p>
+                        Y un lanzamiento no termina cuando comunicas. Termina cuando compruebas si está funcionando, así que medir los resultados era la última pieza del proceso.
+                      </p>
+                    </div>
+
+                    {/* Bloque A: Comunicación */}
+                    <div>
+                      <h4 className="font-display font-bold text-[18px] sm:text-[20px] text-[#1f2937] mb-4">📣 Comunicación</h4>
+                      <div className="bg-white p-6 rounded-[16px] shadow-sm">
+                        <ul className="space-y-2 font-sans text-[15px] text-[#1f2937] leading-relaxed">
+                          <li>✓ Definí estrategia de distribución y los canales prioritarios (web, LinkedIn)</li>
+                          <li>✓ Construí la narrativa y la propuesta de valor</li>
+                          <li>✓ Diseñé cómo comunicar el proyecto a mi audiencia objetivo</li>
+                          <li>✓ Establecí un timeline de publicación</li>
                         </ul>
                       </div>
                     </div>
 
-                    {/* North Star Metrics */}
+                    {/* Bloque B: Medición de resultados */}
                     <div className="mt-8">
-                      <h4 className="font-display font-bold text-[18px] sm:text-[20px] text-[#1f2937] mb-4">⭐ North Star Metrics</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {[
-                          { title: 'NSM inbound (web)', desc: 'Conversaciones de valor desde la web' },
-                          { title: 'NSM outbound (outreach)', desc: 'Conversaciones de valor desde outreach proactivo' },
-                        ].map((nsm) => (
-                          <div
-                            key={nsm.title}
-                            className="rounded-[16px] p-6 sm:p-8 text-center"
-                            style={{ background: 'linear-gradient(135deg, #42767f, #2d5259)' }}
-                          >
-                            <h5 className="font-display font-bold text-[18px] sm:text-[22px] text-white mb-2">{nsm.title}</h5>
-                            <p className="font-sans text-[15px] text-white/80">{nsm.desc}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                      <h4 className="font-display font-bold text-[18px] sm:text-[20px] text-[#1f2937] mb-4">📊 Medición de resultados</h4>
 
-                    {/* Métricas de producto */}
-                    <div className="mt-8">
-                      <h4 className="font-display font-bold text-[18px] sm:text-[20px] text-[#1f2937] mb-4">📊 Métricas de producto</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-[16px] shadow-sm">
+                      <p className="font-sans font-bold text-[15px] text-[#1f2937] mb-3">⭐ North Star Metric</p>
+                      <div
+                        className="rounded-[16px] p-6 sm:p-8 text-center"
+                        style={{ background: 'linear-gradient(135deg, #42767f, #2d5259)' }}
+                      >
+                        <p className="font-sans text-[17px] sm:text-[19px] font-medium text-white">Conversaciones de valor generadas por GAPING</p>
+                      </div>
+
+                      <p className="font-sans font-bold text-[15px] text-[#1f2937] mb-3 mt-6">Métricas de progreso</p>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-white p-6 rounded-[16px] shadow-sm">
                         <div>
-                          <p className="font-sans font-bold text-[15px] text-[#1f2937] mb-3">Web (inbound)</p>
+                          <p className="font-sans font-bold text-[14px] text-[#42767f] mb-3">Outreach</p>
                           <ul className="space-y-2 font-sans text-[15px] text-[#4b5563] leading-relaxed">
-                            <li>CR a mensaje</li>
-                            <li>Recurrencia de visitantes</li>
-                            <li>% mensajes cualificados</li>
+                            <li>Ratio de respuesta total</li>
+                            <li>Ratio de respuesta positiva</li>
                           </ul>
                         </div>
                         <div>
-                          <p className="font-sans font-bold text-[15px] text-[#1f2937] mb-3">Outreach (outbound)</p>
+                          <p className="font-sans font-bold text-[14px] text-[#42767f] mb-3">Web</p>
                           <ul className="space-y-2 font-sans text-[15px] text-[#4b5563] leading-relaxed">
-                            <li>Ratio de respuesta a outreach proactivo</li>
+                            <li>Mensajes recibidos</li>
+                            <li>Recurrencia de visitantes</li>
+                            <li>% de mensajes cualificados</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="font-sans font-bold text-[14px] text-[#42767f] mb-3">General</p>
+                          <ul className="space-y-2 font-sans text-[15px] text-[#4b5563] leading-relaxed">
+                            <li>Contribución por canal</li>
                           </ul>
                         </div>
                       </div>

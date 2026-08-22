@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { usePageMeta } from '@/hooks/usePageMeta';
+import { experiences } from '@/data/experiences';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
@@ -86,14 +87,31 @@ const howIWork = [
   { emoji: '🤝', text: 'Hago que gente que no habla el mismo idioma (técnico, legal, diseño, desarrollo, proveedores) reme junta.' },
 ];
 
-const hardSkills = ['GTM & Launch', 'Product Backlog', 'User Research', 'Stakeholder Management', 'Data & KPIs', 'Ecommerce'];
-const tools = ['Notion', 'Figma', 'Miro', 'Shopify', 'Power BI', 'Google Analytics', 'Jira', 'Canva'];
+const coreSkills = ['GTM & Launch', 'Product Backlog', 'User Research', 'Stakeholder Management', 'Data & KPIs'];
+const tools = ['Notion', 'Figma', 'Miro', 'Shopify', 'Power BI', 'Google Analytics', 'Jira', 'Canva', 'Excel'];
+const aiTools = ['ChatGPT', 'Copilot', 'Claude Code'];
 
-function Pill({ label }: { label: string }) {
+function Pill({ label, highlight }: { label: string; highlight?: boolean }) {
   return (
-    <span className="px-4 py-2 rounded-full font-sans font-medium text-sm bg-[#f3f4f6] text-[#1f2937] hover:bg-[#42767f] hover:text-white transition-colors duration-300 cursor-default">
-      {label}
+    <span
+      className={`px-4 py-2 rounded-full font-sans font-medium text-sm transition-colors duration-300 cursor-default ${
+        highlight ? 'text-white shadow-sm' : 'bg-[#f3f4f6] text-[#1f2937] hover:bg-[#42767f] hover:text-white'
+      }`}
+      style={highlight ? { background: 'linear-gradient(135deg, #42767f, #2d5259)' } : undefined}
+    >
+      {highlight ? `✨ ${label}` : label}
     </span>
+  );
+}
+
+function SkillLink({ label, to }: { label: string; to: string }) {
+  return (
+    <Link
+      to={to}
+      className="px-4 py-2 rounded-full font-sans font-medium text-sm bg-[#f3f4f6] text-[#1f2937] hover:bg-[#42767f] hover:text-white transition-colors duration-300"
+    >
+      {label}
+    </Link>
   );
 }
 
@@ -489,18 +507,25 @@ export default function WhoIAm() {
           <FadeInView>
             <h2 className="font-display font-bold text-[28px] sm:text-[32px] text-[#1f2937] mb-8">Skills de Producto</h2>
           </FadeInView>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div>
-              <h3 className="font-display font-bold text-lg text-[#42767f] mb-4">Hard Skills</h3>
-              <div className="flex flex-wrap gap-2">
-                {hardSkills.map((s) => <Pill key={s} label={s} />)}
-              </div>
+          <div className="mb-10">
+            <h3 className="font-display font-bold text-lg text-[#42767f] mb-4">Skills</h3>
+            <div className="flex flex-wrap gap-2">
+              {coreSkills.map((s) => <Pill key={s} label={s} />)}
             </div>
-            <div>
-              <h3 className="font-display font-bold text-lg text-[#42767f] mb-4">Herramientas</h3>
-              <div className="flex flex-wrap gap-2">
-                {tools.map((s) => <Pill key={s} label={s} />)}
-              </div>
+          </div>
+          <div className="mb-10">
+            <h3 className="font-display font-bold text-lg text-[#42767f] mb-4">Skills desarrolladas en GAPING</h3>
+            <div className="flex flex-wrap gap-2">
+              {experiences.map((exp) => (
+                <SkillLink key={exp.id} label={exp.skill} to={`/experiencias/${exp.id}`} />
+              ))}
+            </div>
+          </div>
+          <div className="mb-16">
+            <h3 className="font-display font-bold text-lg text-[#42767f] mb-4">Herramientas</h3>
+            <div className="flex flex-wrap gap-2">
+              {tools.map((s) => <Pill key={s} label={s} />)}
+              {aiTools.map((s) => <Pill key={s} label={s} highlight />)}
             </div>
           </div>
 
