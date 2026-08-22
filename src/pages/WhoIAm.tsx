@@ -374,13 +374,10 @@ export default function WhoIAm() {
 
           {/* Cierre */}
           <FadeInView>
-            <div className="max-w-[700px] mx-auto text-center font-sans text-base sm:text-lg italic text-[#6b7280] mb-20 sm:mb-24 space-y-2">
-              <p>Como cualquier buen producto, sigo iterando y me quedan muchas versiones mejoradas por delante.</p>
-              <p>
-                Y más ahora que la IA nos amplifica
-                <img src={logoArrow} alt="" aria-hidden="true" className="inline-block h-[18px] sm:h-[20px] w-auto align-middle ml-2" />
-              </p>
-            </div>
+            <p className="max-w-[900px] mx-auto text-center font-sans text-base sm:text-lg italic text-[#6b7280] mb-20 sm:mb-24">
+              Como cualquier buen producto, sigo iterando y me quedan muchas versiones mejoradas por delante. Y más ahora que la IA nos amplifica
+              <img src={logoArrow} alt="" aria-hidden="true" className="inline-block h-[18px] sm:h-[20px] w-auto align-middle ml-2" />
+            </p>
           </FadeInView>
 
           {/* Experiencia + Formación */}
