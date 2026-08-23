@@ -1,6 +1,6 @@
 # GAPING · Portfolio de Producto de Alicia Menor Gómez
 
-> "GAP + ING: el hueco en el CV convertido en movimiento."
+> "Un proyecto de innovación personal, diseñado como si fuera un producto."
 
 No sé programar. Esta web la construí con Claude Code.
 
