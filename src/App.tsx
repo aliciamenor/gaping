@@ -24,7 +24,10 @@ function ScrollToTop() {
 }
 
 function RouteFallback() {
-  return <div className="min-h-[60vh]" aria-hidden />;
+  // Tall enough to keep the footer off-screen during the loading gap between
+  // one page unmounting and the next page's real content mounting — a short
+  // fallback here let the (visually heavy, teal) footer flash into view.
+  return <div className="min-h-[100svh]" aria-hidden />;
 }
 
 function AppRoutes() {
