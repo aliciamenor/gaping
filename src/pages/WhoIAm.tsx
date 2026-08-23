@@ -83,7 +83,7 @@ const threeWords = ['Curiosa', 'Conectora', 'Resolutiva'];
 
 const howIWork = [
   { emoji: '🎯', text: 'Priorizo por impacto en usuario y negocio, no por quien grita más alto.' },
-  { emoji: '🔍', text: 'El dato está en todo el proceso: valido antes de construir, priorizo con él, y mido después de lanzar.' },
+  { emoji: '🔍', text: 'Los datos acompañan todo el proceso: complementan la intuición inicial, orientan la priorización y permiten medir el impacto tras el lanzamiento.' },
   { emoji: '🤝', text: 'Hago que gente que no habla el mismo idioma (técnico, legal, diseño, desarrollo, proveedores) reme junta.' },
 ];
 
@@ -353,29 +353,27 @@ export default function WhoIAm() {
 
           {/* Hobby favorito */}
           <FadeInView>
-            <div className="max-w-[900px] mx-auto mb-16 sm:mb-20">
+            <div className="max-w-[900px] mx-auto mb-20 sm:mb-24">
               <h2 className="font-display font-bold text-[22px] sm:text-[26px] text-[#1f2937] mb-3">¿Cuál es mi hobby favorito?</h2>
               <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563] text-justify">
-                Viajar y aprender de otras personas (entender cómo vive y piensa alguien distinto a ti, conocer la historia que hay detrás de cada uno) es probablemente mi mayor fuente de aprendizaje. Viva el <span className="italic">"life research"</span>.
+                Viajar y aprender de otras personas. Entender cómo vive y piensa alguien distinto a mí, conocer la historia que hay detrás de cada uno: es probablemente mi mayor fuente de aprendizaje. Viva el <span className="italic">"life research"</span>.
               </p>
-              <blockquote
-                className="mt-6 pl-5 sm:pl-6 py-1 font-sans text-base sm:text-lg italic text-[#1f2937]"
+
+              <div
+                className="mt-8 pl-5 sm:pl-6 pr-5 sm:pr-6 py-4 sm:py-5 rounded-r-lg"
+                style={{ borderLeft: '4px solid #42767f', background: '#f9fafb' }}
               >
-                "Conoce el mundo para conocerte a ti, y conoce a la gente para ser más gente."
-                <footer className="mt-2 font-sans not-italic text-sm text-[#6b7280]">Un hombre que conocí en un avión</footer>
-              </blockquote>
-              <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563] mt-4">
-                Llevo aplicándolo desde entonces.
+                <p className="font-sans font-medium text-sm text-[#6b7280] mb-2">Consejo de César, un hondureño que conocí en un avión:</p>
+                <blockquote className="font-sans text-base sm:text-lg italic text-[#1f2937] m-0">
+                  "Conoce el mundo para conocerte a ti, y conoce a la gente para ser más gente."
+                </blockquote>
+              </div>
+
+              <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563] mt-8">
+                Llevo aplicándolo desde entonces. Y como cualquier buen producto, sigo iterando: me quedan muchas versiones mejoradas por delante, sobre todo ahora que la IA nos amplifica
+                <img src={logoArrow} alt="" aria-hidden="true" className="inline-block h-[18px] sm:h-[20px] w-auto align-middle ml-2" />
               </p>
             </div>
-          </FadeInView>
-
-          {/* Cierre */}
-          <FadeInView>
-            <p className="max-w-[900px] mx-auto text-center font-sans text-base sm:text-lg italic text-[#6b7280] mb-20 sm:mb-24">
-              Como cualquier buen producto, sigo iterando y me quedan muchas versiones mejoradas por delante. Y más ahora que la IA nos amplifica
-              <img src={logoArrow} alt="" aria-hidden="true" className="inline-block h-[18px] sm:h-[20px] w-auto align-middle ml-2" />
-            </p>
           </FadeInView>
 
           {/* Experiencia + Formación */}
