@@ -3,6 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import { useEffect, lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import Home from "@/pages/Home";
 
 // Code-split secondary routes to keep the Home LCP fast.
@@ -32,22 +33,24 @@ function AppRoutes() {
     <>
       <ScrollToTop />
       <Header />
-      <AnimatePresence mode="wait">
-        <Suspense fallback={<RouteFallback />}>
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />} />
-            <Route path="/go-to-market" element={<GoToMarket />} />
-            <Route path="/proyecto" element={<Projects />} />
-            <Route path="/aboutme" element={<WhoIAm />} />
-            <Route path="/contact" element={<Contacto />} />
-            <Route path="/insignias/:id" element={<BadgeDetail />} />
-            <Route path="/experiencias/:id" element={<ExperienceDetail />} />
-            <Route path="/projects" element={<Navigate to="/proyecto" replace />} />
-            <Route path="/who-i-am" element={<Navigate to="/aboutme" replace />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </AnimatePresence>
+      <ErrorBoundary>
+        <AnimatePresence mode="wait">
+          <Suspense fallback={<RouteFallback />}>
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home />} />
+              <Route path="/go-to-market" element={<GoToMarket />} />
+              <Route path="/proyecto" element={<Projects />} />
+              <Route path="/aboutme" element={<WhoIAm />} />
+              <Route path="/contact" element={<Contacto />} />
+              <Route path="/insignias/:id" element={<BadgeDetail />} />
+              <Route path="/experiencias/:id" element={<ExperienceDetail />} />
+              <Route path="/projects" element={<Navigate to="/proyecto" replace />} />
+              <Route path="/who-i-am" element={<Navigate to="/aboutme" replace />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </AnimatePresence>
+      </ErrorBoundary>
       <Footer />
     </>
   );
