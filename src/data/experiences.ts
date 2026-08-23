@@ -38,7 +38,7 @@ export const experiences: Experience[] = [
   // NUEVOS HORIZONTES
   { id: 'ruta-inti-2024', emoji: '🗺️', skill: 'Adaptabilidad', title: 'Ruta Inti 2024', subtitle: 'Ruta Inti', eje: 'horizons', image: rutaInti2024Img,
     badges: ['adaptabilidad-cultural', 'gestion-incertidumbre', 'liderazgo-proposito'],
-    contextText: 'Ruta Inti es un programa cultural y formativo que organiza expediciones anuales centradas en cultura, aventura, voluntariado y labores sociales, en un lugar distinto cada año. Participé junto a más de 100 jóvenes en la expedición a Marruecos: ascenso al Toubkal (4.167m, el pico más alto del norte de África), voluntariado comunitario e iniciativas culturales. Fui seleccionada como representante de Ruta Inti en COMHiS, en el Salamanca Tech Summit 2025.',
+    contextText: 'Ruta Inti es un programa cultural y formativo que organiza expediciones anuales centradas en cultura, aventura, voluntariado y labores sociales, en un lugar distinto cada año. Participé junto a más de 100 jóvenes en la expedición a Marruecos: ascenso al Toubkal (4.167m, el pico más alto del norte de África), voluntariado comunitario e iniciativas culturales.',
     description: 'La skill que más desarrollé fue adaptabilidad. No había oficina ni plan cerrado, y el contexto cambiaba constantemente. Aprendí a leer una situación nueva rápido y ajustar sobre la marcha, en vez de esperar a tener toda la información antes de moverme.',
     learnings: ['La innovación ocurre en contextos inesperados.', 'El poder de la comunidad de viajeros con propósito.', 'Adaptarse a lo imprevisto.'],
     instagramReel: { url: 'https://www.instagram.com/reel/C_SV1yhICfa/', title: 'Entiende la ruta en un minuto' },
