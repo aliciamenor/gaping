@@ -83,7 +83,7 @@ const threeWords = ['Curiosa', 'Conectora', 'Resolutiva'];
 
 const howIWork = [
   { emoji: '🎯', text: 'Priorizo por impacto en usuario y negocio, no por quien grita más alto.' },
-  { emoji: '🔍', text: 'Los datos acompañan todo el proceso: complementan la intuición inicial, orientan la priorización y permiten medir el impacto tras el lanzamiento.' },
+  { emoji: '🔍', text: 'Los datos acompañan todo el proceso: complementan la intuición, validan antes de construir, ordenan la priorización y miden el impacto tras el lanzamiento.' },
   { emoji: '🤝', text: 'Hago que gente que no habla el mismo idioma (técnico, legal, diseño, desarrollo, proveedores) reme junta.' },
 ];
 
