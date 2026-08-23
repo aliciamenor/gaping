@@ -1,8 +1,10 @@
 # GAPING
 
-Portfolio de producto de [Alicia Menor Gómez](https://www.linkedin.com/in/aliciamenorgomez/): el case study de su gap year, diseñado y documentado como si fuera un proyecto de producto de principio a fin (discovery, validación, MVP, lanzamiento y medición de resultados).
+No sé programar. Esta web la construí con Claude Code.
 
-**Live:** [gaping.vercel.app](https://gaping.vercel.app)
+Yo decidía qué construir, cómo se veía y qué contaba cada sección. La IA escribía el código. Cada cambio lo revisé yo: encontré bugs reales (uno rompía cualquier link directo a la web en producción), decidí cuándo algo no estaba a la altura y había que rehacerlo.
+
+Es el mismo case study que documenta la propia web: [gaping.vercel.app](https://gaping.vercel.app) cuenta cómo diseñé mi gap year como un proyecto de producto, con discovery, validación, MVP y medición de resultados. Este repo es la otra mitad de esa historia.
 
 ## Stack
 
@@ -64,7 +66,7 @@ src/
 
 `src/data/experiences.ts` y `src/data/badges.ts` son la fuente de verdad de todo el contenido. Cada experiencia pertenece a un eje (`impact` | `horizons` | `growth`) y referencia las insignias que desbloqueó; las insignias referencian de vuelta las experiencias donde aparecen. Esa relación bidireccional es lo que alimenta la navegación cruzada entre `/experiencias/:id` y `/insignias/:id`.
 
-Para añadir una experiencia o insignia nueva: se edita el archivo de datos correspondiente y, si lleva imagen, se coloca en `src/assets/experiences/` y se importa arriba del archivo — no hace falta tocar ninguna otra capa.
+Para añadir una experiencia o insignia nueva: se edita el archivo de datos correspondiente y, si lleva imagen, se coloca en `src/assets/experiences/` y se importa arriba del archivo. No hace falta tocar ninguna otra capa.
 
 ## Despliegue
 
