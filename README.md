@@ -1,12 +1,28 @@
-# GAPING
+# GAPING · Portfolio de Producto de Alicia Menor Gómez
+
+> "GAP + ING: el hueco en el CV convertido en movimiento."
 
 No sé programar. Esta web la construí con Claude Code.
 
 Yo decidía qué construir, cómo se veía y qué contaba cada sección. La IA escribía el código. Cada cambio lo revisé yo: encontré bugs reales (uno rompía cualquier link directo a la web en producción), decidí cuándo algo no estaba a la altura y había que rehacerlo.
 
-Es el mismo case study que documenta la propia web: [gaping.vercel.app](https://gaping.vercel.app) cuenta cómo diseñé mi gap year como un proyecto de producto, con discovery, validación, MVP y medición de resultados. Este repo es la otra mitad de esa historia.
+## 🎯 Qué es GAPING
 
-## Stack
+Mi gap year, diseñado como un proyecto de producto: un año fuera de la oficina, filtrado siempre por el mismo framework de decisión de tres preguntas.
+
+- **Impacto**: ¿esta experiencia aporta algo a alguien más, no solo a mí?
+- **Nuevos Horizontes**: ¿me obliga a salir de un contexto, idioma o entorno que ya domino?
+- **Growth**: ¿al terminarla, voy a saber o poder hacer algo que antes no?
+
+11 experiencias reales (voluntariado internacional, hackathons de producto, liderazgo social, comunicación...) filtradas por esas tres preguntas, documentadas con el mismo proceso que usaría para lanzar cualquier producto: discovery, validación, MVP, lanzamiento y medición de resultados.
+
+## 🚀 El proyecto, página a página
+
+- [`/proyecto`](https://gaping.vercel.app/proyecto): las 11 experiencias, organizadas en los 3 ejes.
+- [`/go-to-market`](https://gaping.vercel.app/go-to-market): cómo diseñé, validé y lancé GAPING como si fuera un producto.
+- [`/aboutme`](https://gaping.vercel.app/aboutme): bio y skills, cada una enlazada a la experiencia real que la demuestra.
+
+## 🛠 Stack
 
 - **React 18 + TypeScript + Vite**
 - **Tailwind CSS** + [shadcn/ui](https://ui.shadcn.com/) para los primitivos de UI
@@ -17,7 +33,7 @@ Es el mismo case study que documenta la propia web: [gaping.vercel.app](https://
 
 No hay backend ni base de datos: todo el contenido (experiencias, insignias, testimonios) vive en TypeScript tipado dentro de `src/data/`, que funciona como el "CMS" del proyecto.
 
-## Empezar
+## 💻 Desarrollo local
 
 Requiere Node.js y npm.
 
@@ -37,7 +53,7 @@ npm run lint        # eslint
 
 No hay suite de tests configurada.
 
-## Estructura del proyecto
+## 📦 Estructura del proyecto
 
 ```
 src/
@@ -68,8 +84,13 @@ src/
 
 Para añadir una experiencia o insignia nueva: se edita el archivo de datos correspondiente y, si lleva imagen, se coloca en `src/assets/experiences/` y se importa arriba del archivo. No hace falta tocar ninguna otra capa.
 
-## Despliegue
+## ☁️ Despliegue
 
 Cada push a `main` en GitHub dispara un redeploy automático en Vercel. `vercel.json` define:
 - Redirects permanentes de las rutas antiguas (`/projects`, `/who-i-am`) a las actuales
 - El rewrite de SPA (`/(.*) → /index.html`) necesario para que cualquier ruta cargada directamente (no solo navegando desde la home) resuelva correctamente en el lado del cliente
+
+## 🔗 Más
+
+- [gaping.vercel.app](https://gaping.vercel.app)
+- [LinkedIn](https://www.linkedin.com/in/aliciamenorgomez/)
