@@ -97,8 +97,16 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.9 }}
               className="mt-8 font-sans text-lg leading-[1.8] text-muted-foreground max-w-[600px] mx-auto"
             >
-              <p>Soy Alicia, PM en construcción.</p>
-              <p>Diseñé GAPING para convertirme en mejor profesional de producto.</p>
+              <p className="font-display font-medium text-[#1f2937]">Alicia Menor · Product Manager</p>
+              <p className="mt-2">Conecto negocio, usuario y tecnología para crear impacto.</p>
+              <div
+                className="mt-6 rounded-2xl px-6 py-5 sm:px-7 sm:py-6 text-left"
+                style={{ background: 'linear-gradient(135deg, rgba(66,118,127,0.08), rgba(66,118,127,0.03))' }}
+              >
+                <p className="font-sans text-[15px] sm:text-base leading-[1.7] text-[#4b5563]">
+                  <span className="font-bold" style={{ color: '#42767f' }}>GAPING</span> es mi case study de producto aplicado a mí misma: lo diseñé, validé y lancé como cualquier producto real. El producto era yo.
+                </p>
+              </div>
             </motion.div>
           </div>
 
