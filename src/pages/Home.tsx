@@ -53,7 +53,17 @@ export default function Home() {
       <main>
         {/* Hero */}
         <section className="relative min-h-[calc(100svh-4rem)] flex flex-col items-center justify-center py-16 px-5 sm:px-4 text-center overflow-hidden bg-background">
-          <div className="flex justify-center items-center mb-8 gap-2 md:gap-4 flex-wrap">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mb-5 sm:mb-6"
+          >
+            <p className="font-display font-medium text-[12px] sm:text-[13px] uppercase tracking-[0.12em] text-[#1f2937]">Alicia Menor · Product Manager</p>
+            <p className="font-sans text-[13px] sm:text-sm text-muted-foreground mt-1.5">Conecto negocio, usuario y tecnología para crear impacto.</p>
+          </motion.div>
+
+          <div className="flex justify-center items-center mb-3 sm:mb-4 gap-2 md:gap-4 flex-wrap">
             {[
               { src: polaroid1, rotate: -4 },
               { src: polaroid2, rotate: 2 },
@@ -66,7 +76,7 @@ export default function Home() {
                 initial={{ rotate: p.rotate }}
                 whileHover={canHover ? { scale: 1.4, rotate: 0, zIndex: 30 } : undefined}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                className="bg-background p-1.5 pb-3 shadow-md w-[52px] sm:w-[70px] md:w-[90px] relative cursor-pointer"
+                className="bg-background p-1.5 pb-3 shadow-md w-[60px] sm:w-[74px] md:w-[90px] relative cursor-pointer"
               >
                 <img
                   src={p.src}
@@ -75,7 +85,7 @@ export default function Home() {
                   height={90}
                   decoding="async"
                   {...(i === 0 ? { fetchpriority: 'high' as const } : {})}
-                  className="w-full h-[52px] sm:h-[70px] md:h-[90px] object-cover"
+                  className="w-full h-[60px] sm:h-[74px] md:h-[90px] object-cover"
                 />
               </motion.div>
             ))}
@@ -95,17 +105,20 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.9 }}
-              className="mt-8 font-sans text-lg leading-[1.8] text-muted-foreground max-w-[600px] mx-auto"
+              className="mt-6 sm:mt-8 max-w-[500px] mx-auto"
             >
-              <p className="font-display font-medium text-[#1f2937]">Alicia Menor · Product Manager</p>
-              <p className="mt-2">Conecto negocio, usuario y tecnología para crear impacto.</p>
-              <div
-                className="mt-6 rounded-2xl px-6 py-5 sm:px-7 sm:py-6 text-left"
-                style={{ background: 'linear-gradient(135deg, rgba(66,118,127,0.08), rgba(66,118,127,0.03))' }}
-              >
-                <p className="font-sans text-[15px] sm:text-base leading-[1.7] text-[#4b5563]">
-                  <span className="font-bold" style={{ color: '#42767f' }}>GAPING</span> es mi case study de producto aplicado a mí misma: lo diseñé, validé y lancé como cualquier producto real. El producto era yo.
-                </p>
+              <p className="font-sans text-sm sm:text-base leading-[1.6] text-muted-foreground">
+                Es mi case study de producto aplicado a mí misma.
+              </p>
+              <div className="mt-5 flex flex-col items-center gap-1.5">
+                <div className="font-display font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5" style={{ color: '#42767f' }}>
+                  <span>Diseñé</span>
+                  <span style={{ color: '#b8d4d8' }}>·</span>
+                  <span>Validé</span>
+                  <span style={{ color: '#b8d4d8' }}>·</span>
+                  <span>Lancé</span>
+                </div>
+                <p className="font-sans text-sm sm:text-base italic text-muted-foreground">El producto era yo.</p>
               </div>
             </motion.div>
           </div>
@@ -113,11 +126,11 @@ export default function Home() {
           <motion.button
             type="button"
             onClick={() => cardsRef.current?.scrollIntoView({ behavior: 'smooth' })}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, y: [0, 8, 0] }}
+            initial={{ opacity: 0, x: '-50%' }}
+            animate={{ opacity: 1, x: '-50%', y: [0, 8, 0] }}
             transition={{ opacity: { delay: 1.3, duration: 0.6 }, y: { delay: 1.3, repeat: Infinity, duration: 1.6, ease: 'easeInOut' } }}
             whileHover={{ scale: 1.15 }}
-            className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-[#42767f] transition-colors cursor-pointer"
+            className="absolute bottom-6 sm:bottom-10 left-1/2 text-muted-foreground hover:text-[#42767f] transition-colors cursor-pointer"
             aria-label="Ver más contenido"
           >
             <ChevronDown size={28} />
