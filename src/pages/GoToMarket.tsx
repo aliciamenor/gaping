@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePageMeta } from '@/hooks/usePageMeta';
@@ -266,10 +266,28 @@ const steps = [
 export default function GoToMarket() {
   usePageMeta('Go To Market', 'Cómo diseñé GAPING como proyecto de producto');
   const canHover = useCanHover();
+  const [activeStep, setActiveStep] = useState(steps[0].id);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveStep(entry.target.id);
+        });
+      },
+      { rootMargin: '-20% 0px -70% 0px' }
+    );
+    steps.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <PageTransition>
-      <main className="py-16 sm:py-20 px-5 sm:px-4 bg-background overflow-x-hidden">
-        <div className="max-w-[1100px] mx-auto">
+      <main className="py-16 sm:py-20 px-5 sm:px-4 bg-background">
+        <div className="max-w-[1100px] min-[1200px]:max-w-[1400px] mx-auto">
           {/* Header */}
           <FadeInView className="text-center mb-16 sm:mb-20">
             <h1 className="font-display font-bold text-[34px] sm:text-[48px] md:text-[64px] leading-[1.05] tracking-tight sm:tracking-normal" style={{ color: '#42767f' }}>
@@ -281,8 +299,8 @@ export default function GoToMarket() {
             </p>
           </FadeInView>
 
-          {/* Índice de pasos */}
-          <FadeInView className="mb-16 sm:mb-20">
+          {/* Índice de pasos (mobile/tablet: fila horizontal; desktop ancho: sidebar) */}
+          <FadeInView className="mb-16 sm:mb-20 min-[1200px]:hidden">
             <nav aria-label="Pasos del proceso" className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {steps.map((s) => (
                 <Link
@@ -299,8 +317,34 @@ export default function GoToMarket() {
             </nav>
           </FadeInView>
 
+          <div className="min-[1200px]:flex min-[1200px]:gap-10 min-[1200px]:items-start">
+            {/* Sidebar de pasos, solo en pantallas anchas */}
+            <aside className="hidden min-[1200px]:block sticky top-24 shrink-0 w-[220px]">
+              <nav aria-label="Pasos del proceso" className="flex flex-col gap-1">
+                {steps.map((s) => {
+                  const isActive = activeStep === s.id;
+                  return (
+                    <Link
+                      key={s.id}
+                      to={`/go-to-market#${s.id}`}
+                      aria-label={`Paso ${s.num}: ${s.label}`}
+                      aria-current={isActive ? 'true' : undefined}
+                      className="flex items-center gap-3 py-2 px-3 rounded-lg transition-colors duration-300"
+                      style={{
+                        color: isActive ? '#42767f' : '#9ca3af',
+                        background: isActive ? 'rgba(66,118,127,0.08)' : 'transparent',
+                      }}
+                    >
+                      <span className="font-display font-bold text-sm shrink-0">{s.num}</span>
+                      <span className="font-sans text-[13px] leading-tight">{s.label}</span>
+                    </Link>
+                  );
+                })}
+              </nav>
+            </aside>
+
           {/* Timeline */}
-          <div className="relative">
+          <div className="relative flex-1 min-w-0 min-[1200px]:max-w-[1000px]">
             {/* Vertical connector line */}
             <div
               className="absolute left-[26px] sm:left-[50px] md:left-[70px] top-0 bottom-0 w-[2px]"
@@ -696,6 +740,7 @@ export default function GoToMarket() {
                 </div>
               </FadeInView>
             </div>
+          </div>
           </div>
 
 
