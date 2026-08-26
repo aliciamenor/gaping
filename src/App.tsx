@@ -16,10 +16,28 @@ const ExperienceDetail = lazy(() => import("@/pages/ExperienceDetail"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
+    if (hash) {
+      const id = hash.slice(1);
+      // The target can be inside a React.lazy-loaded page, which on a hard
+      // navigation may still be mid-fetch when this effect first runs — so
+      // poll for it instead of assuming one or two frames is enough.
+      let attempts = 0;
+      const id_ = window.setInterval(() => {
+        const el = document.getElementById(id);
+        attempts += 1;
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          window.clearInterval(id_);
+        } else if (attempts > 40) {
+          window.clearInterval(id_);
+        }
+      }, 100);
+      return () => window.clearInterval(id_);
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
   return null;
 }
 

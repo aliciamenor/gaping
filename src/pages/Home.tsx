@@ -22,7 +22,7 @@ const cards = [
     to: '/proyecto',
     icon: iconBackpack,
     title: 'Proyecto',
-    desc: 'Las experiencias, aprendizajes e impacto del año',
+    desc: 'Las experiencias y aprendizajes detrás de GAPING.',
     bg: 'linear-gradient(135deg, #f0fdf4, #d1fae5)',
     border: '#10b981',
   },

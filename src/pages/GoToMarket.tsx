@@ -387,7 +387,7 @@ export default function GoToMarket() {
                       Benchmarking
                     </h3>
                     <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 text-justify">
-                      Analicé las opciones disponibles para entender dónde estaba la oportunidad, con research online y entrevistas informales a family &amp; friends y contactos que habían vivido varias de estas experiencias. Así podía contrastar expectativas reales y reducir la incertidumbre al tener más información para priorizar las decisiones y que fueran de mayor impacto.
+                      Analicé las opciones disponibles para entender dónde estaba la oportunidad, con research online y entrevistas informales a mi entorno cercano y contactos que habían vivido varias de estas experiencias. Así podía contrastar expectativas reales y reducir la incertidumbre al tener más información para priorizar las decisiones y que fueran de mayor impacto.
                     </p>
                     <div className="bg-white rounded-[16px] shadow-md p-4 sm:p-8">
                       {/* Mobile: stacked cards */}
@@ -497,7 +497,7 @@ export default function GoToMarket() {
                             <li>✓ Desarrollar adaptabilidad y visión end to end</li>
                             <li>✓ Construir un portfolio de evidencias concretas</li>
                             <li>✓ Generar impacto más allá del entorno corporativo</li>
-                            <li>✓ Encontrar mi "por qué" como profesional</li>
+                            <li>✓ Tener más claridad sobre qué tipo de rol y de empresa quiero de verdad, gracias a tener espacio para reflexionar sobre mi propósito</li>
                             <li>✓ Diferenciarme en un mercado saturado de candidatos con un perfil similar</li>
                           </ul>
                         </div>
@@ -515,7 +515,7 @@ export default function GoToMarket() {
                       </div>
                     </div>
                     <p className="text-center font-sans font-medium text-base sm:text-lg md:text-[20px] mt-8" style={{ color: '#42767f' }}>
-                      Un año estructurado para ser mejor PM.<br />Un portfolio que lo demuestra.
+                      Un año diseñado como producto.<br />Un case study que lo demuestra.
                     </p>
                   </div>
                 </div>
@@ -579,7 +579,7 @@ export default function GoToMarket() {
                   </div>
                   <div className="flex-1 pt-2 sm:pt-4 min-w-0">
                     <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
-                      Comunicación y medición de resultados
+                      Comunicación y lanzamiento
                     </h3>
                     <div className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 space-y-4 text-justify">
                       <p>
@@ -608,42 +608,58 @@ export default function GoToMarket() {
                         </ul>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </FadeInView>
 
-                    {/* Bloque B: Medición de resultados */}
-                    <div className="mt-8">
-                      <h4 className="font-display font-bold text-[18px] sm:text-[20px] text-[#1f2937] mb-4">📊 Medición de resultados</h4>
+              {/* Paso 07 */}
+              <FadeInView>
+                <div id="medir-resultados" className="relative flex gap-4 sm:gap-8 md:gap-12 scroll-mt-24">
+                  <div className="relative shrink-0 w-[52px] sm:w-[100px] md:w-[140px] text-right">
+                    <span className="font-display font-bold text-[44px] sm:text-[64px] md:text-[80px] leading-none" style={{ color: '#42767f', opacity: 0.12 }}>
+                      07
+                    </span>
+                  </div>
+                  <div className="flex-1 pt-2 sm:pt-4 min-w-0">
+                    <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
+                      Medir resultados
+                    </h3>
+                    <div className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 space-y-4 text-justify">
+                      <p>
+                        Todo Go To Market necesita un apartado de medición: cómo sé si funcionó, no solo si se lanzó. Para GAPING definí qué quería conseguir de verdad y qué podía medir cada semana para saber si iba en esa dirección. Esto no es solo reporting: es lo que me permite, mientras el proyecto sigue en marcha, saber qué está funcionando y qué hay que iterar.
+                      </p>
+                    </div>
 
-                      <p className="font-sans font-bold text-[15px] text-[#1f2937] mb-3">⭐ North Star Metric</p>
-                      <div
-                        className="rounded-[16px] p-6 sm:p-8 text-center"
-                        style={{ background: 'linear-gradient(135deg, #42767f, #2d5259)' }}
-                      >
-                        <p className="font-sans text-[17px] sm:text-[19px] font-medium text-white">Conversaciones de valor generadas por GAPING</p>
+                    <p className="font-sans font-bold text-[15px] text-[#1f2937] mb-3">⭐ North Star Metric</p>
+                    <div
+                      className="rounded-[16px] p-6 sm:p-8 text-center"
+                      style={{ background: 'linear-gradient(135deg, #42767f, #2d5259)' }}
+                    >
+                      <p className="font-sans text-[17px] sm:text-[19px] font-medium text-white">Conversaciones de valor generadas por GAPING</p>
+                    </div>
+
+                    <p className="font-sans font-bold text-[15px] text-[#1f2937] mb-3 mt-6">Métricas de progreso</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-white p-6 rounded-[16px] shadow-sm">
+                      <div>
+                        <p className="font-sans font-bold text-[14px] text-[#42767f] mb-3">Outreach</p>
+                        <ul className="space-y-2 font-sans text-[15px] text-[#4b5563] leading-relaxed">
+                          <li>Ratio de respuesta total</li>
+                          <li>Ratio de respuesta positiva</li>
+                        </ul>
                       </div>
-
-                      <p className="font-sans font-bold text-[15px] text-[#1f2937] mb-3 mt-6">Métricas de progreso</p>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-white p-6 rounded-[16px] shadow-sm">
-                        <div>
-                          <p className="font-sans font-bold text-[14px] text-[#42767f] mb-3">Outreach</p>
-                          <ul className="space-y-2 font-sans text-[15px] text-[#4b5563] leading-relaxed">
-                            <li>Ratio de respuesta total</li>
-                            <li>Ratio de respuesta positiva</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <p className="font-sans font-bold text-[14px] text-[#42767f] mb-3">Web</p>
-                          <ul className="space-y-2 font-sans text-[15px] text-[#4b5563] leading-relaxed">
-                            <li>Mensajes recibidos</li>
-                            <li>Recurrencia de visitantes</li>
-                            <li>% de mensajes cualificados</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <p className="font-sans font-bold text-[14px] text-[#42767f] mb-3">General</p>
-                          <ul className="space-y-2 font-sans text-[15px] text-[#4b5563] leading-relaxed">
-                            <li>Contribución por canal</li>
-                          </ul>
-                        </div>
+                      <div>
+                        <p className="font-sans font-bold text-[14px] text-[#42767f] mb-3">Web</p>
+                        <ul className="space-y-2 font-sans text-[15px] text-[#4b5563] leading-relaxed">
+                          <li>Mensajes recibidos</li>
+                          <li>Recurrencia de visitantes</li>
+                          <li>% de mensajes cualificados</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-sans font-bold text-[14px] text-[#42767f] mb-3">General</p>
+                        <ul className="space-y-2 font-sans text-[15px] text-[#4b5563] leading-relaxed">
+                          <li>Contribución por canal</li>
+                        </ul>
                       </div>
                     </div>
                   </div>

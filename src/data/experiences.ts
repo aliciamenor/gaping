@@ -93,7 +93,7 @@ export const experiences: Experience[] = [
   { id: 'seminarios-liderazgo', emoji: '🎯', skill: 'Pensamiento crítico', title: 'Seminarios de Liderazgo', subtitle: 'Becas en Seminarios de liderazgo de Fundaciones Eduarda Justo y Tatiana', eje: 'growth', image: seminariosLiderazgoImg,
     badges: ['liderazgo-proposito'],
     contextText: 'Recibí becas para el Seminario Líderes del Futuro de la Fundación Eduarda Justo, en Almería, y para el III Encuentro de Liderazgo Cívico en tiempos de inteligencia artificial de la Fundación Tatiana, en la Universidad Internacional Menéndez Pelayo de Santander. En ambos espacios se debatía sobre la responsabilidad cívica y ética de los líderes empresariales tecnológicos, en plena revolución de la inteligencia artificial.',
-    description: 'La skill que más desarrollé fue pensamiento crítico. No eran espacios donde salías con respuestas cerradas, sino con más preguntas de las que llegabas: sobre quién es responsable de las consecuencias de la innovación, y hasta dónde llega la ética de quien la impulsa. Quedarme con esa incomodidad en vez de buscar una conclusión fácil es lo que más entrenó ahí el pensamiento crítico.',
+    description: 'La skill que más desarrollé fue pensamiento crítico. Ahí escuché a referentes de distintos sectores hablar de liderazgo cívico y de cuestiones éticas que no tienen una respuesta fácil. Me hizo cuestionarme mi propio impacto profesional y mi responsabilidad con la sociedad, más allá de la empresa para la que trabaje.',
     learnings: ['Diferentes dimensiones del liderazgo.', 'Conectar con jóvenes en procesos similares.', 'Clarificar mi visión de liderazgo.'] },
   { id: 'mentorias-eventos-comunidad', emoji: '🤝', skill: 'Aprendizaje continuo', title: 'Mentorías, eventos y comunidad', subtitle: 'Mentorías, eventos, comunidad', eje: 'growth', image: backpackingLatamImg,
     badges: [],
@@ -147,10 +147,9 @@ export const ejes = {
     learnings: [
       'Identificar mejor desde dónde tomo las decisiones',
       'Aceptar que no voy a estar 100% segura de una decisión y que toda decisión tiene un precio',
-      'Ser paciente conmigo misma y con la búsqueda de un propósito',
       'El liderazgo empieza por liderarte',
       'Atreverme a darme más oportunidades y exponerme',
-      'El fracaso no es caerse, es no intentarlo. El que nunca hace nada, nunca se equivoca',
+      'El fracaso no es no conseguir un objetivo, es no darse la oportunidad de intentarlo. El que nunca hace nada, nunca se equivoca. Si haces cosas, pasan cosas',
     ],
   },
 };

@@ -9,7 +9,7 @@ const openTo = [
   '☕ Tomar un café (real o virtual)',
   '💡 Charlar sobre producto, innovación y propósito',
   '🗣️ Charlas, eventos o colaboraciones',
-  '🤝 Conectar con personas que también están explorando',
+  '🤝 Conectar con equipos de producto que buscan talento',
 ];
 
 export default function Contacto() {

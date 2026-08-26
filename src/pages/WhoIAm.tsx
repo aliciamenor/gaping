@@ -52,7 +52,7 @@ const references = [
 
 const timeline = [
   { year: '2025/2026', emoji: '🚀', iconSrc: null as string | null, title: 'Product Manager Operations & Marketing Specialist', company: 'Fundación Generation Spain (impulsada por McKinsey & Company)', desc: 'Coordinación end to end de programas formativos con seguimiento de KPIs. Definición de requisitos de producto, métricas de negocio y cierre de partnerships estratégicos para la difusión del programa.', color: '#10b981', logo: logoGeneration, highlight: false, link: null as string | null },
-  { year: '2024/2025', emoji: '🧭', iconSrc: logoArrowWhite as string | null, title: 'GAPING: Gap Year de Producto', company: '', desc: 'Diseñé y ejecuté un gap year estructurado como proyecto de producto para adquirir skills PM en contextos reales.', color: '#42767f', logo: null, highlight: true, link: '/go-to-market' as string | null },
+  { year: '2024/2025', emoji: '🧭', iconSrc: logoArrowWhite as string | null, title: 'GAPING · Case study de producto aplicado a mí misma', company: '', desc: 'Un año fuera de la oficina, diseñado y ejecutado como proyecto de producto.', color: '#42767f', logo: null, highlight: true, link: '/go-to-market' as string | null },
   { year: '2023/2024', emoji: '💡', iconSrc: null as string | null, title: 'Product Manager Innovación', company: 'Mahou San Miguel', desc: 'Responsable end to end del crecimiento de Grifo Mahou en Casa (ecommerce): producto, UX, operaciones y comunicación. Definición de objetivos de negocio, KRs y roadmap. Gestión de stakeholders internos y 25 partners técnicos. Participación en la Innovation Community con Design Thinking y Lean Startup.', color: '#42767f', logo: logoMahou, highlight: false, link: null },
   { year: '2022', emoji: '📢', iconSrc: null as string | null, title: 'PR & Digital Communications Junior', company: 'Omnicom PR Group', desc: 'Materiales de prensa en contextos de crisis corporativa y lanzamientos de producto (Bimbo, Decathlon). Monitorización de cobertura y reporting de impacto reputacional.', color: '#8b5cf6', logo: logoOmnicom, highlight: false, link: null },
   { year: '2021', emoji: '📝', iconSrc: null as string | null, title: 'Marketing Junior', company: 'IPMARK, DARetail & Best!N Awards', desc: 'Organización de eventos B2B presenciales y webinars. Campañas de email marketing y contenido digital.', color: '#f59e0b', logo: logoIpmark, highlight: false, link: null },
@@ -92,13 +92,13 @@ const coreSkills: { label: string; to: string | null }[] = [
   { label: 'Product Backlog', to: '/experiencias/backpacking-latam' },
   { label: 'Empatía', to: '/experiencias/camino-santiago' },
   { label: 'Stakeholder Management', to: '/experiencias/voluntariado-lituania' },
-  { label: 'Data & KPIs', to: null },
+  { label: 'Data & KPIs', to: '/go-to-market#medir-resultados' },
+  { label: 'Design Thinking, Lean Startup y Agile', to: '/experiencias/cink-venturing' },
 ];
 
 // Algunas skills de experiencias se muestran con una etiqueta distinta a exp.skill
 const skillLabelOverrides: Record<string, string> = {
   'somostalita': 'Estrategia',
-  'liderazgo-social-ufv': 'Metodologías Agile y Design Thinking',
   'mentorias-eventos-comunidad': 'Lifelong Learning',
 };
 
