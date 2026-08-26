@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePageMeta } from '@/hooks/usePageMeta';
+import { useCanHover } from '@/hooks/useCanHover';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
@@ -252,8 +253,19 @@ const benchmarkGroups: { category: string; rows: BenchmarkRow[] }[] = [
   },
 ];
 
+const steps = [
+  { id: 'paso-01', num: '01', label: 'Detectar la oportunidad' },
+  { id: 'paso-02', num: '02', label: 'Validar si tiene sentido' },
+  { id: 'paso-03', num: '03', label: 'Benchmarking' },
+  { id: 'paso-04', num: '04', label: 'Definir la propuesta de valor' },
+  { id: 'paso-05', num: '05', label: 'MVP: el piloto' },
+  { id: 'paso-06', num: '06', label: 'Comunicación y lanzamiento' },
+  { id: 'medir-resultados', num: '07', label: 'Medir resultados' },
+];
+
 export default function GoToMarket() {
   usePageMeta('Go To Market', 'Cómo diseñé GAPING como proyecto de producto');
+  const canHover = useCanHover();
   return (
     <PageTransition>
       <main className="py-16 sm:py-20 px-5 sm:px-4 bg-background overflow-x-hidden">
@@ -269,6 +281,24 @@ export default function GoToMarket() {
             </p>
           </FadeInView>
 
+          {/* Índice de pasos */}
+          <FadeInView className="mb-16 sm:mb-20">
+            <nav aria-label="Pasos del proceso" className="flex flex-wrap justify-center gap-2 sm:gap-3">
+              {steps.map((s) => (
+                <Link
+                  key={s.id}
+                  to={`/go-to-market#${s.id}`}
+                  title={s.label}
+                  aria-label={`Paso ${s.num}: ${s.label}`}
+                  className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-display font-bold text-[13px] sm:text-sm border-2 transition-colors duration-300 ${canHover ? 'hover:text-white hover:bg-[#42767f]' : ''}`}
+                  style={{ borderColor: '#42767f', color: '#42767f' }}
+                >
+                  {s.num}
+                </Link>
+              ))}
+            </nav>
+          </FadeInView>
+
           {/* Timeline */}
           <div className="relative">
             {/* Vertical connector line */}
@@ -280,7 +310,7 @@ export default function GoToMarket() {
             <div className="space-y-16 sm:space-y-20">
               {/* Paso 01 */}
               <FadeInView>
-                <div className="relative flex gap-4 sm:gap-8 md:gap-12">
+                <div id="paso-01" className="relative flex gap-4 sm:gap-8 md:gap-12 scroll-mt-24">
                   <div className="relative shrink-0 w-[52px] sm:w-[100px] md:w-[140px] text-right">
                     <span className="font-display font-bold text-[44px] sm:text-[64px] md:text-[80px] leading-none" style={{ color: '#42767f', opacity: 0.12 }}>
                       01
@@ -336,7 +366,7 @@ export default function GoToMarket() {
 
               {/* Paso 02 */}
               <FadeInView>
-                <div className="relative flex gap-4 sm:gap-8 md:gap-12">
+                <div id="paso-02" className="relative flex gap-4 sm:gap-8 md:gap-12 scroll-mt-24">
                   <div className="relative shrink-0 w-[52px] sm:w-[100px] md:w-[140px] text-right">
                     <span className="font-display font-bold text-[44px] sm:text-[64px] md:text-[80px] leading-none" style={{ color: '#42767f', opacity: 0.12 }}>
                       02
@@ -376,7 +406,7 @@ export default function GoToMarket() {
 
               {/* Paso 03 */}
               <FadeInView>
-                <div className="relative flex gap-4 sm:gap-8 md:gap-12">
+                <div id="paso-03" className="relative flex gap-4 sm:gap-8 md:gap-12 scroll-mt-24">
                   <div className="relative shrink-0 w-[52px] sm:w-[100px] md:w-[140px] text-right">
                     <span className="font-display font-bold text-[44px] sm:text-[64px] md:text-[80px] leading-none" style={{ color: '#42767f', opacity: 0.12 }}>
                       03
@@ -474,7 +504,7 @@ export default function GoToMarket() {
 
               {/* Paso 04 */}
               <FadeInView>
-                <div className="relative flex gap-4 sm:gap-8 md:gap-12">
+                <div id="paso-04" className="relative flex gap-4 sm:gap-8 md:gap-12 scroll-mt-24">
                   <div className="relative shrink-0 w-[52px] sm:w-[100px] md:w-[140px] text-right">
                     <span className="font-display font-bold text-[44px] sm:text-[64px] md:text-[80px] leading-none" style={{ color: '#42767f', opacity: 0.12 }}>
                       04
@@ -523,7 +553,7 @@ export default function GoToMarket() {
 
               {/* Paso 05 */}
               <FadeInView>
-                <div className="relative flex gap-4 sm:gap-8 md:gap-12">
+                <div id="paso-05" className="relative flex gap-4 sm:gap-8 md:gap-12 scroll-mt-24">
                   <div className="relative shrink-0 w-[52px] sm:w-[100px] md:w-[140px] text-right">
                     <span className="font-display font-bold text-[44px] sm:text-[64px] md:text-[80px] leading-none" style={{ color: '#42767f', opacity: 0.12 }}>
                       05
@@ -571,7 +601,7 @@ export default function GoToMarket() {
 
               {/* Paso 06 */}
               <FadeInView>
-                <div className="relative flex gap-4 sm:gap-8 md:gap-12">
+                <div id="paso-06" className="relative flex gap-4 sm:gap-8 md:gap-12 scroll-mt-24">
                   <div className="relative shrink-0 w-[52px] sm:w-[100px] md:w-[140px] text-right">
                     <span className="font-display font-bold text-[44px] sm:text-[64px] md:text-[80px] leading-none" style={{ color: '#42767f', opacity: 0.12 }}>
                       06
