@@ -108,7 +108,7 @@ export default function Home() {
               className="mt-6 sm:mt-8 max-w-[500px] mx-auto"
             >
               <p className="font-sans text-sm sm:text-base leading-[1.6] text-muted-foreground">
-                Es mi case study de producto aplicado a mí misma.
+                Un año fuera de la oficina, documentado como un case study de producto.
               </p>
               <div className="mt-5 flex flex-col items-center gap-1.5">
                 <div className="font-display font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5" style={{ color: '#42767f' }}>
