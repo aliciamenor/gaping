@@ -276,7 +276,7 @@ export default function Projects() {
           <FadeInView className="text-center mb-10 sm:mb-12">
             <h2 className="font-display font-bold text-[24px] sm:text-[32px] md:text-[40px] leading-tight" style={{ color: '#42767f' }}>El framework de decisión</h2>
           </FadeInView>
-          <div className="grid grid-cols-3 gap-1.5 sm:gap-4 md:gap-6 items-stretch">
+          <div className="grid grid-cols-3 gap-1.5 sm:gap-4 md:gap-6 items-start">
             <EjeColumn id="impact" eje={ejes.impact} />
             <EjeColumn id="horizons" eje={ejes.horizons} />
             <EjeColumn id="growth" eje={ejes.growth} />
