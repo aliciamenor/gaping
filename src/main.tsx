@@ -33,6 +33,15 @@ window.addEventListener("vite:preloadError", () => {
   window.location.reload();
 });
 
+// Each route is now prerendered at build time (see scripts/prerender.mjs)
+// purely so crawlers/tools that don't execute JS (many AI browsing tools,
+// unlike Googlebot) see real content instead of an empty #root — real
+// visitors still get a normal client render here rather than hydrateRoot.
+// Framer Motion's SSR output (used site-wide for animations) doesn't
+// reliably match the client's first paint closely enough for React's
+// strict hydration diff, so hydrating throws and forces an ugly fallback
+// re-render anyway; createRoot's plain replace is the more predictable,
+// visually-clean choice for real users.
 createRoot(document.getElementById("root")!).render(
   <>
     <App />
