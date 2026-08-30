@@ -153,7 +153,7 @@ export default function Home() {
         </section>
 
         {/* ¿Qué pasa cuando tratas tu propia vida como un producto? */}
-        <section className="py-16 md:py-[100px] px-5 sm:px-4 bg-background overflow-x-hidden">
+        <section className="pt-16 md:pt-[100px] pb-10 md:pb-14 px-5 sm:px-4 bg-background overflow-x-hidden">
           <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
             <FadeInView className="flex justify-center md:flex-[0_0_300px]">
               <img
@@ -235,8 +235,12 @@ export default function Home() {
           </div>
         </section>
 
+        <div className="flex justify-center pb-2 md:pb-3" aria-hidden="true">
+          <ChevronDown size={20} className="text-[#c2c8cf]" />
+        </div>
+
         {/* 3 Navigation Cards */}
-        <section ref={cardsRef} className="py-16 md:py-[100px] px-4 bg-background">
+        <section ref={cardsRef} className="pt-2 md:pt-4 pb-10 md:pb-14 px-4 bg-background">
           <div className="max-w-[1200px] mx-auto">
             <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {cards.map((c) => (
@@ -257,8 +261,12 @@ export default function Home() {
           </div>
         </section>
 
+        <div className="flex justify-center pb-2 md:pb-3" aria-hidden="true">
+          <ChevronDown size={20} className="text-[#c2c8cf]" />
+        </div>
+
         {/* Contact CTA */}
-        <section className="py-16 md:py-[100px] px-5 sm:px-4 text-center bg-background">
+        <section className="pt-2 md:pt-4 pb-16 md:pb-[100px] px-5 sm:px-4 text-center bg-background">
           <FadeInView>
             <h2 className="font-display font-bold text-[28px] sm:text-[36px] md:text-[42px] text-[#1f2937] mb-4">¿Quieres conectar?</h2>
             <p className="font-sans text-base sm:text-lg text-[#6b7280] mb-8 sm:mb-10 max-w-[500px] mx-auto">
