@@ -60,7 +60,7 @@ const featuredSkills = featuredSkillIds
   .filter((exp): exp is (typeof experiences)[number] => Boolean(exp));
 
 export default function Home() {
-  const cardsRef = useRef<HTMLElement>(null);
+  const philosophyRef = useRef<HTMLElement>(null);
   const canHover = useCanHover();
 
   return (
@@ -140,7 +140,7 @@ export default function Home() {
 
           <motion.button
             type="button"
-            onClick={() => cardsRef.current?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => philosophyRef.current?.scrollIntoView({ behavior: 'smooth' })}
             initial={{ opacity: 0, x: '-50%' }}
             animate={{ opacity: 1, x: '-50%', y: [0, 8, 0] }}
             transition={{ opacity: { delay: 1.3, duration: 0.6 }, y: { delay: 1.3, repeat: Infinity, duration: 1.6, ease: 'easeInOut' } }}
@@ -153,7 +153,7 @@ export default function Home() {
         </section>
 
         {/* ¿Qué pasa cuando tratas tu propia vida como un producto? */}
-        <section className="pt-16 md:pt-[100px] pb-10 md:pb-14 px-5 sm:px-4 bg-background overflow-x-hidden">
+        <section ref={philosophyRef} className="pt-16 md:pt-[100px] pb-10 md:pb-14 px-5 sm:px-4 bg-background overflow-x-hidden">
           <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
             <FadeInView className="flex justify-center md:flex-[0_0_300px]">
               <img
@@ -235,12 +235,8 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="flex justify-center pb-2 md:pb-3" aria-hidden="true">
-          <ChevronDown size={20} className="text-[#c2c8cf]" />
-        </div>
-
         {/* 3 Navigation Cards */}
-        <section ref={cardsRef} className="pt-2 md:pt-4 pb-10 md:pb-14 px-4 bg-background">
+        <section className="pt-2 md:pt-4 pb-10 md:pb-14 px-4 bg-background">
           <div className="max-w-[1200px] mx-auto">
             <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {cards.map((c) => (
@@ -252,7 +248,7 @@ export default function Home() {
                     <ArrowUpRight size={16} className="absolute top-5 right-5 sm:top-6 sm:right-6 text-[#9ca3af]" aria-hidden="true" />
                     <img src={c.icon} alt="" className="block mx-auto h-14 sm:h-16 w-14 sm:w-16 object-contain mb-4 sm:mb-5" />
                     <h3 className="font-display font-bold text-xl sm:text-2xl text-[#1f2937]">{c.title}</h3>
-                    <div className="w-8 h-[3px] rounded-full mx-auto my-3 sm:my-3.5" style={{ background: '#42767f' }} />
+                    <BrushUnderline color="#42767f" width={34} className="mx-auto my-3 sm:my-3.5" />
                     <p className="font-sans text-sm sm:text-base text-[#6b7280]">{c.desc}</p>
                   </Link>
                 </StaggerItem>
@@ -260,10 +256,6 @@ export default function Home() {
             </StaggerGrid>
           </div>
         </section>
-
-        <div className="flex justify-center pb-2 md:pb-3" aria-hidden="true">
-          <ChevronDown size={20} className="text-[#c2c8cf]" />
-        </div>
 
         {/* Contact CTA */}
         <section className="pt-2 md:pt-4 pb-16 md:pb-[100px] px-5 sm:px-4 text-center bg-background">

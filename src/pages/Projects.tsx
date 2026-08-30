@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { X } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { useCanHover } from '@/hooks/useCanHover';
 import PageTransition from '@/components/PageTransition';
@@ -24,7 +23,7 @@ const ejeStyles: Record<Eje, { bg: string; border: string; gradient: string }> =
   growth: { bg: 'linear-gradient(135deg, #faf5ff 0%, #e9d5ff 100%)', border: '#8b5cf6', gradient: 'linear-gradient(135deg, #8b5cf6, #7c3aed)' },
 };
 
-function ExperienceCard({ exp, index, onOpen }: { exp: Experience; index: number; onOpen: (id: string) => void }) {
+function ExperienceCard({ exp, index }: { exp: Experience; index: number }) {
   const colors = ejeStyles[exp.eje];
   const rotate = [-1.5, 1.5, -0.75][index % 3];
   const canHover = useCanHover();
@@ -36,9 +35,8 @@ function ExperienceCard({ exp, index, onOpen }: { exp: Experience; index: number
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       className="relative h-full"
     >
-      <button
-        type="button"
-        onClick={() => onOpen(exp.id)}
+      <Link
+        to={`/experiencias/${exp.id}`}
         className={`group flex flex-col h-full w-full text-left bg-white shadow-md cursor-pointer transition-shadow duration-300 p-3 pb-8 ${canHover ? 'hover:shadow-2xl' : ''}`}
       >
         <div
@@ -53,116 +51,7 @@ function ExperienceCard({ exp, index, onOpen }: { exp: Experience; index: number
           <h3 className="font-display font-bold text-xl text-[#1f2937] leading-tight">{exp.skill}</h3>
           <p className="font-sans text-sm text-[#6b7280] mt-2">{exp.subtitle}</p>
         </div>
-      </button>
-    </motion.div>
-  );
-}
-
-function ExpandedCard({ exp, onClose }: { exp: Experience; onClose: () => void }) {
-  const colors = ejeStyles[exp.eje];
-  return (
-    <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.25 }}
-    >
-      <motion.div className="absolute inset-0 bg-black/70" onClick={onClose} aria-hidden />
-
-      <motion.div
-        role="dialog"
-        aria-modal="true"
-        aria-label={exp.skill}
-        initial={{ opacity: 0, scale: 0.95, y: 12 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.95, y: 12 }}
-        transition={{ duration: 0.25, ease: 'easeOut' }}
-        className="relative bg-white w-full max-w-[720px] max-h-[90vh] overflow-y-auto shadow-2xl"
-      >
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Cerrar"
-          className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-[#1f2937] hover:bg-[#f3f4f6] transition-colors z-10"
-        >
-          <X size={20} />
-        </button>
-
-        <div
-          className="relative aspect-[16/9] overflow-hidden flex items-center justify-center"
-          style={!exp.image ? { background: `linear-gradient(135deg, ${colors.border}20, ${colors.border}40)` } : undefined}
-        >
-          {exp.image && <img src={exp.image} alt={exp.title} className="absolute inset-0 w-full h-full object-cover" />}
-        </div>
-
-        <div className="p-5 sm:p-8">
-          <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#1f2937] leading-tight">{exp.skill}</h3>
-          <p className="font-sans text-base text-[#6b7280] mt-1">{exp.subtitle}</p>
-
-          {exp.contextText && (
-            <div className="mt-6">
-              <p className="font-sans font-semibold text-xs uppercase tracking-wide mb-2" style={{ color: colors.border }}>Contexto</p>
-              <p className="font-sans text-[15px] sm:text-base text-[#4b5563] leading-relaxed text-justify">{exp.contextText}</p>
-            </div>
-          )}
-
-          {exp.preImageNote && (
-            <div className="mt-5 pl-4 border-l-2" style={{ borderColor: '#e5e7eb' }}>
-              <p className="font-sans text-sm text-[#1f2937] font-medium">{exp.preImageNote.highlight}</p>
-              <p className="font-sans text-[13px] text-[#6b7280] leading-relaxed mt-1.5 text-justify">{exp.preImageNote.description}</p>
-            </div>
-          )}
-
-          {exp.description && (
-            <div className="mt-6 pt-6 border-t border-[#f3f4f6]">
-              <p className="font-sans font-semibold text-xs uppercase tracking-wide mb-2" style={{ color: colors.border }}>Lo que aprendí</p>
-              <p className="font-sans text-[15px] sm:text-base text-[#4b5563] leading-relaxed text-justify">{exp.description}</p>
-            </div>
-          )}
-
-          {exp.externalLink && (
-            <a
-              href={exp.externalLink.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 rounded-full font-display font-bold text-sm text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
-              style={{ background: colors.border }}
-            >
-              {exp.externalLink.label}
-              <span aria-hidden>↗</span>
-            </a>
-          )}
-
-          {exp.instagramReel && (
-            <div className="mt-6">
-              <p className="font-display font-bold text-lg text-[#1f2937] mb-3">{exp.instagramReel.title}</p>
-              <div className="mx-auto w-full max-w-[360px] rounded-xl overflow-hidden shadow-lg bg-black">
-                <iframe
-                  src={`${exp.instagramReel.url.replace(/\/$/, '')}/embed/captioned`}
-                  title={exp.instagramReel.title}
-                  allow="autoplay; encrypted-media; picture-in-picture; web-share"
-                  allowFullScreen
-                  scrolling="no"
-                  className="w-full h-[600px] border-0"
-                />
-              </div>
-            </div>
-          )}
-
-          {exp.videoUrl && (
-            <div className="mt-6 aspect-video rounded-xl overflow-hidden shadow-lg">
-              <iframe
-                src={exp.videoUrl.replace('watch?v=', 'embed/')}
-                title={exp.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
-            </div>
-          )}
-        </div>
-      </motion.div>
+      </Link>
     </motion.div>
   );
 }
@@ -227,34 +116,6 @@ function EjeColumn({ id, eje }: { id: Eje; eje: typeof ejes.impact }) {
 
 export default function Projects() {
   usePageMeta('Proyecto', 'GAPING como case study de producto');
-  const [openId, setOpenId] = useState<string | null>(null);
-  const openExp = experiences.find((e) => e.id === openId) ?? null;
-
-  useEffect(() => {
-    if (!openId) return;
-    // Plain `overflow: hidden` on body doesn't reliably block background
-    // scroll on iOS Safari, and doesn't preserve the scroll offset — the
-    // page can visibly jump when the modal opens/closes. Pinning body to
-    // `position: fixed` at the current scroll offset (and restoring it on
-    // close) is the version that actually holds the page still everywhere.
-    const scrollY = window.scrollY;
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpenId(null);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => {
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
-      window.scrollTo(0, scrollY);
-      window.removeEventListener('keydown', onKey);
-    };
-  }, [openId]);
 
   return (
     <PageTransition>
@@ -308,14 +169,10 @@ export default function Projects() {
           <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 sm:mt-10">
             {experiences.map((exp, i) => (
               <StaggerItem key={exp.id} className="h-full">
-                <ExperienceCard exp={exp} index={i} onOpen={setOpenId} />
+                <ExperienceCard exp={exp} index={i} />
               </StaggerItem>
             ))}
           </StaggerGrid>
-
-          <AnimatePresence>
-            {openExp && <ExpandedCard exp={openExp} onClose={() => setOpenId(null)} />}
-          </AnimatePresence>
         </section>
       </main>
     </PageTransition>

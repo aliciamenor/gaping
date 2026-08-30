@@ -1,13 +1,14 @@
 import { useParams, Link } from 'react-router-dom';
-import { getExperienceById, experiences, ejes } from '@/data/experiences';
+import { ArrowLeft, ArrowRight, X } from 'lucide-react';
+import { getExperienceById, experiences, type Eje } from '@/data/experiences';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 
-const ejeBadgeStyles = {
-  impact: { bg: '#f0fdf4', color: '#10b981' },
-  horizons: { bg: '#e8f4f6', color: '#42767f' },
-  growth: { bg: '#faf5ff', color: '#8b5cf6' },
+const accentColorByEje: Record<Eje, string> = {
+  impact: '#10b981',
+  horizons: '#42767f',
+  growth: '#8b5cf6',
 };
 
 export default function ExperienceDetail() {
@@ -21,8 +22,8 @@ export default function ExperienceDetail() {
         <main className="py-20 min-h-screen flex items-center justify-center">
           <div className="text-center">
             <h1 className="font-display font-bold text-4xl text-[#1f2937] mb-4">Experiencia no encontrada</h1>
-            <Link to="/experiencias" className="font-display font-medium text-[#667eea] hover:underline">
-              Volver a Experiencias
+            <Link to="/proyecto#skills" className="font-display font-medium text-[#42767f] hover:underline">
+              Volver a Proyecto
             </Link>
           </div>
         </main>
@@ -30,69 +31,94 @@ export default function ExperienceDetail() {
     );
   }
 
-  const eje = ejes[experience.eje];
-  const relatedExperiences = experiences
-    .filter(exp => exp.id !== experience.id && (exp.eje === experience.eje || exp.badges.some(b => experience.badges.includes(b))))
-    .slice(0, 3);
-  const badgeStyle = ejeBadgeStyles[experience.eje];
+  const accent = accentColorByEje[experience.eje];
+
+  const currentIndex = experiences.findIndex((exp) => exp.id === experience.id);
+  const prevExp = experiences[(currentIndex - 1 + experiences.length) % experiences.length];
+  const nextExp = experiences[(currentIndex + 1) % experiences.length];
 
   return (
     <PageTransition>
-      <main className="py-20 px-4">
-        <div className="max-w-[1200px] mx-auto">
-          <Link to="/experiencias" className="inline-block font-sans font-medium text-base text-[#667eea] hover:underline mb-12">
-            ← Volver a Experiencias
-          </Link>
+      <main className="py-16 sm:py-20 px-5 sm:px-4">
+        {/* Fixed close button — reads as "closing a card" (like the old
+            modal) even though this is a real page, so browsing several
+            skills in a row stays fast: no need to scroll back up first. */}
+        <Link
+          to="/proyecto#skills"
+          aria-label="Cerrar y volver a las skills"
+          className="fixed top-20 right-4 sm:right-6 z-40 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-[#1f2937] hover:bg-[#f3f4f6] transition-colors"
+        >
+          <X size={20} />
+        </Link>
 
-          {/* Hero */}
-          <FadeInView className="text-center mb-16">
-             <span className="text-[72px] sm:text-[100px] md:text-[120px] block">{experience.emoji}</span>
-            <p className="font-sans font-semibold text-sm uppercase tracking-wide mt-4 sm:mt-6" style={{ color: badgeStyle.color }}>
-              Principal skill desarrollada
-            </p>
-            <h1 className="font-display font-bold text-[32px] sm:text-[42px] md:text-[56px] text-[#1f2937] mt-2">{experience.skill}</h1>
-            <p className="font-sans text-xl text-[#6b7280] mt-2">{experience.subtitle}</p>
-            <span
-              className="inline-block mt-6 px-4 py-2 rounded-full text-sm font-sans font-medium"
-              style={{ background: badgeStyle.bg, color: badgeStyle.color }}
+        <div className="max-w-[900px] mx-auto">
+          {/* Photo — polaroid treatment (white frame, slight tilt), like the
+              rest of the site's photos, instead of a plain full-bleed
+              banner. Leads with the real photo instead of the emoji. */}
+          <FadeInView className="mb-8 sm:mb-10 flex justify-center">
+            <div
+              className="bg-white shadow-lg p-2.5 pb-8 sm:p-3 sm:pb-10 max-w-[420px] sm:max-w-[480px] w-full"
+              style={{ transform: 'rotate(-1.5deg)' }}
             >
-              {eje.emoji} {eje.name}
-            </span>
+              <div
+                className="relative aspect-[4/3] overflow-hidden flex items-center justify-center"
+                style={!experience.image ? { background: `linear-gradient(135deg, ${accent}20, ${accent}40)` } : undefined}
+              >
+                {experience.image && (
+                  <img src={experience.image} alt={experience.title} className="absolute inset-0 w-full h-full object-cover" />
+                )}
+              </div>
+            </div>
           </FadeInView>
 
-          {/* Context text */}
+          {/* Header — no eje badge/pill on purpose. */}
+          <FadeInView className="text-center mb-10 sm:mb-12">
+            <p className="font-sans font-semibold text-sm uppercase tracking-wide" style={{ color: accent }}>
+              Principal skill desarrollada
+            </p>
+            <h1 className="font-display font-bold text-[28px] sm:text-[38px] md:text-[48px] text-[#1f2937] mt-2 leading-tight">{experience.skill}</h1>
+            <p className="font-sans text-lg sm:text-xl text-[#6b7280] mt-2">{experience.subtitle}</p>
+          </FadeInView>
+
+          {/* Contexto */}
           {experience.contextText && (
-            <FadeInView className="mb-16">
-              <p className="font-sans text-xl text-[#4b5563] leading-[1.8] max-w-[900px] italic text-justify">
-                {experience.contextText}
-              </p>
+            <FadeInView className="mb-8 sm:mb-10">
+              <p className="font-sans font-semibold text-xs uppercase tracking-wide mb-2" style={{ color: accent }}>Contexto</p>
+              <p className="font-sans text-base sm:text-lg text-[#4b5563] leading-[1.8] text-justify">{experience.contextText}</p>
             </FadeInView>
           )}
 
-          {/* What I did */}
-          <FadeInView className="mb-16">
-            <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-[#1f2937] mb-6">¿Qué hice?</h2>
-            <p className="font-sans text-xl text-[#4b5563] leading-[1.8] max-w-[900px] text-justify">
-              {experience.description}
-            </p>
-            {experience.externalLink && (
-              <a
-                href={experience.externalLink.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full font-display font-bold text-base text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
-                style={{ background: badgeStyle.color }}
-              >
-                {experience.externalLink.label}
-                <span aria-hidden>↗</span>
-              </a>
-            )}
-          </FadeInView>
+          {experience.preImageNote && (
+            <FadeInView className="mb-8 sm:mb-10 pl-4 border-l-2" style={{ borderColor: '#e5e7eb' }}>
+              <p className="font-sans text-base text-[#1f2937] font-medium">{experience.preImageNote.highlight}</p>
+              <p className="font-sans text-sm text-[#6b7280] leading-relaxed mt-1.5 text-justify">{experience.preImageNote.description}</p>
+            </FadeInView>
+          )}
+
+          {/* Lo que aprendí */}
+          {experience.description && (
+            <FadeInView className="mb-10 sm:mb-12 pt-6 sm:pt-8 border-t border-[#f3f4f6]">
+              <p className="font-sans font-semibold text-xs uppercase tracking-wide mb-2" style={{ color: accent }}>Lo que aprendí</p>
+              <p className="font-sans text-base sm:text-lg text-[#4b5563] leading-[1.8] text-justify">{experience.description}</p>
+              {experience.externalLink && (
+                <a
+                  href={experience.externalLink.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full font-display font-bold text-base text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  style={{ background: accent }}
+                >
+                  {experience.externalLink.label}
+                  <span aria-hidden>↗</span>
+                </a>
+              )}
+            </FadeInView>
+          )}
 
           {/* Instagram Reel */}
           {experience.instagramReel && (
-            <FadeInView className="mb-16">
-              <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-[#1f2937] mb-6 text-center">
+            <FadeInView className="mb-10 sm:mb-12">
+              <h2 className="font-display font-bold text-2xl sm:text-3xl text-[#1f2937] mb-6 text-center">
                 {experience.instagramReel.title}
               </h2>
               <div className="mx-auto w-full max-w-[400px] rounded-2xl overflow-hidden shadow-lg bg-black">
@@ -102,7 +128,7 @@ export default function ExperienceDetail() {
                   allow="autoplay; encrypted-media; picture-in-picture; web-share"
                   allowFullScreen
                   scrolling="no"
-                  className="w-full h-[720px] border-0"
+                  className="w-full h-[600px] sm:h-[720px] border-0"
                 />
               </div>
               <div className="text-center mt-4">
@@ -111,7 +137,7 @@ export default function ExperienceDetail() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-display font-bold text-base text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
-                  style={{ background: badgeStyle.color }}
+                  style={{ background: accent }}
                 >
                   Ver reel en Instagram <span aria-hidden>↗</span>
                 </a>
@@ -119,10 +145,9 @@ export default function ExperienceDetail() {
             </FadeInView>
           )}
 
-
           {/* Video */}
           {experience.videoUrl && (
-            <FadeInView className="mb-16">
+            <FadeInView className="mb-10 sm:mb-12">
               <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
                 <iframe
                   src={experience.videoUrl.replace('watch?v=', 'embed/')}
@@ -135,57 +160,24 @@ export default function ExperienceDetail() {
             </FadeInView>
           )}
 
-          {/* Pre-image note */}
-          {experience.preImageNote && (
-            <FadeInView className="mb-10 max-w-[900px] mx-auto">
-              <ul className="list-disc pl-6 space-y-3">
-                <li className="font-sans text-lg text-[#1f2937]">
-                  <span className="font-medium">{experience.preImageNote.highlight}</span>
-                  <p className="font-sans text-base text-[#6b7280] leading-[1.7] mt-2">
-                    {experience.preImageNote.description}
-                  </p>
-                </li>
-              </ul>
-            </FadeInView>
-          )}
-
-          {/* Cover image */}
-          {experience.image && (
-            <FadeInView className="mb-16">
-              <div className="rounded-2xl overflow-hidden shadow-lg max-w-[900px] mx-auto">
-                <img
-                  src={experience.image}
-                  alt={experience.title}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </FadeInView>
-          )}
-
-          {/* Related */}
-          {relatedExperiences.length > 0 && (
-            <FadeInView>
-              <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-[#1f2937] mb-4">Otras experiencias relacionadas</h2>
-              <p className="font-sans text-base text-[#6b7280] mb-8">
-                Si esta experiencia te resonó, también te puede interesar:
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {relatedExperiences.map((exp) => (
-                  <Link
-                    key={exp.id}
-                    to={`/experiencias/${exp.id}`}
-                    className="flex items-center gap-4 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                  >
-                    <span className="text-[40px] shrink-0">{exp.emoji}</span>
-                    <div>
-                      <h3 className="font-display font-medium text-lg text-[#1f2937]">{exp.skill}</h3>
-                      <p className="font-sans text-sm text-[#6b7280]">{exp.subtitle}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </FadeInView>
-          )}
+          {/* Anterior / Siguiente — para saltar rápido entre skills sin
+              volver a Proyecto cada vez. */}
+          <FadeInView className="flex items-center justify-between gap-4 mt-4 mb-12 sm:mb-16 pt-6 sm:pt-8 border-t border-[#f3f4f6]">
+            <Link to={`/experiencias/${prevExp.id}`} className="group flex items-center gap-2 sm:gap-3 min-w-0">
+              <ArrowLeft size={18} className="shrink-0 text-[#9ca3af] group-hover:text-[#42767f] transition-colors" />
+              <span className="min-w-0 text-left">
+                <span className="block font-sans text-[10px] sm:text-[11px] uppercase tracking-wide text-[#9ca3af]">Anterior</span>
+                <span className="block font-display font-semibold text-sm sm:text-base text-[#1f2937] group-hover:text-[#42767f] transition-colors truncate">{prevExp.skill}</span>
+              </span>
+            </Link>
+            <Link to={`/experiencias/${nextExp.id}`} className="group flex items-center gap-2 sm:gap-3 min-w-0 text-right">
+              <span className="min-w-0">
+                <span className="block font-sans text-[10px] sm:text-[11px] uppercase tracking-wide text-[#9ca3af]">Siguiente</span>
+                <span className="block font-display font-semibold text-sm sm:text-base text-[#1f2937] group-hover:text-[#42767f] transition-colors truncate">{nextExp.skill}</span>
+              </span>
+              <ArrowRight size={18} className="shrink-0 text-[#9ca3af] group-hover:text-[#42767f] transition-colors" />
+            </Link>
+          </FadeInView>
         </div>
       </main>
     </PageTransition>
