@@ -700,8 +700,16 @@ export default function GoToMarket() {
                     </h3>
                     <div className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 space-y-4 text-justify">
                       <p>
-                        Todo Go To Market necesita un apartado de medición: cómo sé si funcionó, no solo si se lanzó. Para GAPING definí qué quería conseguir de verdad y qué podía medir cada semana para saber si iba en esa dirección. Esto no es solo reporting: es lo que me permite, mientras el proyecto sigue en marcha, saber qué está funcionando y qué hay que iterar.
+                        Todo Go To Market necesita medición: cómo sé si funciona, no solo si se lanzó. Para este case study definí qué quería conseguir y qué podía medir cada semana, para saber qué iterar mientras sigue activo.
                       </p>
+                    </div>
+
+                    <div className="mb-8 pl-5 sm:pl-6 border-l-[3px]" style={{ borderColor: '#42767f' }}>
+                      <p className="font-sans italic text-[16px] sm:text-[18px] text-[#1f2937] leading-[1.6]">
+                        "Without data, you are just another person with an opinion.<br />
+                        Without an opinion, you're just another person with data."
+                      </p>
+                      <p className="font-sans text-[13px] text-[#9ca3af] mt-3">— W. Edwards Deming</p>
                     </div>
 
                     <p className="font-sans font-bold text-[15px] text-[#1f2937] mb-3">⭐ North Star Metric</p>
@@ -736,6 +744,10 @@ export default function GoToMarket() {
                         </ul>
                       </div>
                     </div>
+
+                    <p className="font-sans text-[15px] sm:text-[16px] text-[#4b5563] leading-[1.75] mt-6">
+                      Compartiré los resultados reales en cuanto los tenga.
+                    </p>
                   </div>
                 </div>
               </FadeInView>
