@@ -232,13 +232,26 @@ export default function Projects() {
 
   useEffect(() => {
     if (!openId) return;
-    document.body.style.overflow = 'hidden';
+    // Plain `overflow: hidden` on body doesn't reliably block background
+    // scroll on iOS Safari, and doesn't preserve the scroll offset — the
+    // page can visibly jump when the modal opens/closes. Pinning body to
+    // `position: fixed` at the current scroll offset (and restoring it on
+    // close) is the version that actually holds the page still everywhere.
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setOpenId(null);
     };
     window.addEventListener('keydown', onKey);
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      window.scrollTo(0, scrollY);
       window.removeEventListener('keydown', onKey);
     };
   }, [openId]);
@@ -284,7 +297,7 @@ export default function Projects() {
         </section>
 
         {/* Iteraciones */}
-        <section className="max-w-[1200px] mx-auto mt-20 sm:mt-24">
+        <section id="skills" className="max-w-[1200px] mx-auto mt-20 sm:mt-24 scroll-mt-24">
           <FadeInView className="text-center mb-6">
             <h2 className="font-display font-bold text-[24px] sm:text-[32px] md:text-[40px] leading-tight" style={{ color: '#42767f' }}>
               Principales <span className="line-through font-normal text-[#9ca3af]">features</span> skills desarrolladas

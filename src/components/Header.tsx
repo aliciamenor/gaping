@@ -26,8 +26,24 @@ export default function Header() {
   useEffect(() => { setIsMenuOpen(false); }, [location.pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    if (!isMenuOpen) return;
+    // Plain `overflow: hidden` on body doesn't reliably block background
+    // scroll on iOS Safari, and doesn't preserve the scroll offset — the
+    // page can visibly jump when the menu opens/closes. Pinning body to
+    // `position: fixed` at the current scroll offset (and restoring it on
+    // close) is the version that actually holds the page still everywhere.
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      window.scrollTo(0, scrollY);
+    };
   }, [isMenuOpen]);
 
   return (
