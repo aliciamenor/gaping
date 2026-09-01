@@ -1,3 +1,4 @@
+import { useEffect, useRef, type RefObject } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { usePageMeta } from '@/hooks/usePageMeta';
@@ -22,6 +23,37 @@ const ejeStyles: Record<Eje, { bg: string; border: string; gradient: string }> =
   horizons: { bg: 'linear-gradient(135deg, #e8f4f6 0%, #c5dfe3 100%)', border: '#42767f', gradient: 'linear-gradient(135deg, #42767f, #2f5a61)' },
   growth: { bg: 'linear-gradient(135deg, #faf5ff 0%, #e9d5ff 100%)', border: '#8b5cf6', gradient: 'linear-gradient(135deg, #8b5cf6, #7c3aed)' },
 };
+
+// The 3 eje objective texts are different lengths (Growth's is the
+// longest), so their card headers don't naturally line up — and how many
+// lines each one wraps to changes continuously with the column's width,
+// not just at Tailwind's breakpoints, so no fixed min-height class covers
+// every viewport. Measuring and equalizing at runtime is what actually
+// keeps the three "same size" everywhere.
+function useEqualHeight(containerRef: RefObject<HTMLElement>, selector: string) {
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const equalize = () => {
+      const els = Array.from(container.querySelectorAll<HTMLElement>(selector));
+      if (els.length < 2) return;
+      els.forEach((el) => { el.style.minHeight = ''; });
+      const max = Math.max(...els.map((el) => el.getBoundingClientRect().height));
+      els.forEach((el) => { el.style.minHeight = `${max}px`; });
+    };
+
+    equalize();
+    // Re-check shortly after mount in case a webfont swap reflows text
+    // after the first measurement.
+    const timeout = window.setTimeout(equalize, 300);
+    window.addEventListener('resize', equalize);
+    return () => {
+      window.clearTimeout(timeout);
+      window.removeEventListener('resize', equalize);
+    };
+  }, [containerRef, selector]);
+}
 
 function ExperienceCard({ exp, index }: { exp: Experience; index: number }) {
   const colors = ejeStyles[exp.eje];
@@ -71,7 +103,7 @@ function EjeColumn({ id, eje }: { id: Eje; eje: typeof ejes.impact }) {
         className="relative rounded-xl sm:rounded-3xl p-2 sm:p-5 md:p-8 pt-0 sm:pt-0 md:pt-0 h-full flex flex-col overflow-visible"
         style={{ background: styles.bg, border: `2px solid ${styles.border}` }}
       >
-        <div className="text-center mb-1.5 sm:mb-4 relative z-10">
+        <div data-eje-header className="text-center mb-1.5 sm:mb-4 relative z-10">
           <img
             src={letterImg}
             alt=""
@@ -116,6 +148,8 @@ function EjeColumn({ id, eje }: { id: Eje; eje: typeof ejes.impact }) {
 
 export default function Projects() {
   usePageMeta('Proyecto', 'GAPING como case study de producto');
+  const frameworkGridRef = useRef<HTMLDivElement>(null);
+  useEqualHeight(frameworkGridRef, '[data-eje-header]');
 
   return (
     <PageTransition>
@@ -150,7 +184,7 @@ export default function Projects() {
           <FadeInView className="text-center mb-10 sm:mb-12">
             <h2 className="font-display font-bold text-[24px] sm:text-[32px] md:text-[40px] leading-tight" style={{ color: '#42767f' }}>El framework de decisión</h2>
           </FadeInView>
-          <div className="grid grid-cols-3 gap-1.5 sm:gap-4 md:gap-6 items-start">
+          <div ref={frameworkGridRef} className="grid grid-cols-3 gap-1.5 sm:gap-4 md:gap-6 items-start">
             <EjeColumn id="impact" eje={ejes.impact} />
             <EjeColumn id="horizons" eje={ejes.horizons} />
             <EjeColumn id="growth" eje={ejes.growth} />

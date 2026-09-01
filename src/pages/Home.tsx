@@ -197,40 +197,45 @@ export default function Home() {
                 ¿Y si, en vez de features, desarrollo skills?
               </p>
 
-              <div className="flex gap-2.5 sm:gap-4 md:gap-[26px] mb-6 sm:mb-8">
-                {featuredSkills.map((exp, i) => {
-                  const rotate = [-2, 1.5, -1][i % 3];
-                  return (
-                    <motion.div
-                      key={exp.id}
-                      initial={{ rotate }}
-                      whileHover={canHover ? { rotate: 0, scale: 1.05, zIndex: 10 } : undefined}
-                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                      className="relative"
-                    >
-                      <Link
-                        to={`/experiencias/${exp.id}`}
-                        className="block w-[92px] sm:w-[120px] md:w-[148px] bg-white shadow-md p-1.5 sm:p-2 pb-3 sm:pb-[18px]"
-                      >
-                        <div className="aspect-[4/3] overflow-hidden">
-                          {exp.image && <img src={exp.image} alt="" className="w-full h-full object-cover" />}
-                        </div>
-                        <p className="font-display font-bold text-[9.5px] sm:text-[11px] md:text-[13px] text-[#1f2937] text-center leading-tight mt-2 sm:mt-3">{exp.skill}</p>
-                        <p className="font-sans text-[8px] sm:text-[9px] md:text-[10.5px] text-[#9ca3af] text-center mt-0.5 sm:mt-1">{exp.subtitle}</p>
-                      </Link>
-                    </motion.div>
-                  );
-                })}
-              </div>
+              {/* En pantallas anchas el botón se pone junto a las skills en
+                  vez de debajo, para que la sección quepa sin tanto scroll. */}
+              <div className="flex flex-col min-[1200px]:flex-row min-[1200px]:items-center gap-5 min-[1200px]:gap-8 mb-6 sm:mb-8">
+                <StaggerGrid className="flex gap-2.5 sm:gap-4 md:gap-[26px]">
+                  {featuredSkills.map((exp, i) => {
+                    const rotate = [-2, 1.5, -1][i % 3];
+                    return (
+                      <StaggerItem key={exp.id}>
+                        <motion.div
+                          initial={{ rotate }}
+                          whileHover={canHover ? { rotate: 0, scale: 1.05, zIndex: 10 } : undefined}
+                          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                          className="relative"
+                        >
+                          <Link
+                            to={`/experiencias/${exp.id}`}
+                            className="block w-[92px] sm:w-[120px] md:w-[148px] bg-white shadow-md p-1.5 sm:p-2 pb-3 sm:pb-[18px]"
+                          >
+                            <div className="aspect-[4/3] overflow-hidden">
+                              {exp.image && <img src={exp.image} alt="" className="w-full h-full object-cover" />}
+                            </div>
+                            <p className="font-display font-bold text-[9.5px] sm:text-[11px] md:text-[13px] text-[#1f2937] text-center leading-tight mt-2 sm:mt-3">{exp.skill}</p>
+                            <p className="font-sans text-[8px] sm:text-[9px] md:text-[10.5px] text-[#9ca3af] text-center mt-0.5 sm:mt-1">{exp.subtitle}</p>
+                          </Link>
+                        </motion.div>
+                      </StaggerItem>
+                    );
+                  })}
+                </StaggerGrid>
 
-              <Link
-                to="/proyecto#skills"
-                className="inline-flex items-center gap-2 font-display font-semibold text-sm sm:text-[15px] text-[#42767f] bg-white border-2 rounded-full px-5 sm:px-6 py-2.5 sm:py-3 hover:scale-[1.02] hover:shadow-md transition-all duration-300"
-                style={{ borderColor: '#42767f' }}
-              >
-                Ver todas las skills
-                <ArrowRight size={16} />
-              </Link>
+                <Link
+                  to="/proyecto#skills"
+                  className="inline-flex items-center gap-2 font-display font-semibold text-sm sm:text-[15px] text-[#42767f] bg-white border-2 rounded-full px-5 sm:px-6 py-2.5 sm:py-3 hover:scale-[1.02] hover:shadow-md transition-all duration-300 shrink-0"
+                  style={{ borderColor: '#42767f' }}
+                >
+                  Ver todas las skills
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
             </FadeInView>
           </div>
         </section>

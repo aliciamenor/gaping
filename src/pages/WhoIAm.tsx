@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { usePageMeta } from '@/hooks/usePageMeta';
-import { experiences } from '@/data/experiences';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
@@ -73,10 +72,15 @@ const voluntariado = [
 ];
 
 const formacion = [
-  { title: 'Doble Grado Publicidad + Marketing', inst: 'ESIC University', detail: '2018/2023 · Premio Excelencia · Nota media 9/10' },
+  { title: 'Doble Grado Publicidad + Marketing', inst: 'ESIC University', detail: '2018/2023 · Premio Excelencia · Beca Top Talent Banco Santander · Nota media 9/10' },
   { title: 'Erasmus+', inst: 'Vern University, Zagreb', detail: '2021/2022' },
-  { title: 'Transformación Digital', inst: 'ESDEN Business School', detail: '2025' },
-  { title: 'Liderazgo Social', inst: 'Universidad Francisco de Vitoria', detail: '2025' },
+  { title: 'Mentoría en Product Management', inst: 'Paco Crespo', detail: '2025/2026 · 80h' },
+  { title: 'Curso Especializado en Growth Marketing', inst: 'ESIC Business School', detail: '2026 · 2,5 meses' },
+  { title: 'Incubación NoCode4Culture — Desarrollo de MVP', inst: 'Cink Venturing', detail: '2025 · 3 meses' },
+  { title: 'Fundamentos de Emprendimiento Online', inst: 'Cámara de Comercio', detail: '2025 · 30h' },
+  { title: 'Transformación Digital', inst: 'ESDEN Business School', detail: '2025 · 375h' },
+  { title: 'Liderazgo Social', inst: 'Universidad Francisco de Vitoria', detail: '2025 · 100h' },
+  { title: 'Gestión Ágil de Proyectos (Avanzado)', inst: 'Infoser Technological Solutions', detail: '2025 · 90h' },
 ];
 
 const threeWords = ['Curiosa', 'Conectora', 'Resolutiva'];
@@ -87,29 +91,40 @@ const howIWork = [
   { emoji: '🤝', text: 'Hago que gente que no habla el mismo idioma (técnico, legal, diseño, desarrollo, proveedores) reme junta.' },
 ];
 
-const coreSkills: { label: string; to: string | null }[] = [
+// Ordenadas de más a menos impacto para un reclutador de PM. Solo son
+// clicables las que van a una sección propia (Go To Market) o cuyo nombre
+// coincide exactamente con el nombre real de la experiencia a la que
+// llevan — así ninguna experiencia queda apuntada por dos skills distintas.
+const skills: { label: string; to: string | null }[] = [
   { label: 'GTM & Launch', to: '/go-to-market' },
-  { label: 'Product Backlog', to: '/experiencias/backpacking-latam' },
-  { label: 'Empatía', to: '/experiencias/camino-santiago' },
-  { label: 'Stakeholder Management', to: '/experiencias/voluntariado-lituania' },
   { label: 'Data & KPIs', to: '/go-to-market#medir-resultados' },
-  { label: 'Design Thinking, Lean Startup y Agile', to: '/experiencias/cink-venturing' },
+  { label: 'Discovery', to: '/experiencias/discovery' },
+  { label: 'User research', to: '/experiencias/camino-santiago' },
+  { label: 'Gestión de stakeholders', to: null },
+  { label: 'Gestión de proyectos', to: '/experiencias/voluntariado-lituania' },
+  { label: 'Priorización y toma de decisiones', to: '/experiencias/backpacking-latam' },
+  { label: 'Desarrollo de producto end-to-end', to: null },
+  { label: 'OKRs', to: null },
+  { label: 'Design Thinking, Lean Startup y Agile', to: null },
+  { label: 'Estrategia de negocio', to: '/experiencias/somostalita' },
+  { label: 'Gestión de ecommerce', to: null },
+  { label: 'MVP y validación', to: '/experiencias/cink-venturing' },
+  { label: 'Comunicación', to: '/experiencias/podcast-menos30' },
+  { label: 'Alineación entre equipos', to: '/experiencias/transformacion-digital-esden' },
+  { label: 'Pensamiento crítico', to: '/experiencias/seminarios-liderazgo' },
+  { label: 'Adaptabilidad', to: '/experiencias/ruta-inti-2024' },
+  { label: 'Empatía', to: null },
+  { label: 'Innovación social', to: '/experiencias/liderazgo-social-ufv' },
 ];
 
-// Algunas skills de experiencias se muestran con una etiqueta distinta a exp.skill
-const skillLabelOverrides: Record<string, string> = {
-  'somostalita': 'Estrategia',
-  'mentorias-eventos-comunidad': 'Lifelong Learning',
-};
-
-const tools = ['Notion', 'Figma', 'Miro', 'Shopify', 'Power BI', 'Google Analytics', 'Jira', 'Canva', 'Excel'];
+const tools = ['Notion', 'Figma', 'Miro', 'Shopify', 'Google Analytics', 'Amplitude', 'Power BI', 'Salesforce', 'Jira', 'Canva', 'Mailchimp', 'Lovable', 'MS Office'];
 const aiTools = ['ChatGPT', 'Copilot', 'Claude Code'];
 
 function Pill({ label, highlight }: { label: string; highlight?: boolean }) {
   return (
     <span
-      className={`px-4 py-2 rounded-full font-sans font-medium text-sm transition-colors duration-300 cursor-default ${
-        highlight ? 'text-white shadow-sm' : 'bg-[#f3f4f6] text-[#1f2937] hover:bg-[#42767f] hover:text-white'
+      className={`px-4 py-2 rounded-full font-sans font-medium text-sm cursor-default ${
+        highlight ? 'text-white shadow-sm' : 'bg-[#f3f4f6] text-[#1f2937]'
       }`}
       style={highlight ? { background: 'linear-gradient(135deg, #42767f, #2d5259)' } : undefined}
     >
@@ -118,11 +133,29 @@ function Pill({ label, highlight }: { label: string; highlight?: boolean }) {
   );
 }
 
+// Forma de chip (esquinas menos redondeadas, con borde) en vez de la pill
+// redonda de Skills — para que Herramientas no se confunda con esa sección,
+// donde la forma redonda ya distingue lo clicable de lo fijo.
+function Tag({ label, highlight }: { label: string; highlight?: boolean }) {
+  return (
+    <span
+      className={`px-3 py-1.5 rounded-md font-sans font-medium text-sm cursor-default ${
+        highlight ? 'text-white shadow-sm' : 'bg-white border border-[#e5e7eb] text-[#4b5563]'
+      }`}
+      style={highlight ? { background: 'linear-gradient(135deg, #42767f, #2d5259)' } : undefined}
+    >
+      {highlight ? `✨ ${label}` : label}
+    </span>
+  );
+}
+
+// Fondo/borde en el color de marca para que se distingan a simple vista de
+// las skills fijas (Pill), sin tener que pasar el ratón por encima.
 function SkillLink({ label, to }: { label: string; to: string }) {
   return (
     <Link
       to={to}
-      className="px-4 py-2 rounded-full font-sans font-medium text-sm bg-[#f3f4f6] text-[#1f2937] hover:bg-[#42767f] hover:text-white transition-colors duration-300"
+      className="px-4 py-2 rounded-full font-sans font-medium text-sm bg-[#42767f]/10 text-[#2d5259] border border-[#42767f]/30 hover:bg-[#42767f] hover:text-white hover:border-[#42767f] transition-colors duration-300"
     >
       {label}
     </Link>
@@ -317,9 +350,14 @@ export default function WhoIAm() {
                   </span>
                 ))}
               </div>
-              <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563] text-justify">
-                Empecé en marketing porque no entendía por qué toda mi clase quería un iPhone, cuando había móviles mejores y más baratos. Esa curiosidad de por qué nos enamora una marca me llevó a otra pregunta: qué hace que compremos un producto. Ahí encontré mi camino.
-              </p>
+              <div className="space-y-4 text-justify">
+                <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563]">
+                  Empecé en marketing para entender qué hace que unos productos nos enamoren.
+                </p>
+                <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563]">
+                  Y llegué a product management, porque lo que realmente me engancha es diseñar y construir productos que solucionen problemas reales y aporten al negocio.
+                </p>
+              </div>
             </div>
           </FadeInView>
 
@@ -514,24 +552,21 @@ export default function WhoIAm() {
 
           {/* Skills */}
           <FadeInView>
-            <h2 className="font-display font-bold text-[28px] sm:text-[32px] text-[#1f2937] mb-8">Skills de Producto</h2>
+            <h2 className="font-display font-bold text-[28px] sm:text-[32px] text-[#1f2937] mb-8">Skill Set</h2>
           </FadeInView>
           <div className="mb-10">
             <h3 className="font-display font-bold text-lg text-[#42767f] mb-4">Skills</h3>
             <div className="flex flex-wrap gap-2">
-              {coreSkills.map((s) =>
+              {skills.map((s) =>
                 s.to ? <SkillLink key={s.label} label={s.label} to={s.to} /> : <Pill key={s.label} label={s.label} />
               )}
-              {experiences.map((exp) => (
-                <SkillLink key={exp.id} label={skillLabelOverrides[exp.id] ?? exp.skill} to={`/experiencias/${exp.id}`} />
-              ))}
             </div>
           </div>
           <div className="mb-16">
             <h3 className="font-display font-bold text-lg text-[#42767f] mb-4">Herramientas</h3>
             <div className="flex flex-wrap gap-2">
-              {tools.map((s) => <Pill key={s} label={s} />)}
-              {aiTools.map((s) => <Pill key={s} label={s} highlight />)}
+              {tools.map((s) => <Tag key={s} label={s} />)}
+              {aiTools.map((s) => <Tag key={s} label={s} highlight />)}
             </div>
           </div>
 

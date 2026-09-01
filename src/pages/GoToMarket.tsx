@@ -682,6 +682,22 @@ export default function GoToMarket() {
                         </ul>
                       </div>
                     </div>
+
+                    {/* Bloque B: Stack de herramientas */}
+                    <div className="mt-8">
+                      <h4 className="font-display font-bold text-[18px] sm:text-[20px] text-[#1f2937] mb-4">🛠️ Stack de herramientas</h4>
+                      <div className="bg-white p-6 rounded-[16px] shadow-sm">
+                        <ul className="space-y-2 font-sans text-[15px] text-[#1f2937] leading-relaxed">
+                          <li>✓ Ideación y estructura de contenido: Claude (Proyecto con todo el contexto de GAPING)</li>
+                          <li>✓ Prototipo inicial: Lovable</li>
+                          <li>✓ Identidad visual (logo, iconos): Canva AI, ChatGPT</li>
+                          <li>✓ Diseño de producto (mockups antes de construir): Claude Design</li>
+                          <li>✓ Desarrollo: Claude Code — React, TypeScript, Tailwind</li>
+                          <li>✓ Publicación: GitHub, Vercel</li>
+                          <li>✓ Indexación y analítica: Google Search Console, PostHog, Vercel Analytics</li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </FadeInView>
@@ -746,7 +762,7 @@ export default function GoToMarket() {
                     </div>
 
                     <p className="font-sans text-[15px] sm:text-[16px] text-[#4b5563] leading-[1.75] mt-6">
-                      Compartiré los resultados reales en cuanto los tenga.
+                      Compartiré los resultados reales en unos meses (Ahora estoy en Construir-Medir-Aprender).
                     </p>
                   </div>
                 </div>
