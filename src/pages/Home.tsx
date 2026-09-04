@@ -266,8 +266,8 @@ export default function Home() {
         <section className="pt-2 md:pt-4 pb-16 md:pb-[100px] px-5 sm:px-4 text-center bg-background">
           <FadeInView>
             <h2 className="font-display font-bold text-[28px] sm:text-[36px] md:text-[42px] text-[#1f2937] mb-4">¿Quieres conectar?</h2>
-            <p className="font-sans text-base sm:text-lg text-[#6b7280] mb-8 sm:mb-10 max-w-[500px] mx-auto">
-              Escríbeme. Me encantan los cafés (incluso si son virtuales)
+            <p className="font-display font-bold text-lg sm:text-xl mb-8 sm:mb-10" style={{ color: '#42767f' }}>
+              ¿Buscas tu próximo Product Manager? Hablemos
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
               <a

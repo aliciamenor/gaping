@@ -51,7 +51,19 @@ export default function Header() {
       <header className="sticky top-0 z-50 bg-white shadow-sm">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
           <nav className="flex items-center justify-between h-16">
-            <Link to="/" className="flex items-center gap-2.5 leading-none" aria-label="GAPING">
+            <Link
+              to="/"
+              className="flex items-center gap-2.5 leading-none"
+              aria-label="GAPING"
+              onClick={() => {
+                // A same-route Link click doesn't trigger a navigation, so
+                // ScrollToTop's pathname effect never fires — scroll back to
+                // the hero manually when already on the landing page.
+                if (location.pathname === '/') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+            >
               <img src={logoArrow} alt="" aria-hidden="true" className="h-[26px] w-auto" />
               <span className="flex items-center">
                 {WORDMARK_LETTERS.map((src, i) => (
