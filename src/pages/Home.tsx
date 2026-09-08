@@ -47,9 +47,9 @@ const cards = [
 // Filtro I · Nuevos Horizontes · Growth — mismo trío de colores que el
 // resto del sitio usa para los "ejes" (ver ejeStyles en Projects.tsx).
 const filters = [
-  { letter: letterI, label: 'Impacto', desc: '¿Aporta algo a alguien más, no solo a mí?', color: '#10b981' },
-  { letter: letterN, label: 'Nuevos Horizontes', desc: '¿Me saca de un contexto que ya domino?', color: '#42767f' },
-  { letter: letterG, label: 'Growth', desc: '¿Voy a saber o poder hacer algo que antes no?', color: '#8b5cf6' },
+  { letter: letterI, label: 'Impacto', desc: '¿Aporta algo a alguien más, no solo a mí?', color: '#10b981', bg: 'rgba(16,185,129,0.08)' },
+  { letter: letterN, label: 'Nuevos Horizontes', desc: '¿Me saca de un contexto que ya domino?', color: '#42767f', bg: 'rgba(66,118,127,0.08)' },
+  { letter: letterG, label: 'Growth', desc: '¿Voy a saber o poder hacer algo que antes no?', color: '#8b5cf6', bg: 'rgba(139,92,246,0.08)' },
 ];
 
 // 3 skills reales, tomadas de src/data/experiences.ts (la misma fuente que
@@ -120,20 +120,36 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.9 }}
-              className="mt-6 sm:mt-8 max-w-[500px] mx-auto"
+              className="mt-6 sm:mt-8 max-w-[520px] mx-auto"
             >
-              <p className="font-sans text-sm sm:text-base leading-[1.6] text-muted-foreground">
-                Un año fuera de la oficina, documentado como un case study de producto.
+              {/* Segundo nivel de jerarquía tras el wordmark: es la única
+                  frase que explica qué es esta web, así que va más grande y
+                  oscura que "Diseñé · Validé · Lancé" / "El producto era
+                  yo" — esas son acentos de ritmo, no la explicación. */}
+              <p className="font-sans text-base sm:text-lg md:text-xl leading-[1.5] text-[#1f2937] [text-wrap:balance]">
+                Un año fuera de la oficina, documentado como un{' '}
+                <span
+                  className="whitespace-nowrap"
+                  style={{
+                    textDecorationLine: 'underline',
+                    textDecorationStyle: 'wavy',
+                    textDecorationColor: '#42767f',
+                    textDecorationThickness: '1.5px',
+                    textUnderlineOffset: '4px',
+                  }}
+                >
+                  case study de producto
+                </span>.
               </p>
-              <div className="mt-5 flex flex-col items-center gap-1.5">
-                <div className="font-display font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5" style={{ color: '#42767f' }}>
+              <div className="mt-6 flex flex-col items-center gap-2">
+                <div className="font-display font-bold text-xs sm:text-sm uppercase tracking-[0.08em] flex items-center gap-2.5" style={{ color: '#42767f' }}>
                   <span>Diseñé</span>
                   <span style={{ color: '#b8d4d8' }}>·</span>
                   <span>Validé</span>
                   <span style={{ color: '#b8d4d8' }}>·</span>
                   <span>Lancé</span>
                 </div>
-                <p className="font-sans text-sm sm:text-base italic text-muted-foreground">El producto era yo.</p>
+                <p className="font-display italic text-xs sm:text-sm text-muted-foreground">El producto era yo.</p>
               </div>
             </motion.div>
           </div>
@@ -178,13 +194,13 @@ export default function Home() {
                 Un filtro, las mismas tres preguntas, antes de cada decisión:
               </p>
 
-              <div className="grid grid-cols-3 gap-3 sm:gap-5 mb-6 sm:mb-7">
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-6 sm:mb-7">
                 {filters.map((f) => (
-                  <div key={f.label} className="min-w-0">
-                    <img src={f.letter} alt="" aria-hidden="true" className="h-5 sm:h-[26px] md:h-[30px] w-auto mb-0.5" />
-                    <BrushUnderline color={f.color} width={34} className="block mb-1.5 sm:mb-2" />
-                    <p className="font-display font-bold text-[11px] sm:text-[13px] md:text-sm text-[#1f2937] leading-tight mb-0.5 sm:mb-1">{f.label}</p>
-                    <p className="font-sans text-[9.5px] sm:text-[11px] md:text-[13px] leading-snug text-[#9ca3af]">{f.desc}</p>
+                  <div key={f.label} className="min-w-0 rounded-2xl p-2.5 sm:p-4 md:p-5 text-center" style={{ background: f.bg }}>
+                    <img src={f.letter} alt="" aria-hidden="true" className="h-9 sm:h-12 md:h-14 w-auto mx-auto mb-0.5" />
+                    <BrushUnderline color={f.color} width={30} className="block mx-auto mb-1.5 sm:mb-2" />
+                    <p className="font-display font-bold text-[10.5px] sm:text-[13px] md:text-sm uppercase tracking-[0.02em] text-[#1f2937] leading-tight mb-0.5 sm:mb-1">{f.label}</p>
+                    <p className="font-sans text-[9px] sm:text-[11px] md:text-[13px] leading-snug text-[#6b7280]">{f.desc}</p>
                   </div>
                 ))}
               </div>
@@ -267,7 +283,7 @@ export default function Home() {
           <FadeInView>
             <h2 className="font-display font-bold text-[28px] sm:text-[36px] md:text-[42px] text-[#1f2937] mb-4">¿Quieres conectar?</h2>
             <p className="font-display font-bold text-lg sm:text-xl mb-8 sm:mb-10" style={{ color: '#42767f' }}>
-              ¿Buscas tu próximo Product Manager? Hablemos
+              ¿Buscas una PM que valide antes de construir y entregue? Hablemos.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
               <a

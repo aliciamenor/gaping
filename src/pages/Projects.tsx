@@ -18,10 +18,13 @@ import letterI from '@/assets/icons/letter-i.png';
 import letterN from '@/assets/icons/letter-n.png';
 import letterG from '@/assets/icons/letter-g.png';
 
+// Mismo fondo tintado plano (sin degradado ni borde) que usa el filtro
+// I/N/G de Home, para que las dos apariciones del mismo trío de colores
+// en el sitio sean visualmente coherentes.
 const ejeStyles: Record<Eje, { bg: string; border: string; gradient: string }> = {
-  impact: { bg: 'linear-gradient(135deg, #f0fdf4 0%, #d1fae5 100%)', border: '#10b981', gradient: 'linear-gradient(135deg, #10b981, #059669)' },
-  horizons: { bg: 'linear-gradient(135deg, #e8f4f6 0%, #c5dfe3 100%)', border: '#42767f', gradient: 'linear-gradient(135deg, #42767f, #2f5a61)' },
-  growth: { bg: 'linear-gradient(135deg, #faf5ff 0%, #e9d5ff 100%)', border: '#8b5cf6', gradient: 'linear-gradient(135deg, #8b5cf6, #7c3aed)' },
+  impact: { bg: 'rgba(16,185,129,0.08)', border: '#10b981', gradient: 'linear-gradient(135deg, #10b981, #059669)' },
+  horizons: { bg: 'rgba(66,118,127,0.08)', border: '#42767f', gradient: 'linear-gradient(135deg, #42767f, #2f5a61)' },
+  growth: { bg: 'rgba(139,92,246,0.08)', border: '#8b5cf6', gradient: 'linear-gradient(135deg, #8b5cf6, #7c3aed)' },
 };
 
 // The 3 eje objective texts are different lengths (Growth's is the
@@ -101,7 +104,7 @@ function EjeColumn({ id, eje }: { id: Eje; eje: typeof ejes.impact }) {
     <FadeInView>
       <section
         className="relative rounded-xl sm:rounded-3xl p-2 sm:p-5 md:p-8 pt-0 sm:pt-0 md:pt-0 h-full flex flex-col overflow-visible"
-        style={{ background: styles.bg, border: `2px solid ${styles.border}` }}
+        style={{ background: styles.bg }}
       >
         <div data-eje-header className="text-center mb-1.5 sm:mb-4 relative z-10">
           <img
@@ -164,16 +167,13 @@ export default function Projects() {
           <FadeInView>
             <div className="max-w-[850px] mx-auto text-justify mt-8 sm:mt-10 space-y-5">
               <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563]">
-                <span className="font-bold" style={{ color: '#42767f' }}>GAP + ING</span>: el hueco en el CV convertido en movimiento. Diseñé este año como el espacio para mejorar mis soft skills y mi empleabilidad futura como Product Manager.
+                <span className="font-bold" style={{ color: '#42767f' }}>GAP + ING</span>: el hueco en el CV convertido en movimiento.
               </p>
               <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563]">
-                Diseñé un experimento: vivir experiencias distintas fuera de la oficina, filtradas siempre por el mismo framework de decisión: <span className="font-bold">I</span>mpacto (¿Esta experiencia aporta algo a alguien más, no solo a mí?), <span className="font-bold">N</span>uevos Horizontes (¿Me obliga a salir de un contexto, idioma o entorno que ya domino?), y <span className="font-bold">G</span>rowth (¿Al terminarla, voy a saber o poder hacer algo que antes no?).
+                Según el World Economic Forum (2025), el 39% de las competencias clave de un trabajador cambiará antes de 2030. Y entre las más demandadas están el liderazgo, la resiliencia y el pensamiento creativo, las skills que ninguna IA puede replicar. Así que tomé una decisión: diseñar un año fuera de la oficina como un experimento para desarrollarlas, con la misma metodología que usaría para lanzar un producto. ¿Y si en vez de features, desarrollo skills?
               </p>
               <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563]">
-                Pero antes de vivir cada experiencia, había un proceso mínimo. Investigaba: entrevistas informales con conocidos, conocidos de conocidos y contactos vía outreach en LinkedIn, para entender de verdad qué implicaba cada opción antes de comprometerme.
-              </p>
-              <p className="font-sans text-base sm:text-lg leading-[1.8] text-[#4b5563]">
-                Al no tener tiempo ni dinero infinito, tenía que priorizar entre muchas posibilidades y gestionar mis propias expectativas sobre lo que cada experiencia podía darme realmente. Y, sobre todo, iterar: cada error se convertía en un ajuste para la siguiente experiencia.
+                Antes de cada experiencia investigaba hablando con conocidos, conocidos de conocidos y contactos por outreach en LinkedIn que ya hubiesen pasado por algo parecido, para entender de verdad qué implicaba cada opción antes de comprometerme. Con tiempo y dinero finitos, no podía hacerlo todo. Cada elección implicaba descartar, e iteraba con los aprendizajes que iba sacando.
               </p>
             </div>
           </FadeInView>

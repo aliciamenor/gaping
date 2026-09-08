@@ -46,6 +46,17 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
+  // Shared by the logo and every nav item that points to "/": a same-route
+  // Link click doesn't trigger a navigation, so neither ScrollToTop's
+  // pathname effect nor the mobile-menu-close effect above ever fires for
+  // it — handle both manually when already on the landing page.
+  const handleHomeClick = () => {
+    setIsMenuOpen(false);
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <header className="sticky top-0 z-50 bg-white shadow-sm">
@@ -55,14 +66,7 @@ export default function Header() {
               to="/"
               className="flex items-center gap-2.5 leading-none"
               aria-label="GAPING"
-              onClick={() => {
-                // A same-route Link click doesn't trigger a navigation, so
-                // ScrollToTop's pathname effect never fires — scroll back to
-                // the hero manually when already on the landing page.
-                if (location.pathname === '/') {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
+              onClick={handleHomeClick}
             >
               <img src={logoArrow} alt="" aria-hidden="true" className="h-[26px] w-auto" />
               <span className="flex items-center">
@@ -88,6 +92,7 @@ export default function Header() {
                     <Link
                       to={item.path}
                       aria-current={isActive ? 'page' : undefined}
+                      onClick={item.path === '/' ? handleHomeClick : undefined}
                       className={`relative px-4 py-2 font-sans font-medium text-base transition-colors duration-300 rounded-md ${
                         isActive ? 'text-[#42767f]' : 'text-[#6b7280] hover:text-[#42767f]'
                       }`}
@@ -121,7 +126,7 @@ export default function Header() {
                 <Link
                   key={item.path}
                   to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={item.path === '/' ? handleHomeClick : () => setIsMenuOpen(false)}
                   className={`text-2xl font-sans font-medium py-4 px-6 rounded-xl transition-colors duration-300 ${
                     isActive ? 'text-[#42767f] bg-[#42767f]/10' : 'text-[#6b7280] hover:text-[#42767f]'
                   }`}

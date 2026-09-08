@@ -1,17 +1,18 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;
   className?: string;
   delay?: number;
+  style?: CSSProperties;
 }
 
-export default function FadeInView({ children, className = '', delay = 0 }: Props) {
+export default function FadeInView({ children, className = '', delay = 0, style }: Props) {
   const reduce = useReducedMotion();
 
   if (reduce) {
-    return <div className={className}>{children}</div>;
+    return <div className={className} style={style}>{children}</div>;
   }
 
   return (
@@ -21,6 +22,7 @@ export default function FadeInView({ children, className = '', delay = 0 }: Prop
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5, delay, ease: 'easeOut' }}
       className={className}
+      style={style}
     >
       {children}
     </motion.div>
