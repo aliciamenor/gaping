@@ -124,32 +124,34 @@ export default function Home() {
             >
               {/* Segundo nivel de jerarquía tras el wordmark: es la única
                   frase que explica qué es esta web, así que va más grande y
-                  oscura que "Diseñé · Validé · Lancé" / "El producto era
-                  yo" — esas son acentos de ritmo, no la explicación. */}
+                  oscura que "Discovery · Priorización · Lanzamiento" / la
+                  frase de cierre — esas son acentos de ritmo, no la
+                  explicación. */}
               <p className="font-sans text-base sm:text-lg md:text-xl leading-[1.5] text-[#1f2937] [text-wrap:balance]">
-                Un año fuera de la oficina, documentado como un{' '}
-                <span
-                  className="whitespace-nowrap"
-                  style={{
-                    textDecorationLine: 'underline',
-                    textDecorationStyle: 'wavy',
-                    textDecorationColor: '#42767f',
-                    textDecorationThickness: '1.5px',
-                    textUnderlineOffset: '4px',
-                  }}
-                >
-                  case study de producto
-                </span>.
+                Un año fuera de la oficina, diseñado como proyecto de desarrollo profesional.
               </p>
               <div className="mt-6 flex flex-col items-center gap-2">
                 <div className="font-display font-bold text-xs sm:text-sm uppercase tracking-[0.08em] flex items-center gap-2.5" style={{ color: '#42767f' }}>
-                  <span>Diseñé</span>
+                  <span>Discovery</span>
                   <span style={{ color: '#b8d4d8' }}>·</span>
-                  <span>Validé</span>
+                  <span>Priorización</span>
                   <span style={{ color: '#b8d4d8' }}>·</span>
-                  <span>Lancé</span>
+                  <span>Lanzamiento</span>
                 </div>
-                <p className="font-display italic text-xs sm:text-sm text-muted-foreground">El producto era yo.</p>
+                <p className="font-display italic text-xs sm:text-sm text-muted-foreground">
+                  El mismo proceso que usaría para construir cualquier{' '}
+                  <span
+                    style={{
+                      textDecorationLine: 'underline',
+                      textDecorationStyle: 'wavy',
+                      textDecorationColor: '#42767f',
+                      textDecorationThickness: '1.5px',
+                      textUnderlineOffset: '3px',
+                    }}
+                  >
+                    producto
+                  </span>.
+                </p>
               </div>
             </motion.div>
           </div>
@@ -168,7 +170,7 @@ export default function Home() {
           </motion.button>
         </section>
 
-        {/* ¿Qué pasa cuando tratas tu propia vida como un producto? */}
+        {/* ¿Qué pasa cuando tratas tu propio desarrollo profesional como un producto? */}
         <section ref={philosophyRef} className="pt-16 md:pt-[100px] pb-10 md:pb-14 px-5 sm:px-4 bg-background overflow-x-hidden">
           <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
             <FadeInView className="flex justify-center md:flex-[0_0_300px]">
@@ -183,11 +185,11 @@ export default function Home() {
 
             <FadeInView className="flex-1 min-w-0">
               <h2 className="font-display font-bold text-[26px] sm:text-[32px] md:text-[40px] leading-[1.15] text-[#1f2937] mb-4 sm:mb-5">
-                ¿Qué pasa cuando tratas tu propia vida como un producto?
+                ¿Qué pasa cuando tratas tu propio desarrollo profesional como un producto?
               </h2>
 
               <p className="font-sans text-[15px] sm:text-base md:text-[17px] leading-[1.65] text-[#6b7280] mb-6 sm:mb-8">
-                He pasado de crear nuevas bebidas en Mahou San Miguel a crear mi propia hipótesis: un año fuera de la oficina (el GAP) para explorar, probar, aportar y aprender. Sin roadmap perfecto ni respuestas cerradas.
+                De liderar el crecimiento de un nuevo modelo de negocio y desarrollar nuevas bebidas en Mahou San Miguel, a crear mi propia hipótesis de desarrollo profesional: un año fuera de la oficina (el GAP) para explorar, aportar y aprender, sin roadmap perfecto ni respuestas cerradas.
               </p>
 
               <p className="font-display font-semibold text-[11px] sm:text-[13px] uppercase tracking-[0.04em] text-[#9ca3af] mb-4 sm:mb-5">
@@ -283,7 +285,7 @@ export default function Home() {
           <FadeInView>
             <h2 className="font-display font-bold text-[28px] sm:text-[36px] md:text-[42px] text-[#1f2937] mb-4">¿Quieres conectar?</h2>
             <p className="font-display font-bold text-lg sm:text-xl mb-8 sm:mb-10" style={{ color: '#42767f' }}>
-              ¿Buscas una PM que valide antes de construir y entregue? Hablemos.
+              ¿Buscas a tu próximo Product Manager? Hablemos →
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
               <a
