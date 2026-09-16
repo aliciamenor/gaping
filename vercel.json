@@ -2,7 +2,7 @@
   "redirects": [
     { "source": "/projects", "destination": "/proyecto", "permanent": true },
     { "source": "/who-i-am", "destination": "/aboutme", "permanent": true },
-    { "source": "/experiencias/mentorias-eventos-comunidad", "destination": "/experiencias/discovery", "permanent": true }
+    { "source": "/experiencias/discovery", "destination": "/experiencias/mentorias-eventos-comunidad", "permanent": true }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }

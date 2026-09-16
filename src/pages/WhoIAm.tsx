@@ -98,7 +98,7 @@ const howIWork = [
 const skills: { label: string; to: string | null }[] = [
   { label: 'GTM & Launch', to: '/go-to-market' },
   { label: 'Data & KPIs', to: '/go-to-market#medir-resultados' },
-  { label: 'Discovery', to: '/experiencias/discovery' },
+  { label: 'Aprendizaje continuo', to: '/experiencias/mentorias-eventos-comunidad' },
   { label: 'User research', to: '/experiencias/camino-santiago' },
   { label: 'Gestión de stakeholders', to: null },
   { label: 'Gestión de proyectos', to: '/experiencias/voluntariado-lituania' },
@@ -361,6 +361,27 @@ export default function WhoIAm() {
             </div>
           </FadeInView>
 
+          {/* Referencias */}
+          <FadeInView>
+            <h2 className="font-display font-bold text-[28px] sm:text-[32px] text-[#1f2937] mb-2">Referencias</h2>
+            <p className="font-sans text-base text-[#6b7280] mb-8">Lo que dicen quienes han trabajado conmigo</p>
+          </FadeInView>
+          <ReferencesCarousel />
+
+          <FadeInView>
+            <div className="text-center mb-16">
+              <a
+                href="https://www.linkedin.com/in/aliciamenorgomez/details/recommendations/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-display font-medium text-base hover:underline"
+                style={{ color: '#42767f' }}
+              >
+                Ver todas las recomendaciones en LinkedIn →
+              </a>
+            </div>
+          </FadeInView>
+
           {/* Cómo trabajo */}
           <FadeInView>
             <div className="max-w-[900px] mx-auto mb-16 sm:mb-20">
@@ -569,27 +590,6 @@ export default function WhoIAm() {
               {aiTools.map((s) => <Tag key={s} label={s} highlight />)}
             </div>
           </div>
-
-          {/* Referencias */}
-          <FadeInView>
-            <h2 className="font-display font-bold text-[28px] sm:text-[32px] text-[#1f2937] mb-2">Referencias</h2>
-            <p className="font-sans text-base text-[#6b7280] mb-8">Lo que dicen quienes han trabajado conmigo</p>
-          </FadeInView>
-          <ReferencesCarousel />
-
-          <FadeInView>
-            <div className="text-center mb-16">
-              <a
-                href="https://www.linkedin.com/in/aliciamenorgomez/details/recommendations/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-display font-medium text-base hover:underline"
-                style={{ color: '#42767f' }}
-              >
-                Ver todas las recomendaciones en LinkedIn →
-              </a>
-            </div>
-          </FadeInView>
 
           {/* CV button */}
           <FadeInView>
