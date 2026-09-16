@@ -88,9 +88,10 @@ export default function Home() {
             ].map((p, i) => (
               <motion.div
                 key={i}
-                initial={{ rotate: p.rotate }}
-                whileHover={canHover ? { scale: 1.4, rotate: 0, zIndex: 30 } : undefined}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                initial={{ opacity: 0, y: 14, rotate: p.rotate }}
+                animate={{ opacity: 1, y: 0, rotate: p.rotate }}
+                transition={{ duration: 0.5, delay: 0.15 + i * 0.06 }}
+                whileHover={canHover ? { scale: 1.4, rotate: 0, zIndex: 30, transition: { type: 'spring', stiffness: 300, damping: 20 } } : undefined}
                 className="bg-background p-1.5 pb-3 shadow-md w-[60px] sm:w-[74px] md:w-[90px] relative cursor-pointer"
               >
                 <img
@@ -285,7 +286,7 @@ export default function Home() {
           <FadeInView>
             <h2 className="font-display font-bold text-[28px] sm:text-[36px] md:text-[42px] text-[#1f2937] mb-4">¿Quieres conectar?</h2>
             <p className="font-display font-bold text-lg sm:text-xl mb-8 sm:mb-10" style={{ color: '#42767f' }}>
-              ¿Buscas a tu próximo Product Manager? Hablemos →
+              ¿Buscas a tu próximo Product Manager? Hablemos
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
               <a

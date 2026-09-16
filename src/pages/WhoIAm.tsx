@@ -363,8 +363,18 @@ export default function WhoIAm() {
 
           {/* Referencias */}
           <FadeInView>
-            <h2 className="font-display font-bold text-[28px] sm:text-[32px] text-[#1f2937] mb-2">Referencias</h2>
-            <p className="font-sans text-base text-[#6b7280] mb-8">Lo que dicen quienes han trabajado conmigo</p>
+            <h2
+              className="font-display font-semibold text-lg sm:text-xl text-[#4b5563] mb-6"
+              style={{
+                textDecorationLine: 'underline',
+                textDecorationStyle: 'wavy',
+                textDecorationColor: '#42767f',
+                textDecorationThickness: '1.5px',
+                textUnderlineOffset: '4px',
+              }}
+            >
+              Lo que dicen quienes han trabajado conmigo
+            </h2>
           </FadeInView>
           <ReferencesCarousel />
 
