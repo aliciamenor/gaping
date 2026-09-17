@@ -3,6 +3,7 @@ import { usePageMeta } from '@/hooks/usePageMeta';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
+import { trackCtaClick } from '@/lib/analytics';
 import logoArrow from '@/assets/icons/logo-arrow.webp';
 
 const openTo = [
@@ -41,6 +42,7 @@ export default function Contacto() {
             <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
               <a
                 href="mailto:amenorgomez@gmail.com"
+                onClick={() => trackCtaClick('email', 'contact_page')}
                 className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-white font-display font-medium text-base sm:text-lg hover:scale-[1.02] hover:shadow-xl transition-all duration-300"
                 style={{ background: '#42767f' }}
               >
@@ -50,6 +52,7 @@ export default function Contacto() {
                 href="https://www.linkedin.com/in/aliciamenorgomez/"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackCtaClick('linkedin', 'contact_page')}
                 className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#0077b5] text-white font-display font-medium text-base sm:text-lg hover:scale-[1.02] hover:shadow-xl transition-all duration-300"
               >
                 <Linkedin size={22} />LinkedIn

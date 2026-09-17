@@ -8,6 +8,7 @@ import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
 import StaggerGrid, { StaggerItem } from '@/components/StaggerGrid';
 import GapingLogo from '@/components/GapingLogo';
+import { trackCtaClick } from '@/lib/analytics';
 import { experiences } from '@/data/experiences';
 import polaroid1 from '@/assets/polaroid-1.webp';
 import polaroid2 from '@/assets/polaroid-2.webp';
@@ -291,6 +292,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
               <a
                 href="mailto:amenorgomez@gmail.com"
+                onClick={() => trackCtaClick('email', 'home_contact')}
                 className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-white font-display font-medium text-base sm:text-lg hover:scale-[1.02] hover:shadow-xl transition-all duration-300"
                 style={{ background: '#42767f' }}
               >
@@ -300,6 +302,7 @@ export default function Home() {
                 href="https://www.linkedin.com/in/aliciamenorgomez/"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackCtaClick('linkedin', 'home_contact')}
                 className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#0077b5] text-white font-display font-medium text-base sm:text-lg hover:scale-[1.02] hover:shadow-xl transition-all duration-300"
               >
                 <Linkedin size={22} />LinkedIn
