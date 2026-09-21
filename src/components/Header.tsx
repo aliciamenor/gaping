@@ -13,9 +13,9 @@ const WORDMARK_LETTERS = [heroG1, heroA, heroP, heroI, heroN, heroG2];
 
 const navItems = [
   { path: '/', label: 'Home' },
+  { path: '/aboutme', label: 'About me' },
   { path: '/proyecto', label: 'Proyecto' },
   { path: '/go-to-market', label: 'Go To Market' },
-  { path: '/aboutme', label: 'About me' },
   { path: '/contact', label: 'Contact' },
 ];
 

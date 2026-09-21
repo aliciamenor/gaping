@@ -299,21 +299,31 @@ export default function GoToMarket() {
             </p>
           </FadeInView>
 
-          {/* Índice de pasos (mobile/tablet: fila horizontal; desktop ancho: sidebar) */}
-          <FadeInView className="mb-16 sm:mb-20 min-[1200px]:hidden">
+          {/* Índice de pasos (mobile/tablet: fila horizontal, fija bajo el
+              header al hacer scroll para navegar sin perder el sitio;
+              desktop ancho: sidebar). */}
+          <FadeInView className="mb-16 sm:mb-20 min-[1200px]:hidden sticky top-16 z-40 bg-background/95 backdrop-blur-sm -mx-5 sm:-mx-4 px-2 sm:px-4 py-3 border-b border-black/5">
             <nav aria-label="Pasos del proceso" className="flex flex-wrap justify-center gap-2 sm:gap-3">
-              {steps.map((s) => (
-                <Link
-                  key={s.id}
-                  to={`/go-to-market#${s.id}`}
-                  title={s.label}
-                  aria-label={`Paso ${s.num}: ${s.label}`}
-                  className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-display font-bold text-[13px] sm:text-sm border-2 transition-colors duration-300 ${canHover ? 'hover:text-white hover:bg-[#42767f]' : ''}`}
-                  style={{ borderColor: '#42767f', color: '#42767f' }}
-                >
-                  {s.num}
-                </Link>
-              ))}
+              {steps.map((s) => {
+                const isActive = activeStep === s.id;
+                return (
+                  <Link
+                    key={s.id}
+                    to={`/go-to-market#${s.id}`}
+                    title={s.label}
+                    aria-label={`Paso ${s.num}: ${s.label}`}
+                    aria-current={isActive ? 'true' : undefined}
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-display font-bold text-[13px] sm:text-sm border-2 transition-colors duration-300 ${canHover ? 'hover:text-white hover:bg-[#42767f]' : ''}`}
+                    style={{
+                      borderColor: '#42767f',
+                      color: isActive ? '#ffffff' : '#42767f',
+                      background: isActive ? '#42767f' : 'transparent',
+                    }}
+                  >
+                    {s.num}
+                  </Link>
+                );
+              })}
             </nav>
           </FadeInView>
 
@@ -561,36 +571,37 @@ export default function GoToMarket() {
                     <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 text-justify">
                       Después de validar y analizar las opciones existentes, definí qué ofrecería GAPING y para quién.
                     </p>
-                    <div className="bg-white rounded-[16px] shadow-md p-5 sm:p-8">
-                      <div className="grid grid-cols-2 gap-2.5 sm:gap-6 items-stretch">
-                        <div className="rounded-[10px] sm:rounded-[12px] p-3 sm:p-8 h-full" style={{ background: 'linear-gradient(135deg, #e8f4f6, #c5dfe3)', borderTop: '4px solid #42767f' }}>
-                          <p className="text-[18px] sm:text-[24px] mb-1 sm:mb-2">🎯</p>
-                          <h4 className="font-display font-bold text-[14px] sm:text-[24px] text-[#1f2937] mb-1.5 sm:mb-4 leading-tight">Para mí</h4>
-                          <ul className="space-y-1 sm:space-y-2 font-sans text-[12px] sm:text-[17px] text-[#1f2937] leading-[1.45] sm:leading-[1.8]">
-                            <li>✓ Adquirir skills PM en contextos reales y diversos</li>
-                            <li>✓ Desarrollar adaptabilidad y visión end to end</li>
-                            <li>✓ Construir un portfolio de evidencias concretas</li>
-                            <li>✓ Generar impacto más allá del entorno corporativo</li>
-                            <li>✓ Tener más claridad sobre qué tipo de rol y de empresa quiero de verdad, gracias a tener espacio para reflexionar sobre mi propósito</li>
-                            <li>✓ Diferenciarme en un mercado saturado de candidatos con un perfil similar</li>
+                    <div className="bg-white rounded-[16px] shadow-md p-4 sm:p-8 min-[1200px]:mr-[-140px]">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 min-[1200px]:gap-10 items-stretch">
+                        <div className="rounded-xl sm:rounded-2xl p-4 sm:p-8 h-full" style={{ background: 'rgba(66,118,127,0.08)' }}>
+                          <p className="text-[20px] sm:text-[24px] mb-1.5 sm:mb-2">🎯</p>
+                          <h4 className="font-display font-bold text-[16px] sm:text-[24px] text-[#1f2937] mb-2.5 sm:mb-4 leading-tight">Para mí</h4>
+                          <ul className="space-y-2.5 sm:space-y-3 font-sans text-[14px] sm:text-[17px] text-[#1f2937] leading-[1.6] sm:leading-[1.8]">
+                            <li className="flex gap-2"><span className="shrink-0" style={{ color: '#42767f' }}>✓</span><span>Desarrollar soft skills clave: adaptabilidad, gestión de incertidumbre y comunicación multicultural</span></li>
+                            <li className="flex gap-2"><span className="shrink-0" style={{ color: '#42767f' }}>✓</span><span>Aprender producto fuera de una estructura corporativa dada</span></li>
+                            <li className="flex gap-2"><span className="shrink-0" style={{ color: '#42767f' }}>✓</span><span>Generar impacto más allá del entorno corporativo</span></li>
+                            <li className="flex gap-2"><span className="shrink-0" style={{ color: '#42767f' }}>✓</span><span>Abrir la mente conociendo otras culturas y lugares, para ser más creativa y empática</span></li>
+                            <li className="flex gap-2"><span className="shrink-0" style={{ color: '#42767f' }}>✓</span><span>Ganar claridad sobre qué rol y qué empresa quiero de verdad</span></li>
                           </ul>
+                          <p className="italic font-sans text-[13px] sm:text-[15px] text-[#4b5563] mt-4 sm:mt-4 leading-snug">
+                            Todo esto, para diferenciarme en un mercado saturado de perfiles similares.
+                          </p>
                         </div>
-                        <div className="rounded-[10px] sm:rounded-[12px] p-3 sm:p-8 h-full" style={{ background: 'linear-gradient(135deg, #f0fdf4, #d1fae5)', borderTop: '4px solid #10b981' }}>
-                          <p className="text-[18px] sm:text-[24px] mb-1 sm:mb-2">🏢</p>
-                          <h4 className="font-display font-bold text-[14px] sm:text-[24px] text-[#1f2937] mb-1.5 sm:mb-4 leading-tight">Para empresas</h4>
-                          <ul className="space-y-1 sm:space-y-2 font-sans text-[12px] sm:text-[17px] text-[#1f2937] leading-[1.45] sm:leading-[1.8]">
-                            <li>✓ Ownership end-to-end de producto: de discovery a delivery y medición de resultados</li>
-                            <li>✓ Prioriza con datos y criterio de negocio en contextos de recursos limitados</li>
-                            <li>✓ Gestiona stakeholders multidisciplinares y alinea equipos con objetivos distintos</li>
-                            <li>✓ Comunica con claridad a audiencias técnicas y no técnicas</li>
-                            <li>✓ Adaptabilidad real, validada en contextos ambiguos y diversos</li>
+                        <div className="rounded-xl sm:rounded-2xl p-4 sm:p-8 h-full" style={{ background: 'rgba(16,185,129,0.08)' }}>
+                          <p className="text-[20px] sm:text-[24px] mb-1.5 sm:mb-2">🏢</p>
+                          <h4 className="font-display font-bold text-[16px] sm:text-[24px] text-[#1f2937] mb-2.5 sm:mb-4 leading-tight">Para empresas</h4>
+                          <p className="font-sans font-bold text-[14px] sm:text-[17px] text-[#1f2937] mb-3 sm:mb-3 leading-[1.6] sm:leading-[1.8]">
+                            Combina experiencia de producto en innovación FMCG y proyectos propios.
+                          </p>
+                          <ul className="space-y-2.5 sm:space-y-3 font-sans text-[14px] sm:text-[17px] text-[#1f2937] leading-[1.6] sm:leading-[1.8]">
+                            <li className="flex gap-2"><span className="shrink-0" style={{ color: '#10b981' }}>✓</span><span>Product mindset con ownership end-to-end: prioriza con criterio de negocio, no solo intuición, decidiendo qué construir primero con recursos limitados</span></li>
+                            <li className="flex gap-2"><span className="shrink-0" style={{ color: '#10b981' }}>✓</span><span>Gestiona stakeholders con intereses distintos, alineándolos hacia un objetivo común, y comunica con claridad tanto a perfiles técnicos como de negocio</span></li>
+                            <li className="flex gap-2"><span className="shrink-0" style={{ color: '#10b981' }}>✓</span><span>Creatividad, resolución de problemas y storytelling</span></li>
+                            <li className="flex gap-2"><span className="shrink-0" style={{ color: '#10b981' }}>✓</span><span>Adaptabilidad y actitud autodidacta, validadas en contextos multiculturales y fuera de estructuras formales</span></li>
                           </ul>
                         </div>
                       </div>
                     </div>
-                    <p className="text-center font-sans font-medium text-base sm:text-lg md:text-[20px] mt-8" style={{ color: '#42767f' }}>
-                      Un año diseñado como producto.<br />Un case study que lo demuestra.
-                    </p>
                   </div>
                 </div>
               </FadeInView>
@@ -617,14 +628,14 @@ export default function GoToMarket() {
                         </h4>
                         <div className="flex flex-col md:flex-row gap-6 justify-center">
                           {[
-                            { letter: letterI, title: 'IMPACTO', desc: '¿Esta experiencia aporta algo a alguien más, no solo a mí?', bg: 'linear-gradient(135deg, #f0fdf4, #d1fae5)', border: '#10b981' },
-                            { letter: letterN, title: 'NUEVOS HORIZONTES', desc: '¿Me obliga a salir de un contexto, idioma o entorno que ya domino?', bg: 'linear-gradient(135deg, #e8f4f6, #c5dfe3)', border: '#42767f' },
-                            { letter: letterG, title: 'GROWTH', desc: '¿Al terminarla, voy a saber o poder hacer algo que antes no?', bg: 'linear-gradient(135deg, #faf5ff, #e9d5ff)', border: '#8b5cf6' },
+                            { letter: letterI, title: 'IMPACTO', desc: '¿Esta experiencia aporta algo a alguien más, no solo a mí?', bg: 'rgba(16,185,129,0.08)' },
+                            { letter: letterN, title: 'NUEVOS HORIZONTES', desc: '¿Me obliga a salir de un contexto, idioma o entorno que ya domino?', bg: 'rgba(66,118,127,0.08)' },
+                            { letter: letterG, title: 'GROWTH', desc: '¿Al terminarla, voy a saber o poder hacer algo que antes no?', bg: 'rgba(139,92,246,0.08)' },
                           ].map((pill) => (
                             <div
                               key={pill.title}
-                              className="relative overflow-visible rounded-[16px] px-5 sm:px-8 pt-0 pb-5 sm:pb-6 text-center flex-1"
-                              style={{ background: pill.bg, border: `2px solid ${pill.border}` }}
+                              className="relative overflow-visible rounded-xl sm:rounded-2xl px-5 sm:px-8 pt-0 pb-5 sm:pb-6 text-center flex-1"
+                              style={{ background: pill.bg }}
                             >
                               <img
                                 src={pill.letter}
