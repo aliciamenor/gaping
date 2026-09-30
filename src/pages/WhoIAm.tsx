@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useCarousel } from '@/hooks/useCarousel';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
+import { CarouselArrowButton, CarouselDots } from '@/components/CarouselControls';
 import fotoAlicia from '@/assets/foto-alicia.webp';
 import fotoAliciaMontana from '@/assets/foto-alicia-montana.webp';
 import logoArrow from '@/assets/icons/logo-arrow.webp';
@@ -163,22 +164,10 @@ function SkillLink({ label, to }: { label: string; to: string }) {
 }
 
 function ReferencesCarousel() {
-  const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    // Note: iOS Safari reports prefers-reduced-motion as "reduce" whenever
-    // Low Power Mode is on, regardless of the user's actual accessibility
-    // setting. This is a simple crossfade, so we keep it running either way.
-    if (paused) return;
-    const id = window.setInterval(() => {
-      setIndex((i) => (i + 1) % references.length);
-    }, 7000);
-    return () => window.clearInterval(id);
-  }, [paused]);
-
-  const goPrev = () => setIndex((i) => (i - 1 + references.length) % references.length);
-  const goNext = () => setIndex((i) => (i + 1) % references.length);
+  // Note: iOS Safari reports prefers-reduced-motion as "reduce" whenever Low
+  // Power Mode is on, regardless of the user's actual accessibility setting.
+  // This is a simple crossfade, so we keep it auto-advancing either way.
+  const { index, setIndex, goPrev, goNext, setPaused } = useCarousel(references.length, 7000);
   const r = references[index];
 
   return (
@@ -188,14 +177,7 @@ function ReferencesCarousel() {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="flex items-stretch gap-2 sm:gap-4">
-        <button
-          type="button"
-          onClick={goPrev}
-          aria-label="Referencia anterior"
-          className="hidden sm:flex items-center justify-center w-10 h-auto rounded-xl text-[#42767f] bg-white shadow-sm hover:bg-[#42767f] hover:text-white transition-colors duration-300"
-        >
-          <ChevronLeft size={24} />
-        </button>
+        <CarouselArrowButton direction="prev" onClick={goPrev} label="Referencia anterior" breakpoint="desktop" />
 
         <div className="relative flex-1 min-h-[320px] sm:min-h-[260px]">
           <AnimatePresence mode="wait">
@@ -228,49 +210,19 @@ function ReferencesCarousel() {
           </AnimatePresence>
         </div>
 
-        <button
-          type="button"
-          onClick={goNext}
-          aria-label="Siguiente referencia"
-          className="hidden sm:flex items-center justify-center w-10 h-auto rounded-xl text-[#42767f] bg-white shadow-sm hover:bg-[#42767f] hover:text-white transition-colors duration-300"
-        >
-          <ChevronRight size={24} />
-        </button>
+        <CarouselArrowButton direction="next" onClick={goNext} label="Siguiente referencia" breakpoint="desktop" />
       </div>
 
-      <div className="flex items-center justify-center gap-3 mt-5" role="tablist" aria-label="Referencias">
-        <button
-          type="button"
-          onClick={goPrev}
-          aria-label="Referencia anterior"
-          className="sm:hidden flex items-center justify-center w-9 h-9 rounded-full text-[#42767f] bg-white shadow-sm hover:bg-[#42767f] hover:text-white transition-colors duration-300"
-        >
-          <ChevronLeft size={20} />
-        </button>
-
-        {references.map((ref, i) => (
-          <button
-            key={ref.name}
-            role="tab"
-            aria-selected={i === index}
-            aria-label={`Ver referencia de ${ref.name}`}
-            onClick={() => setIndex(i)}
-            className="h-2 rounded-full transition-all duration-300"
-            style={{
-              width: i === index ? 28 : 8,
-              background: i === index ? '#42767f' : '#d1d5db',
-            }}
-          />
-        ))}
-
-        <button
-          type="button"
-          onClick={goNext}
-          aria-label="Siguiente referencia"
-          className="sm:hidden flex items-center justify-center w-9 h-9 rounded-full text-[#42767f] bg-white shadow-sm hover:bg-[#42767f] hover:text-white transition-colors duration-300"
-        >
-          <ChevronRight size={20} />
-        </button>
+      <div className="flex items-center justify-center gap-3 mt-5">
+        <CarouselArrowButton direction="prev" onClick={goPrev} label="Referencia anterior" breakpoint="mobile" />
+        <CarouselDots
+          count={references.length}
+          index={index}
+          onSelect={setIndex}
+          getKey={(i) => references[i].name}
+          getLabel={(i) => `Ver referencia de ${references[i].name}`}
+        />
+        <CarouselArrowButton direction="next" onClick={goNext} label="Siguiente referencia" breakpoint="mobile" />
       </div>
     </div>
   );

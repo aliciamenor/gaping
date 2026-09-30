@@ -258,9 +258,11 @@ const steps = [
   { id: 'paso-02', num: '02', label: 'Validar si tiene sentido' },
   { id: 'paso-03', num: '03', label: 'Benchmarking' },
   { id: 'paso-04', num: '04', label: 'Definir la propuesta de valor' },
-  { id: 'paso-05', num: '05', label: 'MVP: el piloto' },
-  { id: 'paso-06', num: '06', label: 'Comunicación y lanzamiento' },
-  { id: 'medir-resultados', num: '07', label: 'Medir resultados' },
+  { id: 'paso-05', num: '05', label: 'MVP: el delivery de experiencias' },
+  { id: 'aprendizajes-tradeoffs', num: '06', label: 'Aprendizajes y tradeoffs' },
+  { id: 'paso-07', num: '07', label: 'Diseñar y construir storytelling para comunicar' },
+  { id: 'medir-resultados', num: '08', label: 'Iterar el portfolio y medir resultados' },
+  { id: 'formarme-producto-ai', num: '09', label: 'Formarme más en producto + IA para posicionarme en mercado' },
 ];
 
 export default function GoToMarket() {
@@ -616,7 +618,7 @@ export default function GoToMarket() {
                   </div>
                   <div className="flex-1 pt-2 sm:pt-4 min-w-0">
                     <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
-                      MVP: el piloto
+                      MVP: el delivery de experiencias
                     </h3>
                     <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 text-justify">
                       Definí un único criterio de decisión: cada experiencia tenía que cumplir tres condiciones a la vez: aportar valor a los demás, sacarme de la zona de confort, y hacerme aprender algo. Si solo cumplía una o dos, no entraba en el roadmap.
@@ -656,7 +658,7 @@ export default function GoToMarket() {
 
               {/* Paso 06 */}
               <FadeInView>
-                <div id="paso-06" className="relative flex gap-4 sm:gap-8 md:gap-12 scroll-mt-24">
+                <div id="aprendizajes-tradeoffs" className="relative flex gap-4 sm:gap-8 md:gap-12 scroll-mt-24">
                   <div className="relative shrink-0 w-[52px] sm:w-[100px] md:w-[140px] text-right">
                     <span className="font-display font-bold text-[44px] sm:text-[64px] md:text-[80px] leading-none" style={{ color: '#42767f', opacity: 0.12 }}>
                       06
@@ -664,20 +666,70 @@ export default function GoToMarket() {
                   </div>
                   <div className="flex-1 pt-2 sm:pt-4 min-w-0">
                     <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
-                      Comunicación y lanzamiento
+                      Aprendizajes y tradeoffs
+                    </h3>
+                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-3 text-justify">
+                      Ningún año fuera de la oficina es gratis. Cambié un sueldo fijo por mis ahorros, y la narrativa lineal de "una empresa, un ascenso" por algo que tengo que explicar en cada entrevista.
+                    </p>
+                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 text-justify">
+                      Tampoco entró todo en el roadmap: descarté opciones como el voluntariado de larga duración, la working holiday visa o crear contenido en serio en TikTok.{' '}
+                      <Link to="/proyecto#experiencias-descartadas" className="font-display font-semibold hover:underline" style={{ color: '#42767f' }}>
+                        Ver qué descarté y por qué →
+                      </Link>
+                    </p>
+                    <div className="mt-2">
+                      <p className="font-display font-bold text-[16px] text-[#1f2937] mb-3">Lo que me llevo</p>
+                      <div className="bg-white rounded-[16px] shadow-sm p-6 sm:p-8 font-sans text-[15px] sm:text-[16px] text-[#4b5563] leading-[1.75] space-y-5">
+                        <p className="italic text-[#1f2937]">
+                          GAPING no fue un paréntesis. Fue donde aprendí las cosas que más me han cambiado como profesional.
+                        </p>
+
+                        <ul className="space-y-3 text-justify">
+                          <li className="flex gap-2"><span className="shrink-0" style={{ color: '#42767f' }}>✓</span><span>Que el discovery no es una fase del proceso sino un hábito. Antes de cada experiencia hablaba con personas que ya habían pasado por algo parecido: no para inspirarme, sino para decidir mejor.</span></li>
+                          <li className="flex gap-2"><span className="shrink-0" style={{ color: '#42767f' }}>✓</span><span>Que priorizar es descartar opciones, porque elegir todo es elegir nada.</span></li>
+                          <li className="flex gap-2"><span className="shrink-0" style={{ color: '#42767f' }}>✓</span><span>Que los sesgos contaminan más que la falta de datos.</span></li>
+                          <li className="flex gap-2"><span className="shrink-0" style={{ color: '#42767f' }}>✓</span><span>Que validar antes de construir no es opcional: es lo que decide si lo que construyes le importa a alguien.</span></li>
+                        </ul>
+
+                        <div className="space-y-3 text-justify">
+                          <p>Todo esto también me enseñó a adaptarme a contextos distintos y a trabajar con personas de entornos y culturas muy diferentes. Eso no se aprende en ningún curso.</p>
+                          <p>Más allá de lo profesional: me gusta aprender de los demás, solucionar problemas y trabajar en retos que me importen. Rodearte de gente que te reta y te inspira es de las mejores decisiones que puedes tomar.</p>
+                          <p>Y que conocerse a uno mismo y crecer profesionalmente nunca se terminan. Siempre hay una versión anterior que desaprender y una nueva que construir.</p>
+                        </div>
+
+                        <p className="italic text-[#1f2937]">
+                          Al final, lo más valioso no fueron las experiencias sino las personas que vinieron con ellas.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </FadeInView>
+
+              {/* Paso 07 */}
+              <FadeInView>
+                <div id="paso-07" className="relative flex gap-4 sm:gap-8 md:gap-12 scroll-mt-24">
+                  <div className="relative shrink-0 w-[52px] sm:w-[100px] md:w-[140px] text-right">
+                    <span className="font-display font-bold text-[44px] sm:text-[64px] md:text-[80px] leading-none" style={{ color: '#42767f', opacity: 0.12 }}>
+                      07
+                    </span>
+                  </div>
+                  <div className="flex-1 pt-2 sm:pt-4 min-w-0">
+                    <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
+                      Diseñar y construir storytelling para comunicar
                     </h3>
                     <div className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 space-y-4 text-justify">
                       <p>
                         Diseñar y vivir GAPING era solo una parte del proyecto. Un producto sin comunicación no llega a nadie, y esto no iba a ser diferente.
                       </p>
                       <p>
-                        Con el discovery y el delivery ya hechos, tocaba pasar al lanzamiento. Eso significaba conceptualizar cómo contar todo lo vivido, no solo enumerar qué había pasado: elegir los canales adecuados, construir una narrativa coherente, y decidir qué destacar y qué dejar fuera para que el mensaje llegara con claridad.
+                        Con el discovery y el delivery ya hechos, tocaba pasar a comunicar. Eso significaba conceptualizar cómo contar todo lo vivido, no solo enumerar qué había pasado: elegir los canales adecuados, construir una narrativa coherente, y decidir qué destacar y qué dejar fuera para que el mensaje llegara con claridad.
                       </p>
                       <p>
                         El resultado fue esta web, con el case study completo del proyecto y todo el proceso de Go To Market documentado paso a paso. Para construirla, sin saber programar, tuve que aprender a hacerlo con herramientas de IA.
                       </p>
                       <p>
-                        Y un lanzamiento no termina cuando comunicas. Termina cuando compruebas si está funcionando, así que medir los resultados era la última pieza del proceso.
+                        El objetivo no era solo contar lo vivido: era que esta web fuera en sí misma la prueba de que sé ejecutar un producto de principio a fin — discovery, delivery, comunicación y medición.
                       </p>
                     </div>
 
@@ -713,21 +765,24 @@ export default function GoToMarket() {
                 </div>
               </FadeInView>
 
-              {/* Paso 07 */}
+              {/* Paso 08 */}
               <FadeInView>
                 <div id="medir-resultados" className="relative flex gap-4 sm:gap-8 md:gap-12 scroll-mt-24">
                   <div className="relative shrink-0 w-[52px] sm:w-[100px] md:w-[140px] text-right">
                     <span className="font-display font-bold text-[44px] sm:text-[64px] md:text-[80px] leading-none" style={{ color: '#42767f', opacity: 0.12 }}>
-                      07
+                      08
                     </span>
                   </div>
                   <div className="flex-1 pt-2 sm:pt-4 min-w-0">
                     <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
-                      Medir resultados
+                      Iterar el portfolio y medir resultados
                     </h3>
                     <div className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 space-y-4 text-justify">
                       <p>
                         Todo Go To Market necesita medición: cómo sé si funciona, no solo si se lanzó. Para este case study definí qué quería conseguir y qué podía medir cada semana, para saber qué iterar mientras sigue activo.
+                      </p>
+                      <p>
+                        Un lanzamiento no termina cuando publicas. Publiqué la web y empecé a hablar con profesionales de producto para comprobar algo muy concreto: si el portfolio se entendía, tenía sentido y estaba orientado a un objetivo. Cada conversación fue una iteración más.
                       </p>
                     </div>
 
@@ -775,6 +830,52 @@ export default function GoToMarket() {
                     <p className="font-sans text-[15px] sm:text-[16px] text-[#4b5563] leading-[1.75] mt-6">
                       Compartiré los resultados reales en unos meses (Ahora estoy en Construir-Medir-Aprender).
                     </p>
+                  </div>
+                </div>
+              </FadeInView>
+
+              {/* Paso 09 */}
+              <FadeInView>
+                <div id="formarme-producto-ai" className="relative flex gap-4 sm:gap-8 md:gap-12 scroll-mt-24">
+                  <div className="relative shrink-0 w-[52px] sm:w-[100px] md:w-[140px] text-right">
+                    <span className="font-display font-bold text-[44px] sm:text-[64px] md:text-[80px] leading-none" style={{ color: '#42767f', opacity: 0.12 }}>
+                      09
+                    </span>
+                  </div>
+                  <div className="flex-1 pt-2 sm:pt-4 min-w-0">
+                    <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
+                      Formarme más en producto + IA para posicionarme en mercado
+                    </h3>
+                    <div className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 space-y-4 text-justify">
+                      <p>
+                        Empecé a trabajar con Paco Crespo, mentor de producto y referente de la industria, para reforzar mis bases de product management.
+                      </p>
+                      <p>
+                        También busco cafés virtuales más orientados a producto, para aprender directamente de quien lo hace cada día. Voy a eventos, webinars y hackathones de producto e IA. Y combino ese aprendizaje teórico con learning by building: probar a construir con la IA como herramienta y el producto como criterio.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="font-display font-bold text-[18px] sm:text-[20px] text-[#1f2937] mb-4">🚀 Lo que sigo haciendo</h4>
+                      <div className="bg-white p-6 rounded-[16px] shadow-sm">
+                        <ul className="space-y-2 font-sans text-[15px] text-[#1f2937] leading-relaxed">
+                          <li>✓ Mentoría con Paco Crespo, referente de la industria en Product Management</li>
+                          <li>✓ Cafés virtuales orientados a producto</li>
+                          <li>✓ Eventos de producto</li>
+                          <li>✓ Learning by building: estrategia de builder con IA</li>
+                          <li>✓ Networking activo con perfiles de producto</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div
+                      className="rounded-[16px] p-6 sm:p-8 text-center mt-8"
+                      style={{ background: 'linear-gradient(135deg, #42767f, #2d5259)' }}
+                    >
+                      <p className="font-sans text-[17px] sm:text-[19px] font-medium text-white">
+                        Combino las soft skills que desarrollé durante todo este año con las skills de producto e IA que sigo construyendo ahora. Esa combinación es lo que quiero aportar en mi próximo rol como Product Manager.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </FadeInView>

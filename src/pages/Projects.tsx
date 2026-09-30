@@ -27,6 +27,36 @@ const ejeStyles: Record<Eje, { bg: string; border: string; gradient: string }> =
   growth: { bg: 'rgba(139,92,246,0.08)', border: '#8b5cf6', gradient: 'linear-gradient(135deg, #8b5cf6, #7c3aed)' },
 };
 
+const discardedExperiences = [
+  {
+    title: 'Voluntariado de larga duración internacional',
+    reason: 'Me planteé esta opción, pero algunas alternativas necesitaban formación previa y organizarlas con un año de antelación, lo que no encajaba en mis tiempos, y otras se me iban de presupuesto. Además, el impacto no lo veía claro a menos que dedicase mucho más tiempo, y eso significaba renunciar a otras experiencias.',
+    didInstead: [
+      'Voluntariado remoto con la Asociación SomosTalita',
+      'Voluntariado con European Solidarity Corps en Lituania, 2 meses',
+      'Curso de Liderazgo Social en la UFV',
+      'Camino de Santiago con 2 ONGs',
+    ],
+  },
+  {
+    title: 'Working holiday visa',
+    reason: 'Conocer Australia o Nueva Zelanda fue una alternativa planteada, pero la probabilidad de conseguir un trabajo relacionado con mis objetivos era baja: lo más probable era acabar en roles no relacionados, sin Growth ni Impacto real. Además, pedir la visa con mucha antelación me complicaba los tiempos y la libertad para iterar según lo que iba aprendiendo.',
+    didInstead: [
+      'Expedición Ruta Inti (1 mes en Marruecos)',
+      'Backpacking unos meses por Latinoamérica',
+    ],
+  },
+  {
+    title: 'Crear contenido en serio en TikTok',
+    reason: 'Probé a crear contenido en TikTok grabando vlogs para dar a conocer alternativas de viaje (como el European Solidarity Corps, con proyectos de voluntariado de 1 semana a 12 meses cubiertos por la UE). Me sacó de mi zona de confort exponerme en los vídeos, y fui consciente del esfuerzo que conlleva un proyecto de social media diario. Me implicaba mucho coste en tiempo y no me permitía centrarme en el Growth de las experiencias, aunque sí compartí algunos aprendizajes.',
+    didInstead: [
+      'Participar en Podcast Menos30, un podcast que fomenta el voluntariado entre jóvenes',
+      'Documentar mi experiencia por si a otra persona le puede ayudar',
+    ],
+  },
+];
+
+
 // The 3 eje objective texts are different lengths (Growth's is the
 // longest), so their card headers don't naturally line up — and how many
 // lines each one wraps to changes continuously with the column's width,
@@ -204,6 +234,35 @@ export default function Projects() {
             {experiences.map((exp, i) => (
               <StaggerItem key={exp.id} className="h-full">
                 <ExperienceCard exp={exp} index={i} />
+              </StaggerItem>
+            ))}
+          </StaggerGrid>
+        </section>
+
+        {/* Experiencias descartadas */}
+        <section id="experiencias-descartadas" className="max-w-[850px] mx-auto mt-20 sm:mt-24 px-1 scroll-mt-24">
+          <FadeInView className="text-center mb-8 sm:mb-10">
+            <h2 className="font-display font-bold text-[24px] sm:text-[32px] md:text-[40px] leading-tight" style={{ color: '#42767f' }}>
+              ¿Qué experiencias investigué y se quedaron fuera del roadmap?
+            </h2>
+            <p className="font-sans text-base sm:text-lg text-[#6b7280] mt-5 sm:mt-6">Comento algunas, y por qué no cumplían el framework</p>
+          </FadeInView>
+
+          <StaggerGrid className="flex flex-col gap-4">
+            {discardedExperiences.map((d) => (
+              <StaggerItem key={d.title}>
+                <div className="bg-white rounded-2xl shadow-sm p-5 sm:p-6">
+                  <p className="font-display font-bold text-[16px] sm:text-[17px] text-[#1f2937] mb-2">{d.title}</p>
+                  <p className="font-sans text-[14px] sm:text-[15px] text-[#4b5563] leading-relaxed mb-4">{d.reason}</p>
+                  <div className="bg-[#f9fafb] rounded-xl p-4">
+                    <p className="font-display font-bold text-[13px] text-[#1f2937] mb-2">¿Qué hice en su lugar?</p>
+                    <ul className="space-y-1.5 font-sans text-[13px] text-[#4b5563] leading-relaxed">
+                      {d.didInstead.map((item) => (
+                        <li key={item}>✓ {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerGrid>

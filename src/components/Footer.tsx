@@ -62,7 +62,7 @@ export default function Footer() {
 
         <div className="border-t border-white/15 pt-6">
           <p className="font-sans text-sm text-white/70">
-            © 2026 GAPING. Hecho con Claude Code por Alicia Menor.
+            © 2026 GAPING. Hecho con :) por Alicia Menor.
           </p>
         </div>
       </div>
