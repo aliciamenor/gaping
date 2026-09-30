@@ -724,7 +724,7 @@ export default function Home() {
               </motion.h2>
 
               <p className="font-sans text-[15px] sm:text-base md:text-[17px] leading-[1.65] text-[#6b7280] mb-4">
-                De liderar el crecimiento de un nuevo modelo de negocio y desarrollar nuevas bebidas en Mahou San Miguel, a crear mi propia hipótesis de desarrollo profesional. Un año fuera de la oficina (el GAP) para explorar, aportar y aprender experimentando en distintos contextos, y así convertir experiencias en nuevas skills.
+                De liderar el crecimiento de un ecommerce y desarrollar nuevas bebidas en Mahou San Miguel, a crear mi propia hipótesis de desarrollo profesional. Un año fuera de la oficina (el GAP) para explorar, aportar y aprender experimentando en distintos contextos, y así convertir experiencias en nuevas skills.
               </p>
 
               <motion.div
