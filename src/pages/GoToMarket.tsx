@@ -266,7 +266,7 @@ const steps = [
 ];
 
 export default function GoToMarket() {
-  usePageMeta('Go To Market', 'Un año fuera de la oficina, diseñado y ejecutado como proyecto de producto.');
+  usePageMeta('Go To Market', 'GAPING: Un año fuera de la oficina, diseñado como proyecto de desarrollo profesional. El mismo proceso que usaría para construir cualquier producto.');
   const canHover = useCanHover();
   const [activeStep, setActiveStep] = useState(steps[0].id);
 
@@ -292,15 +292,26 @@ export default function GoToMarket() {
         <div className="max-w-[1100px] min-[1200px]:max-w-[1400px] mx-auto">
           {/* Header */}
           <FadeInView className="text-center mb-16 sm:mb-20">
-            <p className="font-display font-semibold text-[12px] sm:text-[13px] uppercase tracking-[0.12em] text-[#1f2937] mb-3">
-              GAPING · Case study de producto aplicado a mí misma
-            </p>
             <h1 className="font-display font-bold text-[34px] sm:text-[48px] md:text-[64px] leading-[1.05] tracking-tight sm:tracking-normal" style={{ color: '#42767f' }}>
               GO TO MARKET
             </h1>
             <BrushUnderline className="mx-auto mt-4" />
             <p className="font-sans text-base sm:text-lg md:text-[22px] text-[#6b7280] mt-5 sm:mt-6">
-              Un año fuera de la oficina, diseñado y ejecutado como proyecto de producto.
+              GAPING: Un año fuera de la oficina, diseñado como proyecto de desarrollo profesional.
+            </p>
+            <p className="font-display italic text-xs sm:text-sm text-muted-foreground mt-3">
+              El mismo proceso que usaría para construir cualquier{' '}
+              <span
+                style={{
+                  textDecorationLine: 'underline',
+                  textDecorationStyle: 'wavy',
+                  textDecorationColor: '#42767f',
+                  textDecorationThickness: '1.5px',
+                  textUnderlineOffset: '3px',
+                }}
+              >
+                producto
+              </span>.
             </p>
           </FadeInView>
 

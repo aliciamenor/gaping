@@ -23,6 +23,7 @@ import { trackCtaClick } from '@/lib/analytics';
 import { experiences } from '@/data/experiences';
 import fotoAlicia from '@/assets/foto-alicia.webp';
 import logoArrow from '@/assets/icons/logo-arrow.webp';
+import logoArrowWhite from '@/assets/icons/logo-arrow-white.webp';
 import iconPencil from '@/assets/icons/pencil.webp';
 import iconSmiley from '@/assets/icons/smiley.webp';
 import iconBackpack from '@/assets/icons/backpack.webp';
@@ -189,7 +190,7 @@ const gtmStep7Metricas = [
 
 const timeline = [
   { year: '2025/2026', title: 'Product Manager Operations & Marketing Specialist', company: 'Fundación Generation Spain (impulsada por McKinsey & Company)', desc: 'Coordinación end to end de programas formativos con seguimiento de KPIs. Definición de requisitos de producto, métricas de negocio y cierre de partnerships estratégicos para la difusión del programa.', logo: logoGeneration, highlight: false },
-  { year: '2024/2025', title: 'GAPING · Case study de producto aplicado a mí misma', company: '', desc: 'Un año fuera de la oficina, diseñado y ejecutado como proyecto de producto.', logo: null, highlight: true },
+  { year: '2024/2026', title: 'GAPING · Case study de desarrollo profesional', company: '', desc: 'Un año fuera de la oficina, diseñado y ejecutado como proyecto de desarrollo profesional.', logo: null, iconSrc: logoArrowWhite, highlight: true },
   { year: '2023/2024', title: 'Product Manager Innovación', company: 'Mahou San Miguel', desc: 'Responsable end to end del crecimiento de Grifo Mahou en Casa (ecommerce): producto, UX, operaciones y comunicación. Definición de objetivos de negocio, KRs y roadmap. Gestión de stakeholders internos y 25 partners técnicos. Participación en la Innovation Community con Design Thinking y Lean Startup.', logo: logoMahou, highlight: false },
   { year: '2022', title: 'PR & Digital Communications Junior', company: 'Omnicom PR Group', desc: 'Materiales de prensa en contextos de crisis corporativa y lanzamientos de producto (Bimbo, Decathlon). Monitorización de cobertura y reporting de impacto reputacional.', logo: logoOmnicom, highlight: false },
   { year: '2021', title: 'Marketing Junior', company: 'IPMARK, DARetail & Best!N Awards', desc: 'Organización de eventos B2B presenciales y webinars. Campañas de email marketing y contenido digital.', logo: logoIpmark, highlight: false },
@@ -1058,7 +1059,9 @@ export default function Home() {
                                 {t.logo ? (
                                   <img src={t.logo} alt={t.company} className="w-10 h-10 rounded-full object-contain bg-white shadow-sm shrink-0 p-1" />
                                 ) : (
-                                  <span className="w-10 h-10 rounded-full flex items-center justify-center text-white text-base shrink-0" style={{ background: '#42767f' }}>🧭</span>
+                                  <span className="w-10 h-10 rounded-full flex items-center justify-center text-white text-base shrink-0" style={{ background: '#42767f' }}>
+                                    {t.iconSrc ? <img src={t.iconSrc} alt="" aria-hidden="true" className="w-5 h-5 object-contain" /> : '🧭'}
+                                  </span>
                                 )}
                                 <div className="min-w-0">
                                   <p className="font-sans text-[11px] font-semibold text-[#9ca3af]">{t.year}</p>
