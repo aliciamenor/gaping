@@ -20,6 +20,16 @@ function ScrollToTop() {
   useEffect(() => {
     if (hash) {
       const id = hash.slice(1);
+      // Reset to the top instantly first — otherwise the scroll position
+      // from the previous page carries over while the next (possibly
+      // lazy-loaded) page is still mounting, and since Footer is always
+      // rendered, a scrolled-down starting point flashes it into view
+      // before the poll below finds the real target and scrolls to it.
+      // `behavior: 'instant'` is required here, not the 2-arg scrollTo(0,0)
+      // shorthand — that defaults to 'auto', which defers to the global
+      // `scroll-behavior: smooth` on <html> and animates instead of jumping,
+      // which is exactly the slow, interruptible motion causing the flash.
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       // The target can be inside a React.lazy-loaded page, which on a hard
       // navigation may still be mid-fetch when this effect first runs — so
       // poll for it instead of assuming one or two frames is enough.
