@@ -296,7 +296,15 @@ function TestimonialCarousel({ items = workReferences, quoted = true }: { items?
 }
 
 function SkillsScroller({ canHover }: { canHover: boolean }) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
+  // Desktop only (sm+, where the arrow buttons live): the visible strip is
+  // clamped to an exact multiple of the card width so only whole cards ever
+  // show at rest — no sliver of the next one peeking at the edge. Below sm
+  // there are no arrows (drag-only), and the peeking edge card there is a
+  // deliberate "there's more, swipe" affordance — left alone.
+  const [viewWidth, setViewWidth] = useState<number | null>(null);
+
   // `down`: pointer is pressed, still deciding click vs. drag. `active`: past
   // the movement threshold, i.e. an actual drag — only then do we capture the
   // pointer. Capturing on pointerdown itself (before any movement) makes the
@@ -304,10 +312,47 @@ function SkillsScroller({ canHover }: { canHover: boolean }) {
   // <Link> underneath, which silently breaks navigation on a plain click.
   const drag = useRef({ down: false, active: false, startX: 0, startScroll: 0, pointerId: 0 });
 
+  const measureStep = () => {
+    const el = scrollerRef.current;
+    const track = el?.firstElementChild as HTMLElement | null;
+    const items = track ? (Array.from(track.children) as HTMLElement[]) : [];
+    if (items.length < 2) return null;
+    return { step: items[1].offsetLeft - items[0].offsetLeft, cardWidth: items[0].getBoundingClientRect().width };
+  };
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+    const recompute = () => {
+      const measured = measureStep();
+      if (!measured || window.innerWidth < 640) {
+        setViewWidth(null);
+        return;
+      }
+      const available = wrapper.getBoundingClientRect().width;
+      const count = Math.max(1, Math.floor(available / measured.step));
+      setViewWidth(Math.round((count - 1) * measured.step + measured.cardWidth));
+    };
+    recompute();
+    const observer = new ResizeObserver(recompute);
+    observer.observe(wrapper);
+    return () => observer.disconnect();
+  }, []);
+
   const scrollByAmount = (dir: number) => {
     const el = scrollerRef.current;
     if (!el) return;
-    el.scrollBy({ left: dir * (el.clientWidth * 0.7), behavior: 'smooth' });
+    // Scroll by a whole number of cards (measured live, so it holds across
+    // breakpoints) instead of a fraction of the container width — otherwise
+    // the trailing card lands cut in half instead of snapping to the next
+    // full one.
+    const measured = measureStep();
+    if (!measured) {
+      el.scrollBy({ left: dir * el.clientWidth, behavior: 'smooth' });
+      return;
+    }
+    const visibleCount = Math.max(1, Math.floor(el.clientWidth / measured.step));
+    el.scrollBy({ left: dir * visibleCount * measured.step, behavior: 'smooth' });
   };
 
   const onPointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
@@ -330,7 +375,7 @@ function SkillsScroller({ canHover }: { canHover: boolean }) {
   const endDrag = () => { drag.current.down = false; drag.current.active = false; };
 
   return (
-    <div className="relative">
+    <div ref={wrapperRef} className="relative">
       <button
         type="button"
         onClick={() => scrollByAmount(-1)}
@@ -346,6 +391,7 @@ function SkillsScroller({ canHover }: { canHover: boolean }) {
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
         onPointerLeave={endDrag}
+        style={viewWidth != null ? { width: viewWidth, maxWidth: '100%' } : undefined}
         className="flex overflow-x-auto pb-2 -mx-5 px-5 sm:mx-0 sm:px-1 snap-x snap-mandatory cursor-grab active:cursor-grabbing [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         <StaggerGrid className="flex gap-3 sm:gap-4">
@@ -1080,10 +1126,17 @@ export default function Home() {
                             </div>
                           </div>
 
-                          <Link to="/aboutme" className="inline-flex items-center gap-2 font-display font-semibold text-[14px] mt-5 hover:underline" style={{ color: '#42767f' }}>
+                          <a
+                            href="/cv/CV_AliciaMenor.pdf"
+                            download="CV_AliciaMenor.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 font-display font-semibold text-[14px] mt-5 hover:underline"
+                            style={{ color: '#42767f' }}
+                          >
                             Ver CV completo
                             <ArrowRight size={14} />
-                          </Link>
+                          </a>
                         </FadeInView>
                       </div>
               </CollapsibleSection>

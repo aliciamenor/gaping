@@ -266,7 +266,7 @@ const steps = [
 ];
 
 export default function GoToMarket() {
-  usePageMeta('Go To Market', 'Cómo diseñé GAPING como proyecto de producto');
+  usePageMeta('Go To Market', 'Un año fuera de la oficina, diseñado y ejecutado como proyecto de producto.');
   const canHover = useCanHover();
   const [activeStep, setActiveStep] = useState(steps[0].id);
 
@@ -292,12 +292,15 @@ export default function GoToMarket() {
         <div className="max-w-[1100px] min-[1200px]:max-w-[1400px] mx-auto">
           {/* Header */}
           <FadeInView className="text-center mb-16 sm:mb-20">
+            <p className="font-display font-semibold text-[12px] sm:text-[13px] uppercase tracking-[0.12em] text-[#1f2937] mb-3">
+              GAPING · Case study de producto aplicado a mí misma
+            </p>
             <h1 className="font-display font-bold text-[34px] sm:text-[48px] md:text-[64px] leading-[1.05] tracking-tight sm:tracking-normal" style={{ color: '#42767f' }}>
               GO TO MARKET
             </h1>
             <BrushUnderline className="mx-auto mt-4" />
             <p className="font-sans text-base sm:text-lg md:text-[22px] text-[#6b7280] mt-5 sm:mt-6">
-              Cómo diseñé GAPING como proyecto de producto
+              Un año fuera de la oficina, diseñado y ejecutado como proyecto de producto.
             </p>
           </FadeInView>
 
@@ -665,42 +668,20 @@ export default function GoToMarket() {
                     </span>
                   </div>
                   <div className="flex-1 pt-2 sm:pt-4 min-w-0">
-                    <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-3 leading-tight break-words">
+                    <h3 className="font-display font-bold text-[22px] sm:text-[28px] md:text-[36px] text-[#1f2937] mb-6 leading-tight break-words">
                       Aprendizajes y tradeoffs
                     </h3>
-                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-3 text-justify">
-                      Ningún año fuera de la oficina es gratis. Cambié un sueldo fijo por mis ahorros, y la narrativa lineal de "una empresa, un ascenso" por algo que tengo que explicar en cada entrevista.
-                    </p>
-                    <p className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] mb-6 text-justify">
-                      Tampoco entró todo en el roadmap: descarté opciones como el voluntariado de larga duración, la working holiday visa o crear contenido en serio en TikTok.{' '}
-                      <Link to="/proyecto#experiencias-descartadas" className="font-display font-semibold hover:underline" style={{ color: '#42767f' }}>
-                        Ver qué descarté y por qué →
-                      </Link>
-                    </p>
-                    <div className="mt-2">
-                      <p className="font-display font-bold text-[16px] text-[#1f2937] mb-3">Lo que me llevo</p>
-                      <div className="bg-white rounded-[16px] shadow-sm p-6 sm:p-8 font-sans text-[15px] sm:text-[16px] text-[#4b5563] leading-[1.75] space-y-5">
-                        <p className="italic text-[#1f2937]">
-                          GAPING no fue un paréntesis. Fue donde aprendí las cosas que más me han cambiado como profesional.
-                        </p>
 
-                        <ul className="space-y-3 text-justify">
-                          <li className="flex gap-2"><span className="shrink-0" style={{ color: '#42767f' }}>✓</span><span>Que el discovery no es una fase del proceso sino un hábito. Antes de cada experiencia hablaba con personas que ya habían pasado por algo parecido: no para inspirarme, sino para decidir mejor.</span></li>
-                          <li className="flex gap-2"><span className="shrink-0" style={{ color: '#42767f' }}>✓</span><span>Que priorizar es descartar opciones, porque elegir todo es elegir nada.</span></li>
-                          <li className="flex gap-2"><span className="shrink-0" style={{ color: '#42767f' }}>✓</span><span>Que los sesgos contaminan más que la falta de datos.</span></li>
-                          <li className="flex gap-2"><span className="shrink-0" style={{ color: '#42767f' }}>✓</span><span>Que validar antes de construir no es opcional: es lo que decide si lo que construyes le importa a alguien.</span></li>
-                        </ul>
-
-                        <div className="space-y-3 text-justify">
-                          <p>Todo esto también me enseñó a adaptarme a contextos distintos y a trabajar con personas de entornos y culturas muy diferentes. Eso no se aprende en ningún curso.</p>
-                          <p>Más allá de lo profesional: me gusta aprender de los demás, solucionar problemas y trabajar en retos que me importen. Rodearte de gente que te reta y te inspira es de las mejores decisiones que puedes tomar.</p>
-                          <p>Y que conocerse a uno mismo y crecer profesionalmente nunca se terminan. Siempre hay una versión anterior que desaprender y una nueva que construir.</p>
-                        </div>
-
-                        <p className="italic text-[#1f2937]">
-                          Al final, lo más valioso no fueron las experiencias sino las personas que vinieron con ellas.
-                        </p>
-                      </div>
+                    <div className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] space-y-4">
+                      <p className="text-justify">
+                        GAPING no fue un paréntesis. Fue donde aprendí las cosas que más me han cambiado como profesional: que priorizar es descartar opciones, que los sesgos contaminan más que la falta de datos, y que validar antes de construir no es opcional.
+                      </p>
+                      <p className="text-justify">
+                        Y no todas las experiencias que investigué entraron en el roadmap. Descarté opciones como el voluntariado de larga duración, la working holiday visa o crear contenido en serio en TikTok, porque no cumplían Impacto, Nuevos Horizontes y Growth a la vez.
+                      </p>
+                      <p className="italic text-[#1f2937] text-justify">
+                        Al final, lo más valioso no fueron las experiencias sino las personas que vinieron con ellas.
+                      </p>
                     </div>
                   </div>
                 </div>
