@@ -673,13 +673,13 @@ export default function GoToMarket() {
                     </h3>
 
                     <div className="font-sans text-[15px] sm:text-[17px] md:text-[18px] text-[#4b5563] leading-[1.75] space-y-4">
-                      <p>
+                      <p className="text-justify">
                         GAPING no fue un paréntesis. Fue donde aprendí las cosas que más me han cambiado como profesional: que priorizar es descartar opciones, que los sesgos contaminan más que la falta de datos, y que validar antes de construir no es opcional.
                       </p>
-                      <p>
+                      <p className="text-justify">
                         Y no todas las experiencias que investigué entraron en el roadmap. Descarté opciones como el voluntariado de larga duración, la working holiday visa o crear contenido en serio en TikTok, porque no cumplían Impacto, Nuevos Horizontes y Growth a la vez.
                       </p>
-                      <p className="italic text-[#1f2937]">
+                      <p className="italic text-[#1f2937] text-justify">
                         Al final, lo más valioso no fueron las experiencias sino las personas que vinieron con ellas.
                       </p>
                     </div>
