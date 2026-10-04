@@ -15,7 +15,25 @@ const ssrDir = join(root, "dist-ssr");
 
 const { render, getRoutes } = await import(join(ssrDir, "entry-server.js"));
 
-const template = readFileSync(join(distDir, "index.html"), "utf-8");
+let template = readFileSync(join(distDir, "index.html"), "utf-8");
+
+// Inline the (single, ~9KB gzipped) stylesheet directly into the HTML instead
+// of a render-blocking <link>, so first paint doesn't wait on a second
+// request — this is the one render-blocking resource PageSpeed flags, and
+// the whole site shares this one CSS file (Tailwind bundles all routes'
+// classes together), so there's no "critical subset" to extract: either the
+// full file blocks via a <link>, or it ships inline. Every prerendered route
+// below reuses this same `template`, so they all get it inlined. Trade-off:
+// the stylesheet is no longer cached separately across page navigations
+// within the site — acceptable here since most traffic is a single-page
+// first visit (a shared link), where first paint matters more than repeat-
+// navigation caching.
+const cssLinkMatch = template.match(/<link rel="stylesheet"[^>]*href="(\/assets\/[^"]+\.css)"[^>]*>/);
+if (cssLinkMatch) {
+  const cssPath = join(distDir, cssLinkMatch[1].replace(/^\//, ""));
+  const css = readFileSync(cssPath, "utf-8");
+  template = template.replace(cssLinkMatch[0], `<style>${css}</style>`);
+}
 
 function escapeHtml(s) {
   return String(s)
