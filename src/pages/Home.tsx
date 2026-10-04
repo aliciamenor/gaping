@@ -694,6 +694,7 @@ export default function Home() {
                 download="CV_AliciaMenor.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackCtaClick('cv', 'home_hero_desktop')}
                 className="inline-flex items-center gap-2 font-display font-medium text-base rounded-full px-7 py-3.5 border-2 transition-all duration-300 hover:scale-[1.02]"
                 style={{ borderColor: '#42767f', color: '#42767f' }}
               >
@@ -745,6 +746,7 @@ export default function Home() {
                 download="CV_AliciaMenor.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackCtaClick('cv', 'home_hero_mobile')}
                 className="inline-flex items-center gap-1.5 font-display font-medium text-sm rounded-full px-5 py-3 border-2 transition-all duration-300 hover:scale-[1.02]"
                 style={{ borderColor: '#42767f', color: '#42767f' }}
               >
@@ -1134,6 +1136,7 @@ export default function Home() {
                             download="CV_AliciaMenor.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => trackCtaClick('cv', 'home_ver_cv_completo')}
                             className="inline-flex items-center gap-2 font-display font-semibold text-[14px] mt-5 hover:underline"
                             style={{ color: '#42767f' }}
                           >

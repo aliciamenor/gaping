@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCarousel } from '@/hooks/useCarousel';
 import { usePageMeta } from '@/hooks/usePageMeta';
+import { trackCtaClick } from '@/lib/analytics';
 import PageTransition from '@/components/PageTransition';
 import FadeInView from '@/components/FadeInView';
 import BrushUnderline from '@/components/BrushUnderline';
@@ -561,6 +562,7 @@ export default function WhoIAm() {
                 download="CV_AliciaMenor.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackCtaClick('cv', 'aboutme_cv_button')}
                 className="inline-block text-white font-display font-bold text-lg rounded-xl hover:scale-105 transition-transform duration-300"
                 style={{ background: '#42767f', padding: '16px 48px' }}
               >
