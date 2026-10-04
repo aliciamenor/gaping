@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, m, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useCanHover } from '@/hooks/useCanHover';
 import heroG1 from '@/assets/logo/hero-g1.png';
@@ -119,7 +119,7 @@ export default function GapingLogo() {
           const glyphSrc = GLYPH_IMAGES[i];
 
           return (
-            <motion.span
+            <m.span
               key={i}
               ref={(el) => (letterRefs.current[i] = el)}
               className={isAxisLetter ? 'cursor-pointer' : ''}
@@ -141,7 +141,7 @@ export default function GapingLogo() {
               ) : (
                 ch
               )}
-            </motion.span>
+            </m.span>
           );
         })}
       </span>
@@ -155,7 +155,7 @@ export default function GapingLogo() {
       >
         {metrics && (
           <AnimatePresence mode="wait">
-            <motion.span
+            <m.span
               key={axis.key}
               ref={labelRef}
               initial={{ opacity: 0, y: reduce ? 0 : 4 }}
@@ -175,7 +175,7 @@ export default function GapingLogo() {
               }}
             >
               {axis.word}
-            </motion.span>
+            </m.span>
           </AnimatePresence>
         )}
       </div>

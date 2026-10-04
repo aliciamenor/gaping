@@ -1,6 +1,6 @@
 import { useEffect, useRef, type RefObject } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { useCanHover } from '@/hooks/useCanHover';
 import PageTransition from '@/components/PageTransition';
@@ -66,7 +66,7 @@ function ExperienceCard({ exp, index }: { exp: Experience; index: number }) {
   const canHover = useCanHover();
 
   return (
-    <motion.div
+    <m.div
       initial={{ rotate }}
       whileHover={canHover ? { rotate: 0, scale: 1.03, zIndex: 10 } : undefined}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -89,7 +89,7 @@ function ExperienceCard({ exp, index }: { exp: Experience; index: number }) {
           <p className="font-sans text-sm text-[#6b7280] mt-2">{exp.subtitle}</p>
         </div>
       </Link>
-    </motion.div>
+    </m.div>
   );
 }
 

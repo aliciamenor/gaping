@@ -4,7 +4,7 @@
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, LazyMotion, domAnimation } from "framer-motion";
 import { Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -103,12 +103,17 @@ function SsrRoutes() {
 
 export function render(path: string): string {
   return renderToString(
-    <StaticRouter location={path}>
-      <Header />
-      <ErrorBoundary>
-        <SsrRoutes />
-      </ErrorBoundary>
-      <Footer />
-    </StaticRouter>
+    // Mirrors App.tsx's LazyMotion wrapper — the page components render
+    // `m.*` elements (see framer-motion imports there), which need a
+    // LazyMotion ancestor to resolve.
+    <LazyMotion features={domAnimation}>
+      <StaticRouter location={path}>
+        <Header />
+        <ErrorBoundary>
+          <SsrRoutes />
+        </ErrorBoundary>
+        <Footer />
+      </StaticRouter>
+    </LazyMotion>
   );
 }

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, LazyMotion, domAnimation } from "framer-motion";
 import { useEffect, lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -87,10 +87,20 @@ function AppRoutes() {
   );
 }
 
+// domAnimation covers every feature actually used site-wide (animate/exit,
+// whileHover/whileTap/whileInView, AnimatePresence) — no drag, no layout
+// animations anywhere in the app. LazyMotion with this smaller feature
+// bundle (paired with the `m` component instead of `motion` throughout,
+// see framer-motion imports) keeps Framer Motion's core animation engine
+// out of the eagerly-loaded bundle, shrinking it substantially. Not
+// `strict` — a stray `motion.x` usage would just silently pull in the
+// full bundle for that one component instead of throwing in production.
 const App = () => (
-  <BrowserRouter>
-    <AppRoutes />
-  </BrowserRouter>
+  <LazyMotion features={domAnimation}>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  </LazyMotion>
 );
 
 export default App;

@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { useCanHover } from '@/hooks/useCanHover';
 import PageTransition from '@/components/PageTransition';
@@ -136,7 +136,7 @@ function TestimonialCarousel({ items }: { items: Testimonial[] }) {
     <div>
       <div className="bg-[#f9fafb] rounded-[16px] p-5 sm:p-6 overflow-hidden">
         <AnimatePresence mode="wait" initial={false}>
-          <motion.div
+          <m.div
             key={index}
             initial={{ opacity: 0, x: 16 }}
             animate={{ opacity: 1, x: 0 }}
@@ -155,7 +155,7 @@ function TestimonialCarousel({ items }: { items: Testimonial[] }) {
               <p className="font-sans text-[12px] font-medium mb-2" style={{ color: '#42767f' }}>{item.role}</p>
               <p className="font-sans text-[14px] sm:text-[15px] text-[#4b5563] leading-relaxed">{item.quote}</p>
             </div>
-          </motion.div>
+          </m.div>
         </AnimatePresence>
 
         <div className="flex items-center justify-center gap-4 mt-5 pt-4 border-t border-[#e5e7eb]">

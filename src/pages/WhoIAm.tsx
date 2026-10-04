@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { useCarousel } from '@/hooks/useCarousel';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { trackCtaClick } from '@/lib/analytics';
@@ -182,7 +182,7 @@ function ReferencesCarousel() {
 
         <div className="relative flex-1 min-h-[320px] sm:min-h-[260px]">
           <AnimatePresence mode="wait">
-            <motion.figure
+            <m.figure
               key={r.name}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -207,7 +207,7 @@ function ReferencesCarousel() {
                   <p className="font-sans text-sm" style={{ color: '#42767f' }}>{r.role}</p>
                 </figcaption>
               </div>
-            </motion.figure>
+            </m.figure>
           </AnimatePresence>
         </div>
 
@@ -261,7 +261,7 @@ export default function WhoIAm() {
               <div className="mx-auto md:mx-0">
                 <div className="relative w-[280px] h-[368px] sm:w-[340px] sm:h-[446px] md:w-[380px] md:h-[500px] rounded-2xl overflow-hidden">
                   <AnimatePresence mode="wait">
-                    <motion.img
+                    <m.img
                       key={photoIndex}
                       src={PROFILE_PHOTOS[photoIndex].src}
                       alt="Alicia Menor"

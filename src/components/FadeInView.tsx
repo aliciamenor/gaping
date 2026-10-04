@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import { CSSProperties, ReactNode } from 'react';
 
 interface Props {
@@ -16,7 +16,7 @@ export default function FadeInView({ children, className = '', delay = 0, style 
   }
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
@@ -25,6 +25,6 @@ export default function FadeInView({ children, className = '', delay = 0, style 
       style={style}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

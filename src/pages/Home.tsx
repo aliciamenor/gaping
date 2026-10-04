@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { Linkedin, Mail, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useCanHover } from '@/hooks/useCanHover';
 import { useCarousel } from '@/hooks/useCarousel';
@@ -262,7 +262,7 @@ function TestimonialCarousel({ items = workReferences, quoted = true }: { items?
         <CarouselArrowButton direction="prev" onClick={goPrev} label="Testimonio anterior" breakpoint="desktop" />
         <div className="flex-1 min-w-0">
           <AnimatePresence mode="wait" initial={false}>
-            <motion.div
+            <m.div
               key={index}
               initial={{ opacity: 0, x: 16 }}
               animate={{ opacity: 1, x: 0 }}
@@ -276,7 +276,7 @@ function TestimonialCarousel({ items = workReferences, quoted = true }: { items?
                 <p className="font-sans text-[12px] font-medium mb-2" style={{ color: '#42767f' }}>{item.role}</p>
                 <p className="font-sans text-[14px] sm:text-[15px] text-[#4b5563] leading-relaxed">{quoted ? `"${item.quote}"` : item.quote}</p>
               </div>
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         </div>
         <CarouselArrowButton direction="next" onClick={goNext} label="Siguiente testimonio" breakpoint="desktop" />
@@ -400,7 +400,7 @@ function SkillsScroller({ canHover }: { canHover: boolean }) {
             const rotate = [-2, 1.5, -1][i % 3];
             return (
               <StaggerItem key={exp.id} className="shrink-0 snap-start">
-                <motion.div
+                <m.div
                   initial={{ rotate }}
                   whileHover={canHover ? { rotate: 0, scale: 1.05, zIndex: 10 } : undefined}
                   transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -417,7 +417,7 @@ function SkillsScroller({ canHover }: { canHover: boolean }) {
                     <p className="font-display font-bold text-[11px] sm:text-[11px] md:text-[13px] text-[#1f2937] text-center leading-tight mt-2 sm:mt-3">{exp.skill}</p>
                     <p className="font-sans text-[9px] sm:text-[9px] md:text-[11px] text-[#9ca3af] text-center mt-0.5 sm:mt-1">{exp.subtitle}</p>
                   </Link>
-                </motion.div>
+                </m.div>
               </StaggerItem>
             );
           })}
@@ -568,7 +568,7 @@ function GtmMoreContent({ num, paragraphs }: { num: string; paragraphs: string[]
 
 function PolaroidThumb({ src, rotate, canHover }: { src: string; rotate: number; canHover: boolean }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 14, rotate }}
       whileInView={{ opacity: 1, y: 0, rotate }}
       viewport={{ once: true }}
@@ -577,14 +577,14 @@ function PolaroidThumb({ src, rotate, canHover }: { src: string; rotate: number;
       className="bg-white p-1.5 pb-3 shadow-md w-[64px] sm:w-[76px] cursor-pointer shrink-0"
     >
       <img src={src} alt="Gap year" width={90} height={90} className="w-full h-[64px] sm:h-[76px] object-cover" />
-    </motion.div>
+    </m.div>
   );
 }
 
 function SectionEyebrow({ icon, rotate, label }: { icon: string; rotate: number; label: string }) {
   return (
     <div className="flex items-center gap-3 mb-4">
-      <motion.div
+      <m.div
         initial={{ scale: 0, rotate }}
         whileInView={{ scale: 1, rotate: 0 }}
         viewport={{ once: true }}
@@ -593,7 +593,7 @@ function SectionEyebrow({ icon, rotate, label }: { icon: string; rotate: number;
         style={{ background: 'rgba(66,118,127,0.1)' }}
       >
         <img src={icon} alt="" aria-hidden="true" className="h-6 w-6 sm:h-7 sm:w-7" />
-      </motion.div>
+      </m.div>
       <p className="font-display font-semibold text-[11px] sm:text-[12px] uppercase tracking-[0.1em] text-[#42767f]">{label}</p>
     </div>
   );
@@ -610,7 +610,7 @@ export default function Home() {
         {/* Hero */}
         <section className="relative lg:min-h-[calc(100svh-4rem)] flex flex-col lg:flex-row items-center justify-center gap-10 xl:gap-16 py-14 sm:py-16 px-5 sm:px-8 xl:px-12 overflow-hidden bg-background">
           <FadeInView className="flex-1 max-w-[560px] text-center lg:text-left">
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -631,22 +631,22 @@ export default function Home() {
                 <span className="sr-only">GAPING</span>
               </span>
               <span style={{ color: '#2f5860' }}>:</span> la historia de cómo pasé de innovación en FMCG a construir producto digital con IA.
-            </motion.h1>
+            </m.h1>
 
             {/* Segundo nivel de jerarquía tras el título: es la única frase
                 que explica qué es esta web, así que va más grande y oscura
                 que "Discovery · Priorización · Iteración" / la frase de
                 cierre — esas son acentos de ritmo, no la explicación. */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
               className="font-sans text-base sm:text-lg leading-[1.6] text-[#4b5563] mb-7 max-w-[480px] mx-auto lg:mx-0"
             >
               Un año fuera de la oficina, diseñado como proyecto de desarrollo profesional.
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -673,9 +673,9 @@ export default function Home() {
                   producto
                 </span>.
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.55 }}
@@ -700,7 +700,7 @@ export default function Home() {
               >
                 Descargar CV
               </a>
-            </motion.div>
+            </m.div>
           </FadeInView>
 
           <FadeInView className="flex-1 flex flex-col items-center gap-4 max-w-[380px]">
@@ -762,7 +762,7 @@ export default function Home() {
             <FadeInView className="min-w-0">
               <SectionEyebrow icon={iconBackpack} rotate={-15} label="Proyecto" />
 
-              <motion.h2
+              <m.h2
                 initial={{ opacity: 0, scale: 1.08 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.6 }}
@@ -770,13 +770,13 @@ export default function Home() {
                 className="font-display font-bold text-[26px] sm:text-[32px] md:text-[38px] leading-[1.15] text-[#1f2937] mb-4 sm:mb-5"
               >
                 ¿Qué pasa cuando aplicas mentalidad de producto a tu propio desarrollo profesional?
-              </motion.h2>
+              </m.h2>
 
               <p className="font-sans text-[15px] sm:text-base md:text-[17px] leading-[1.65] text-[#6b7280] mb-4">
                 De liderar el crecimiento de un ecommerce y desarrollar nuevas bebidas en Mahou San Miguel, a crear mi propia hipótesis de desarrollo profesional. Un año fuera de la oficina (el GAP) para explorar, aportar y aprender experimentando en distintos contextos, y así convertir experiencias en nuevas skills.
               </p>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.85 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.6 }}
@@ -785,7 +785,7 @@ export default function Home() {
                 style={{ fontSize: 'clamp(44px, 14vw, 80px)' }}
               >
                 <GapingLogo />
-              </motion.div>
+              </m.div>
 
               <p className="font-sans text-[15px] sm:text-base md:text-[17px] leading-[1.65] text-[#6b7280] mb-6 sm:mb-8">
                 No había roadmap perfecto, ni respuestas cerradas. Solo un framework para tomar decisiones y un objetivo: prepararme mejor para el mercado laboral y el futuro del producto digital.
@@ -845,7 +845,7 @@ export default function Home() {
           <div className="max-w-[900px] mx-auto">
             <FadeInView>
               <SectionEyebrow icon={iconPencil} rotate={-20} label="Go To Market de GAPING" />
-              <motion.h2
+              <m.h2
                 initial={{ opacity: 0, scale: 1.08 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.6 }}
@@ -853,7 +853,7 @@ export default function Home() {
                 className="font-display font-bold text-[26px] sm:text-[32px] md:text-[38px] leading-[1.15] text-[#1f2937] mb-8 sm:mb-10"
               >
                 Cómo diseñé GAPING como proyecto de producto
-              </motion.h2>
+              </m.h2>
             </FadeInView>
 
             <div className="flex flex-col gap-3 mb-8">
@@ -861,7 +861,7 @@ export default function Home() {
                 <FadeInView key={s.num}>
                   <div className="bg-white rounded-2xl p-4 sm:p-5 shadow-sm">
                     <div className="flex items-start gap-4">
-                      <motion.span
+                      <m.span
                         initial={{ opacity: 0, scale: 0.5 }}
                         whileInView={{ opacity: 0.4, scale: 1 }}
                         viewport={{ once: true }}
@@ -870,7 +870,7 @@ export default function Home() {
                         style={{ color: '#42767f' }}
                       >
                         {s.num}
-                      </motion.span>
+                      </m.span>
                       <div className="min-w-0 flex-1">
                         <p className="font-display font-bold text-[15px] text-[#1f2937]">{s.label}</p>
                         <p className="font-sans text-[13px] text-[#6b7280] mt-1 leading-relaxed">{s.desc}</p>
@@ -929,7 +929,7 @@ export default function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-6 sm:gap-8 items-center bg-[#f9fafb] rounded-2xl p-5 sm:p-7 mb-10 sm:mb-12">
                 <ProfilePhotoCrossfade className="relative w-[150px] h-[198px] sm:w-full sm:h-[230px] rounded-2xl overflow-hidden mx-auto sm:mx-0 shadow-md" />
                 <div className="text-center sm:text-left">
-                  <motion.h2
+                  <m.h2
                     initial={{ opacity: 0, scale: 1.08 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, amount: 0.6 }}
@@ -937,7 +937,7 @@ export default function Home() {
                     className="font-display font-bold text-[26px] sm:text-[32px] md:text-[38px] text-[#1f2937] mb-3"
                   >
                     Soy Alicia Menor Gómez
-                  </motion.h2>
+                  </m.h2>
                   <p className="font-sans text-[15px] sm:text-base leading-relaxed text-[#4b5563] mb-4">
                     Conecto negocio, usuario y tecnología para construir productos con impacto. De discovery a delivery.
                   </p>

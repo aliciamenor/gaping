@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import fotoAlicia from '@/assets/foto-alicia.webp';
 import fotoAliciaMontana from '@/assets/foto-alicia-montana.webp';
 
@@ -32,7 +32,7 @@ export default function ProfilePhotoCrossfade({ className }: { className?: strin
   return (
     <div className={className}>
       <AnimatePresence mode="wait">
-        <motion.img
+        <m.img
           key={photoIndex}
           src={PROFILE_PHOTOS[photoIndex].src}
           alt="Alicia Menor"
