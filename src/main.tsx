@@ -20,6 +20,7 @@ if (import.meta.env.PROD) {
       capture_heatmaps: true,
       capture_performance: true, // web vitals
       disable_session_recording: true, // aggregate only, no session replay
+      disable_surveys: true, // no surveys configured — skips fetching surveys.js (~27 KiB unused per PageSpeed)
     });
   });
 }
