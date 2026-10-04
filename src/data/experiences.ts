@@ -1,14 +1,25 @@
 import podcastMenos30Img from '@/assets/experiences/podcast-menos30.webp';
+import podcastMenos30Thumb from '@/assets/experiences/podcast-menos30-thumb.webp';
 import voluntariadoLituaniaImg from '@/assets/experiences/voluntariado-lituania.webp';
+import voluntariadoLituaniaThumb from '@/assets/experiences/voluntariado-lituania-thumb.webp';
 import rutaInti2024Img from '@/assets/experiences/ruta-inti-2024.jpg';
+import rutaInti2024Thumb from '@/assets/experiences/ruta-inti-2024-thumb.webp';
 import liderazgoSocialUfvImg from '@/assets/experiences/liderazgo-social-ufv.webp';
+import liderazgoSocialUfvThumb from '@/assets/experiences/liderazgo-social-ufv-thumb.webp';
 import caminoSantiagoImg from '@/assets/experiences/camino-santiago.webp';
+import caminoSantiagoThumb from '@/assets/experiences/camino-santiago-thumb.webp';
 import backpackingLatamImg from '@/assets/experiences/backpacking-latam.webp';
+import backpackingLatamThumb from '@/assets/experiences/backpacking-latam-thumb.webp';
 import somostalitaImg from '@/assets/experiences/somostalita.webp';
+import somostalitaThumb from '@/assets/experiences/somostalita-thumb.webp';
 import seminariosLiderazgoImg from '@/assets/experiences/seminarios-liderazgo.webp';
+import seminariosLiderazgoThumb from '@/assets/experiences/seminarios-liderazgo-thumb.webp';
 import transformacionDigitalImg from '@/assets/experiences/alineacion-equipos.webp';
+import transformacionDigitalThumb from '@/assets/experiences/alineacion-equipos-thumb.webp';
 import cinkVenturingImg from '@/assets/experiences/cink-venturing.webp';
+import cinkVenturingThumb from '@/assets/experiences/cink-venturing-thumb.webp';
 import backpackingLatamAmazonasImg from '@/assets/experiences/backpacking-latam-amazonas.webp';
+import backpackingLatamAmazonasThumb from '@/assets/experiences/backpacking-latam-amazonas-thumb.webp';
 
 export type Eje = 'impact' | 'horizons' | 'growth';
 
@@ -30,13 +41,15 @@ export interface Experience {
   instagramReel?: { url: string; title: string };
   externalLink?: { url: string; label: string };
   image?: string;
+  /** Small variant of `image`, sized for the Home carousel thumbnail (~148px). Falls back to `image` when absent. */
+  thumbImage?: string;
   contextText?: string;
   preImageNote?: { highlight: string; description: string };
 }
 
 export const experiences: Experience[] = [
   // NUEVOS HORIZONTES
-  { id: 'ruta-inti-2024', emoji: '🗺️', skill: 'Adaptabilidad', title: 'Ruta Inti 2024', subtitle: 'Ruta Inti', eje: 'horizons', image: rutaInti2024Img,
+  { id: 'ruta-inti-2024', emoji: '🗺️', skill: 'Adaptabilidad', title: 'Ruta Inti 2024', subtitle: 'Ruta Inti', eje: 'horizons', image: rutaInti2024Img, thumbImage: rutaInti2024Thumb,
     badges: ['adaptabilidad-cultural', 'gestion-incertidumbre', 'liderazgo-proposito'],
     contextText: 'Ruta Inti es un programa cultural y formativo que organiza expediciones anuales centradas en cultura, aventura, voluntariado y labores sociales, en un lugar distinto cada año. Participé junto a más de 100 jóvenes en la expedición a Marruecos: ascenso al Toubkal (4.167m, el pico más alto del norte de África), voluntariado comunitario e iniciativas culturales.',
     description: 'La skill que más desarrollé fue adaptabilidad. No había oficina ni plan cerrado, y el contexto cambiaba constantemente. Aprendí a leer una situación nueva rápido y ajustar sobre la marcha, en vez de esperar a tener toda la información antes de moverme.',
@@ -47,55 +60,55 @@ export const experiences: Experience[] = [
       highlight: 'Fui la representante de Ruta Inti en COMHiS en Salamanca Tech Summit en 2025',
       description: 'COMHiS Nuevas Formas de Comunicación Hispana I Edición es un encuentro que impulsa la innovación y la colaboración en el ámbito hispano, generando ideas y proyectos con impacto cultural y digital.',
     } },
-  { id: 'backpacking-latam', emoji: '🎒', skill: 'Priorización y toma de decisiones', title: 'Backpacking Latinoamérica', subtitle: 'Backpacking', eje: 'horizons', image: backpackingLatamAmazonasImg,
+  { id: 'backpacking-latam', emoji: '🎒', skill: 'Priorización y toma de decisiones', title: 'Backpacking Latinoamérica', subtitle: 'Backpacking', eje: 'horizons', image: backpackingLatamAmazonasImg, thumbImage: backpackingLatamAmazonasThumb,
     badges: ['adaptabilidad-cultural', 'gestion-incertidumbre'],
     contextText: 'Recorrí Perú, Colombia, Guatemala y México con mochila, decidiendo sobre la marcha con tiempo y dinero limitados: qué llevar, qué sitios visitar, qué dejar fuera.',
     description: 'La skill que más desarrollé fue priorización y toma de decisiones. No había margen para llevarlo todo ni para verlo todo, así que cada elección exigía comparar opciones y descartar con criterio: exactamente como priorizar un backlog con recursos limitados.',
     learnings: ['Desprenderme de lo material y que muy poco es esencial.', 'Adaptabilidad y resiliencia.', 'El valor de la soledad elegida.'] },
-  { id: 'camino-santiago', emoji: '🚶', skill: 'User research', title: 'Camino de Santiago', subtitle: 'Camino de Santiago con 2 ongs: 100 personas de 26 países', eje: 'horizons', image: caminoSantiagoImg,
+  { id: 'camino-santiago', emoji: '🚶', skill: 'User research', title: 'Camino de Santiago', subtitle: 'Camino de Santiago con 2 ongs: 100 personas de 26 países', eje: 'horizons', image: caminoSantiagoImg, thumbImage: caminoSantiagoThumb,
     badges: ['adaptabilidad-cultural', 'gestion-incertidumbre'],
     contextText: 'Hice el Camino de Santiago con las ONGs Bocatas y Pueblos Unidos, como parte del programa formativo del curso de Liderazgo Social de la Universidad Francisco de Vitoria. Durante una semana convivimos 100 personas de 26 países, la mayoría jóvenes inmigrantes africanos apoyados por estas organizaciones. No siempre compartíamos idioma, pero acabábamos entendiéndonos.',
     description: 'La skill que más desarrollé fue user research: no la parte de metodología, sino la base de la que depende todo lo demás, escuchar a alguien con un contexto completamente distinto al tuyo sin que tus propios prejuicios se interpongan. Es el mismo sesgo que arrastra cualquier research mal hecho: interpretar lo que el otro dice desde tu propio marco de referencia en vez del suyo. Ahí aprendí que el prejuicio es una barrera mayor que el idioma: con un traductor de por medio se pueden tener conversaciones de mucho valor, pero con sesgos de por medio, no se llega a ninguna.',
     learnings: ['La riqueza de la diversidad cultural.', 'Comunicación intercultural sin un mismo idioma.', 'El camino como metáfora de la vida.'] },
   // IMPACTO
-  { id: 'voluntariado-lituania', emoji: '🏕️', skill: 'Gestión de proyectos', title: 'Voluntariado Lituania', subtitle: 'Voluntariado internacional en Lituania', eje: 'impact', image: voluntariadoLituaniaImg,
+  { id: 'voluntariado-lituania', emoji: '🏕️', skill: 'Gestión de proyectos', title: 'Voluntariado Lituania', subtitle: 'Voluntariado internacional en Lituania', eje: 'impact', image: voluntariadoLituaniaImg, thumbImage: voluntariadoLituaniaThumb,
     badges: ['adaptabilidad-cultural', 'accion-idea', 'gestion-incertidumbre'],
     contextText: 'Participé en un proyecto de European Solidarity Corps en una zona rural remota de Lituania: colaboré en la construcción sostenible de un campamento scout y en la organización de actividades infantiles, conviviendo e intercambiando cultura con voluntarios de Hungría, Lituania, Francia y Alemania.',
     description: 'La skill que más desarrollé fue gestión de proyectos. Estábamos en una zona rural remota, así que los recursos (madera, materiales, tiempo) eran limitados y no había manera de simplemente pedir más si algo se quedaba corto. Decidir cómo usar lo que teníamos de la forma más eficiente, priorizando con lo que tienes delante y no con lo que te gustaría tener, es la parte de gestión de proyectos que más se queda.',
     learnings: ['Cambiar mi visión del voluntariado: buscar la horizontalidad en las relaciones.', 'Aprender a estar conmigo misma en un entorno aislado.', 'Desarrollar resiliencia ante la frustración.'] },
-  { id: 'somostalita', emoji: '💡', skill: 'Estrategia de negocio', title: 'Somostalita', subtitle: 'Asociación Somostalita', eje: 'impact', image: somostalitaImg,
+  { id: 'somostalita', emoji: '💡', skill: 'Estrategia de negocio', title: 'Somostalita', subtitle: 'Asociación Somostalita', eje: 'impact', image: somostalitaImg, thumbImage: somostalitaThumb,
     badges: ['emprendimiento-impacto', 'accion-idea', 'storytelling'],
     contextText: "Somostalita es una asociación que impulsa la Cultura del Bien y las virtudes humanas (autenticidad, compromiso, compasión) mediante eventos, proyectos sociales y espacios con propósito. Hice el diagnóstico estratégico y benchmark competitivo, desarrollé buyer personas y customer journey mapping, y co-diseñé con la junta directiva el posicionamiento, los 3 pilares estratégicos y el target (jóvenes de 18 a 35 años en búsqueda de propósito y comunidad). Construí el primer Business Model Canvas de la organización, identificando nuevas fuentes de ingresos, y coordiné el equipo de comunicación liderando el rebranding de los eventos: estrategia end to end de canales y mensajes, y la conceptualización de 'Los Talitazos' como formato de alto impacto. También implementé el stack de herramientas (Notion, Metricool, Canva) y formé al equipo voluntario.",
     description: 'La skill que más trabajé fue estrategia de negocio. No bastaba con tener buenas intenciones: había que estructurar cómo la asociación se sostenía y crecía, y traducir esos valores en decisiones concretas (pilares, target, modelo de ingresos, canales) que el equipo pudiera ejecutar después de que yo me fuera. Los eventos rediseñados hicieron sold out, se lanzaron 2 colecciones de merchandising con Scoop Brand, y el equipo de comunicación quedó operando de forma autónoma.',
     learnings: ['Las habilidades profesionales pueden ser herramienta de impacto social.', 'La importancia de escuchar antes de proponer.', 'El poder de las conexiones genuinas.'] },
   // GROWTH
-  { id: 'cink-venturing', emoji: '🚀', skill: 'MVP y validación', title: 'Hackathon + Incubadora Cink Venturing', subtitle: 'Hackathon + incubadora Cink Venturing', eje: 'growth', image: cinkVenturingImg,
+  { id: 'cink-venturing', emoji: '🚀', skill: 'MVP y validación', title: 'Hackathon + Incubadora Cink Venturing', subtitle: 'Hackathon + incubadora Cink Venturing', eje: 'growth', image: cinkVenturingImg, thumbImage: cinkVenturingThumb,
     badges: [],
     contextText: "Círculo nació en el hackathon 'Transforma la cultura del mañana' de CINK Venturing (septiembre 2025), que juntó a gente de España y Latinoamérica para construir soluciones no code en torno a los ODS. Identificamos un problema que muchas ONGs tienen y pocos resuelven: no pierden subvenciones por falta de convocatorias, sino por falta de un sistema para gestionarlas: convocatorias dispersas, sin documentación centralizada, plazos que se pasan. Solo en España, en 2024 se repartieron más de 41.000M€ en más de 71.000 convocatorias: el dinero existe, lo difícil es acceder a él sin quemarte en el intento. Ganamos el primer premio, con acceso directo al programa de incubación de NoCode4Culture (financiado por NextGenerationEU, el Ministerio de Cultura y el Plan de Recuperación). Como cofundadora lideré marketing, estrategia y ventas: identificación del problema, research y entrevistas, definición de producto, pitch y validación con usuarios.",
     description: 'La skill que más desarrollé fue MVP y validación. En tres meses de incubación construimos un prototipo funcional con tres features clave: explorador de subvenciones, panel de seguimiento de estado y gestor documental, y lo validamos cualitativamente: ONGs interesadas en probarlo y leads captados en el demo day. Aprendí a diferenciar entre lo que yo creía que el producto necesitaba y lo que la validación real confirmaba, y a apoyar mi intuición en esos datos para decidir qué construir primero.',
     learnings: [] },
-  { id: 'podcast-menos30', emoji: '🎙️', skill: 'Comunicación', title: 'Colaboración en Podcast Menos30', subtitle: 'Colaboración en Podcast Menos30', eje: 'growth', image: podcastMenos30Img,
+  { id: 'podcast-menos30', emoji: '🎙️', skill: 'Comunicación', title: 'Colaboración en Podcast Menos30', subtitle: 'Colaboración en Podcast Menos30', eje: 'growth', image: podcastMenos30Img, thumbImage: podcastMenos30Thumb,
     badges: ['storytelling'],
     contextText: 'Colaboré en un episodio del Podcast Menos30, centrado en fomentar el voluntariado entre la Generación Z, traduciendo experiencias de voluntariado a un formato y un tono que conectara con una audiencia joven que no suele identificarse con el discurso tradicional del voluntariado.',
     description: 'La skill que más desarrollé fue comunicación. Tuve que adaptar el mensaje sin perder honestidad, pensando en quién escuchaba y qué le haría actuar, no solo en contar lo que había vivido.',
     learnings: ['Compartir experiencias contracorriente inspira a otros.', 'Articular mi propia narrativa sin compararme.', 'La vulnerabilidad genera conexión.'],
     videoUrl: 'https://www.youtube.com/watch?v=u6vRNgcpsbk' },
-  { id: 'transformacion-digital-esden', emoji: '💻', skill: 'Alineación entre equipos', title: 'Transformación Digital Pymes', subtitle: 'Plan de Transformación Digital de PyME', eje: 'growth', image: transformacionDigitalImg,
+  { id: 'transformacion-digital-esden', emoji: '💻', skill: 'Alineación entre equipos', title: 'Transformación Digital Pymes', subtitle: 'Plan de Transformación Digital de PyME', eje: 'growth', image: transformacionDigitalImg, thumbImage: transformacionDigitalThumb,
     badges: ['emprendimiento-impacto', 'accion-idea'],
     contextText: 'El proyecto final del Programa de Transformación Digital de ESDEN era diseñar un plan de transformación digital para una empresa logística real. Me reuní con el gerente y entrevisté al equipo, analicé los cuellos de botella y el nivel de digitalización, y propuse un plan de transformación por fases.',
     description: 'La skill que más desarrollé fue alineación entre equipos. El mayor cuello de botella no era qué tecnología usaban, era cómo se relacionaban los equipos entre sí: no era un problema técnico, era un problema de cultura. Entrevistar por separado al gerente y al equipo me obligó a entender esa desconexión antes de proponer nada, y construir un plan que ambas partes pudieran aceptar, no solo una solución técnica sobre el papel.',
     learnings: ['Herramientas y metodologías digitales.', 'La transformación digital como proceso continuo.', 'Aplicar nuevos conocimientos a proyectos reales.'] },
-  { id: 'liderazgo-social-ufv', emoji: '🎓', skill: 'Innovación social', title: 'Liderazgo Social UFV', subtitle: 'Francisco de Vitoria', eje: 'growth', image: liderazgoSocialUfvImg,
+  { id: 'liderazgo-social-ufv', emoji: '🎓', skill: 'Innovación social', title: 'Liderazgo Social UFV', subtitle: 'Francisco de Vitoria', eje: 'growth', image: liderazgoSocialUfvImg, thumbImage: liderazgoSocialUfvThumb,
     badges: ['liderazgo-proposito', 'accion-idea'],
     contextText: 'El programa de Liderazgo Social de la UFV combinaba talleres de emprendimiento social con master classes de líderes de organizaciones como Fundación Telefónica, Fundación Jérôme Lejeune España, Scholas Occurrentes, Open Value Foundation y Rescate. Ahí diseñé Fufu, una propuesta de negocio que usa la gastronomía africana como herramienta de integración social, inspirada en Enoteca Maria (el restaurante neoyorquino de nonnas, donde cocineras de distintos países preparan los platos de su cultura) y en la idea de viajar a otros lugares a través de la comida. Fue uno de los 5 proyectos ganadores del programa, con mentoría ofrecida para seguir desarrollándolo.',
     description: 'La skill que más trabajé fue innovación social: buscar impacto social y económico de la mano, no uno a costa del otro. Las master classes me abrieron a un concepto que cambió cómo pienso el impacto: la diferencia entre ayudar en vertical, entregando recursos a alguien que se queda dependiendo de ti, y ayudar en horizontal, tratándolo como un igual (inviertes, pero esperas un retorno), y ese intercambio es lo que de verdad dignifica su trabajo y le da independencia a futuro, en vez de mantenerlo enganchado a la ayuda.',
     learnings: ['El liderazgo como herramienta de transformación social.', 'Identificar mi estilo de liderazgo propio.', 'Liderar desde los valores.'] },
-  { id: 'seminarios-liderazgo', emoji: '🎯', skill: 'Pensamiento crítico', title: 'Seminarios de Liderazgo', subtitle: 'Becas en Seminarios de liderazgo de Fundaciones Eduarda Justo y Tatiana', eje: 'growth', image: seminariosLiderazgoImg,
+  { id: 'seminarios-liderazgo', emoji: '🎯', skill: 'Pensamiento crítico', title: 'Seminarios de Liderazgo', subtitle: 'Becas en Seminarios de liderazgo de Fundaciones Eduarda Justo y Tatiana', eje: 'growth', image: seminariosLiderazgoImg, thumbImage: seminariosLiderazgoThumb,
     badges: ['liderazgo-proposito'],
     contextText: 'Recibí becas para el Seminario Líderes del Futuro de la Fundación Eduarda Justo, en Almería, y para el III Encuentro de Liderazgo Cívico en tiempos de inteligencia artificial de la Fundación Tatiana, en la Universidad Internacional Menéndez Pelayo de Santander. En ambos espacios se debatía sobre la responsabilidad cívica y ética de los líderes empresariales tecnológicos, en plena revolución de la inteligencia artificial.',
     description: 'La skill que más desarrollé fue pensamiento crítico. Ahí escuché a referentes de distintos sectores hablar de liderazgo cívico y de cuestiones éticas que no tienen una respuesta fácil. Me hizo cuestionarme mi propio impacto profesional y mi responsabilidad con la sociedad, más allá de la empresa para la que trabaje.',
     learnings: ['Diferentes dimensiones del liderazgo.', 'Conectar con jóvenes en procesos similares.', 'Clarificar mi visión de liderazgo.'] },
-  { id: 'mentorias-eventos-comunidad', emoji: '🤝', skill: 'Aprendizaje continuo', title: 'Mentorías, eventos y comunidad', subtitle: 'Mentorías, eventos, comunidad', eje: 'growth', image: backpackingLatamImg,
+  { id: 'mentorias-eventos-comunidad', emoji: '🤝', skill: 'Aprendizaje continuo', title: 'Mentorías, eventos y comunidad', subtitle: 'Mentorías, eventos, comunidad', eje: 'growth', image: backpackingLatamImg, thumbImage: backpackingLatamThumb,
     badges: [],
     contextText: 'Antes de lanzarme a una experiencia, buscaba a alguien que ya hubiese pasado por ella para entender qué esperar y decidir si merecía la pena priorizarla frente a otras opciones. Entré en Nova, una comunidad de profesionales destacados por invitación, donde he asistido a cenas con C-Level, eventos y presentaciones, conectando con gente de sectores muy distintos. He tenido mentores que me han ayudado a plantear mi carrera y aterrizar dudas concretas, y he tenido más de 50 cafés (muchos virtuales) con profesionales que admiraba, la mayoría por outreach en frío en LinkedIn. En paralelo, he seguido aprendiendo de cursos, libros y otros recursos.',
     description: 'La skill que más desarrollé durante GAPING fue aprendizaje continuo. Aquí no hay temario ni profesor: lo que aprendes depende de que sepas qué preguntar y qué llevarte de cada conversación. Usaba esos cafés como parte de mi propio proceso de decisión: para evaluar el impacto real de una experiencia antes de comprometerme con ella, no solo para reflexionar después de vivirla.',

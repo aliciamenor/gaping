@@ -412,7 +412,7 @@ function SkillsScroller({ canHover }: { canHover: boolean }) {
                     className="block w-[104px] sm:w-[128px] md:w-[148px] bg-white shadow-md p-1.5 sm:p-2 pb-3 sm:pb-[18px] select-none"
                   >
                     <div className="aspect-[4/3] overflow-hidden">
-                      {exp.image && <img src={exp.image} alt="" draggable={false} className="w-full h-full object-cover pointer-events-none" />}
+                      {exp.image && <img src={exp.thumbImage ?? exp.image} alt="" draggable={false} className="w-full h-full object-cover pointer-events-none" />}
                     </div>
                     <p className="font-display font-bold text-[11px] sm:text-[11px] md:text-[13px] text-[#1f2937] text-center leading-tight mt-2 sm:mt-3">{exp.skill}</p>
                     <p className="font-sans text-[9px] sm:text-[9px] md:text-[11px] text-[#9ca3af] text-center mt-0.5 sm:mt-1">{exp.subtitle}</p>
